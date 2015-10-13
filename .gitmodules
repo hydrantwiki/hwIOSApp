@@ -1,0 +1,6 @@
+[submodule "hwIOSApp/Alamofire"]
+	path = hwIOSApp/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
+[submodule "hwIOSApp/ObjectMapper"]
+	path = hwIOSApp/ObjectMapper
+	url = https://github.com/Hearst-DD/ObjectMapper.git

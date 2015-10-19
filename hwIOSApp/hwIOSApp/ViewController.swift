@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    private var user:User?
 
     @IBOutlet weak var UsernameLabel: UITextField!
     
@@ -26,7 +28,15 @@ class ViewController: UIViewController {
             
             if (result != nil)
             {
-                //Perform segue
+                self.user = result!
+                
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setObject(result?.Username, forKey: "username")
+                defaults.setObject(result?.AuthToken, forKey: "authToken")
+                defaults.setObject(result?.DisplayName, forKey: "displayName")
+                
+                 //Perform segue
+                self.performSegueWithIdentifier("ShowHome", sender:nil)
             }
             else
             {
@@ -37,12 +47,39 @@ class ViewController: UIViewController {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let homeVC = segue.destinationViewController as! HomeViewController
+        
+        homeVC.user = self.user
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let username = defaults.stringForKey("username")
+        let authToken = defaults.stringForKey("authToken")
+        let displayName = defaults.stringForKey("displayName")
         
+        if (username != nil && authToken != nil)
+        {
+            var user = User()
+            user.AuthToken = authToken
+            user.DisplayName = displayName
+            user.Username = username
+            
+            self.user = user;
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //TODO - Test to see if the token is still good
+        if (self.user != nil)
+        {
+            self.performSegueWithIdentifier("ShowHome", sender: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */; };
 		7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71C1BC4C29A00DC9D0B /* ViewController.swift */; };
 		7789A7201BC4C29A00DC9D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7789A71E1BC4C29A00DC9D0B /* Main.storyboard */; };
@@ -116,6 +117,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7789A7171BC4C29A00DC9D0B /* hwIOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hwIOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7789A71C1BC4C29A00DC9D0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7781AF6B1BD48F6F00EEB195 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7789A71C1BC4C29A00DC9D0B /* ViewController.swift */,
+				7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		7789A70E1BC4C29A00DC9D0B = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +212,7 @@
 				77E72A111BCC8CD70043123D /* Models */,
 				7789A74A1BC4CA7000DC9D0B /* Services */,
 				7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */,
-				7789A71C1BC4C29A00DC9D0B /* ViewController.swift */,
+				7781AF6B1BD48F6F00EEB195 /* ViewControllers */,
 				7789A71E1BC4C29A00DC9D0B /* Main.storyboard */,
 				7789A7211BC4C29A00DC9D0B /* Assets.xcassets */,
 				7789A7231BC4C29A00DC9D0B /* LaunchScreen.storyboard */,
@@ -509,6 +520,7 @@
 				7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */,
 				7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */,
 				77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */,
+				7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */,
 				77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */,
 				7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */,

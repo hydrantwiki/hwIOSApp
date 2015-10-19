@@ -44,11 +44,31 @@
                         <outlet property="LoginButton" destination="dZf-nZ-bJC" id="OTu-RX-ADr"/>
                         <outlet property="PasswordLabel" destination="Ldd-Re-Zky" id="atM-o6-4we"/>
                         <outlet property="UsernameLabel" destination="wTn-Dm-L53" id="bI3-Mq-Mnm"/>
+                        <segue destination="jCK-Yx-AWn" kind="show" identifier="ShowHome" id="Ssf-yO-ftQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="288" y="334"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="sQ1-NJ-rEs">
+            <objects>
+                <viewController id="jCK-Yx-AWn" customClass="HomeViewController" customModule="hwIOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S45-Ip-YI9"/>
+                        <viewControllerLayoutGuide type="bottom" id="SuD-qo-hg7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cru-ha-VKq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xj8-Gj-KnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="334"/>
         </scene>
     </scenes>
 </document>

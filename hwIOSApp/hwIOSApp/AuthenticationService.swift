@@ -12,7 +12,7 @@ import ObjectMapper
 
 class AuthenticationService : BaseService {
 
-    public func login(username:String, password:String, completion: (User?) ->Void)
+    internal func login(username:String, password:String, completion: (User?) ->Void)
     {
     
         var headers : [String:String] = [ "Username":username, "Password":password ]

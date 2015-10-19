@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		7781AF6F1BD4971200EEB195 /* TagHydrantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		7781AF731BD4990C00EEB195 /* HydrantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF721BD4990C00EEB195 /* HydrantMapViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */; };
 		7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71C1BC4C29A00DC9D0B /* ViewController.swift */; };
 		7789A7201BC4C29A00DC9D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7789A71E1BC4C29A00DC9D0B /* Main.storyboard */; };
@@ -118,6 +121,9 @@
 
 /* Begin PBXFileReference section */
 		7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagHydrantViewController.swift; sourceTree = "<group>"; };
+		7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyHydrantsViewController.swift; sourceTree = "<group>"; };
+		7781AF721BD4990C00EEB195 /* HydrantMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantMapViewController.swift; sourceTree = "<group>"; };
 		7789A7171BC4C29A00DC9D0B /* hwIOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hwIOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7789A71C1BC4C29A00DC9D0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +184,9 @@
 			children = (
 				7789A71C1BC4C29A00DC9D0B /* ViewController.swift */,
 				7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */,
+				7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */,
+				7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */,
+				7781AF721BD4990C00EEB195 /* HydrantMapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -515,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7781AF6F1BD4971200EEB195 /* TagHydrantViewController.swift in Sources */,
 				7789A74E1BC4CC2200DC9D0B /* TagService.swift in Sources */,
 				7789A74C1BC4CAEB00DC9D0B /* AuthenticationService.swift in Sources */,
 				7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */,
@@ -524,7 +534,9 @@
 				77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */,
 				7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */,
+				7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */,
 				77E72A3A1BCC9B050043123D /* User.swift in Sources */,
+				7781AF731BD4990C00EEB195 /* HydrantMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

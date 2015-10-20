@@ -13,6 +13,11 @@ public class TagHydrantViewController : UIViewController {
     
     public var user:User?;
     
+    @IBAction func CloseSent(sender: AnyObject) {
+        
+    }
+    
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

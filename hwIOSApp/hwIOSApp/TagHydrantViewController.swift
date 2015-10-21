@@ -13,9 +13,13 @@ public class TagHydrantViewController : UIViewController {
     
     public var user:User?;
     
-    @IBAction func CloseSent(sender: AnyObject) {
-        
-    }
+    @IBOutlet weak var CancelButton: UIBarButtonItem!
+    @IBOutlet weak var SaveButton: UIBarButtonItem!
+    @IBOutlet weak var TakePhotoButton: UIButton!
+    @IBOutlet weak var LatitudeLabel: UILabel!
+    @IBOutlet weak var LongitudeLabel: UILabel!
+    @IBOutlet weak var CountLabel: UILabel!
+    @IBOutlet weak var HydrantImage: UIImageView!
     
     
     override public func viewDidLoad() {
@@ -25,5 +29,14 @@ public class TagHydrantViewController : UIViewController {
         
     }
     
+    @IBAction func returnToHome(sender: UIStoryboardSegue) {
+        
+        
+    }
+    
+    @IBAction func saveAndReturnHome(sender: UIStoryboardSegue) {
+        
+        
+    }
     
 }

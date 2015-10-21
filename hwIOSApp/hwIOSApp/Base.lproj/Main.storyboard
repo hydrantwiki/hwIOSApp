@@ -123,6 +123,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AboutButton" destination="0xp-kv-sp7" id="txR-jH-fWG"/>
+                        <outlet property="MapButton" destination="GfE-sl-n0M" id="Ldz-Mc-Rw7"/>
+                        <outlet property="NearbyHydrantsButton" destination="RTn-T8-Sgi" id="Rab-a3-TmA"/>
+                        <outlet property="TagHydrantButton" destination="O1H-aP-V9N" id="2xe-0v-zjA"/>
                         <segue destination="xHc-kP-Qs8" kind="show" identifier="ShowTagHydrant" id="OWN-ZC-Jeh"/>
                         <segue destination="kiY-Dr-qAm" kind="show" identifier="ShowNearbyHydrants" id="Sk1-rp-ZMj"/>
                         <segue destination="UBD-ao-wFv" kind="show" identifier="ShowMap" id="Yra-0U-53n"/>
@@ -190,12 +194,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HP1-tK-Snu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1401" y="1082"/>
+            <point key="canvasLocation" x="1394" y="1081"/>
         </scene>
         <!--Tag Hydrant View Controller-->
         <scene sceneID="xD1-yc-A62">
             <objects>
-                <viewController id="xHc-kP-Qs8" customClass="TagHydrantViewController" sceneMemberID="viewController">
+                <viewController id="xHc-kP-Qs8" customClass="TagHydrantViewController" customModule="hwIOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w8A-VC-gpU"/>
                         <viewControllerLayoutGuide type="bottom" id="RDN-rB-buu"/>
@@ -211,13 +215,6 @@
                                     <constraint firstAttribute="width" secondItem="B6r-Bz-xbM" secondAttribute="height" multiplier="327:422" id="PBC-40-5OU"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhA-mQ-Db6">
-                                <rect key="frame" x="20" y="62" width="414" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGY-YU-WGv">
                                 <rect key="frame" x="20" y="91" width="414" height="21"/>
                                 <animations/>
@@ -232,7 +229,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVw-Li-sdb">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVw-Li-sdb">
                                 <rect key="frame" x="470" y="354" width="110" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Take Photo"/>
@@ -242,36 +239,50 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Tag Hydrant" id="j8G-aX-xfJ">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="qgQ-ae-hi3">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="qlN-Il-ZWx">
                                             <connections>
-                                                <action selector="CloseSent:" destination="xHc-kP-Qs8" id="eFa-KK-TSI"/>
+                                                <segue destination="Qqx-2w-DXi" kind="unwind" identifier="ReturnToHome" unwindAction="returnToHome:" id="mwB-gm-UtI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="CHh-8Q-G9y">
+                                            <connections>
+                                                <segue destination="Qqx-2w-DXi" kind="unwind" identifier="SaveAndReturnHome" unwindAction="saveAndReturnHome:" id="vZ1-8j-h7D"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm6-ZB-CXX">
-                                <rect key="frame" x="470" y="544" width="110" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhA-mQ-Db6">
+                                <rect key="frame" x="20" y="62" width="414" height="21"/>
                                 <animations/>
-                                <state key="normal" title="Save"/>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TPH-ob-EiZ" firstAttribute="top" secondItem="zcX-Y5-RdD" secondAttribute="topMargin" id="1dS-2A-Ue9"/>
-                            <constraint firstItem="RDN-rB-buu" firstAttribute="top" secondItem="jm6-ZB-CXX" secondAttribute="bottom" constant="44" id="96w-Xi-ncf"/>
-                            <constraint firstItem="jm6-ZB-CXX" firstAttribute="trailing" secondItem="zcX-Y5-RdD" secondAttribute="trailingMargin" id="BR6-b1-NPV"/>
                             <constraint firstItem="TVw-Li-sdb" firstAttribute="trailing" secondItem="zcX-Y5-RdD" secondAttribute="trailingMargin" id="CKW-Kg-2kb"/>
                             <constraint firstItem="RDN-rB-buu" firstAttribute="top" secondItem="B6r-Bz-xbM" secondAttribute="bottom" constant="20" id="OGz-5Y-AtG"/>
                             <constraint firstItem="B6r-Bz-xbM" firstAttribute="top" secondItem="KYV-Bb-K0c" secondAttribute="bottom" constant="17" id="Wuh-cm-MUv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TPH-ob-EiZ" secondAttribute="trailing" constant="-20" id="jVg-yl-ADH"/>
                             <constraint firstItem="TPH-ob-EiZ" firstAttribute="leading" secondItem="zcX-Y5-RdD" secondAttribute="leadingMargin" constant="-20" id="ngM-GQ-zfO"/>
-                            <constraint firstItem="jm6-ZB-CXX" firstAttribute="top" secondItem="TVw-Li-sdb" secondAttribute="bottom" constant="142" id="zGF-Wb-JsA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CancelButton" destination="qlN-Il-ZWx" id="JiZ-gx-KgF"/>
+                        <outlet property="CountLabel" destination="KYV-Bb-K0c" id="8gY-Rk-OEU"/>
+                        <outlet property="HydrantImage" destination="B6r-Bz-xbM" id="YXH-ac-hVD"/>
+                        <outlet property="LatitudeLabel" destination="NhA-mQ-Db6" id="Cdv-Ok-RkC"/>
+                        <outlet property="LongitudeLabel" destination="bGY-YU-WGv" id="Nmg-cw-smG"/>
+                        <outlet property="SaveButton" destination="CHh-8Q-G9y" id="EBg-or-s2P"/>
+                        <outlet property="TakePhotoButton" destination="TVw-Li-sdb" id="u4K-hz-axd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVI-OC-Mf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Qqx-2w-DXi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2118" y="176"/>
         </scene>
@@ -320,6 +331,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DLG-Tv-DTB"/>
+        <segue reference="Yra-0U-53n"/>
     </inferredMetricsTieBreakers>
 </document>

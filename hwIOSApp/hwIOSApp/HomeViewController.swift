@@ -12,6 +12,10 @@ import UIKit
 public class HomeViewController : UIViewController {
 
     public var user:User?;
+    @IBOutlet weak var TagHydrantButton: UIBarButtonItem!
+    @IBOutlet weak var NearbyHydrantsButton: UIBarButtonItem!
+    @IBOutlet weak var MapButton: UIBarButtonItem!
+    @IBOutlet weak var AboutButton: UIBarButtonItem!
     
     @IBAction func TagHydrantSent(sender: AnyObject) {
         performSegueWithIdentifier("ShowTagHydrant", sender: nil)
@@ -33,5 +37,10 @@ public class HomeViewController : UIViewController {
         
     }
 
+    override public func canPerformUnwindSegueAction(action: Selector,
+        fromViewController: UIViewController,
+        withSender sender: AnyObject) -> Bool {
+            return true
+    }
 
 }

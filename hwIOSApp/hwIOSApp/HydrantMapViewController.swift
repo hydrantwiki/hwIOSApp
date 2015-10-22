@@ -13,7 +13,10 @@ public class HydrantMapViewController : UIViewController {
     
     public var user:User?;
     
-    @IBAction func BackSent(sender: AnyObject) {
+    @IBOutlet weak var CancelButton: UIBarButtonItem!
+    
+    @IBAction func CancelSent(sender: AnyObject) {
+        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
         
     }
     

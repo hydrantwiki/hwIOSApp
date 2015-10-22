@@ -13,10 +13,13 @@ public class NearbyHydrantsViewController : UIViewController {
     
     public var user:User?;
     
-    @IBAction func BackSent(sender: AnyObject) {
-       
-    }
+    @IBOutlet weak var CancelButton: UIBarButtonItem!
     
+    
+    @IBAction func CanceSent(sender: AnyObject) {
+        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
+        
+    }
     
     override public func viewDidLoad() {
         super.viewDidLoad()

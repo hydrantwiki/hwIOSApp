@@ -36,11 +36,9 @@ public class HomeViewController : UIViewController {
         
         
     }
-
-    override public func canPerformUnwindSegueAction(action: Selector,
-        fromViewController: UIViewController,
-        withSender sender: AnyObject) -> Bool {
-            return true
+    
+    @IBAction func returnToHome(sender: UIStoryboardSegue) {
+        
+        
     }
-
 }

@@ -29,14 +29,7 @@ public class TagHydrantViewController : UIViewController {
         
     }
     
-    @IBAction func returnToHome(sender: UIStoryboardSegue) {
-        
-        
+    @IBAction func CancelSent(sender: AnyObject) {
+        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
     }
-    
-    @IBAction func saveAndReturnHome(sender: UIStoryboardSegue) {
-        
-        
-    }
-    
 }

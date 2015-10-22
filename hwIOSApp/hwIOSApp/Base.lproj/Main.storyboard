@@ -170,9 +170,9 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Title" id="wju-dS-N8a">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="S0O-1r-YD1">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="S0O-1r-YD1">
                                             <connections>
-                                                <action selector="BackSent:" destination="kiY-Dr-qAm" id="bZY-FY-SLE"/>
+                                                <action selector="CanceSent:" destination="kiY-Dr-qAm" id="AwW-VO-CGk"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Map View" id="2Yz-Bk-qfr"/>
@@ -189,17 +189,20 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="CancelButton" destination="S0O-1r-YD1" id="HyR-Jr-3yY"/>
                         <segue destination="UBD-ao-wFv" kind="show" identifier="ShowMapOfNearby" id="DLG-Tv-DTB"/>
+                        <segue destination="ao0-IN-Xyt" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="OAo-t4-AT5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HP1-tK-Snu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ao0-IN-Xyt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1394" y="1081"/>
         </scene>
         <!--Tag Hydrant View Controller-->
         <scene sceneID="xD1-yc-A62">
             <objects>
-                <viewController id="xHc-kP-Qs8" customClass="TagHydrantViewController" customModule="hwIOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="returnToHome" id="xHc-kP-Qs8" customClass="TagHydrantViewController" customModule="hwIOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w8A-VC-gpU"/>
                         <viewControllerLayoutGuide type="bottom" id="RDN-rB-buu"/>
@@ -241,14 +244,10 @@
                                     <navigationItem title="Tag Hydrant" id="j8G-aX-xfJ">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="qlN-Il-ZWx">
                                             <connections>
-                                                <segue destination="Qqx-2w-DXi" kind="unwind" identifier="ReturnToHome" unwindAction="returnToHome:" id="mwB-gm-UtI"/>
+                                                <action selector="CancelSent:" destination="xHc-kP-Qs8" id="ihI-Kr-9Qi"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="CHh-8Q-G9y">
-                                            <connections>
-                                                <segue destination="Qqx-2w-DXi" kind="unwind" identifier="SaveAndReturnHome" unwindAction="saveAndReturnHome:" id="vZ1-8j-h7D"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="CHh-8Q-G9y"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -279,6 +278,7 @@
                         <outlet property="LongitudeLabel" destination="bGY-YU-WGv" id="Nmg-cw-smG"/>
                         <outlet property="SaveButton" destination="CHh-8Q-G9y" id="EBg-or-s2P"/>
                         <outlet property="TakePhotoButton" destination="TVw-Li-sdb" id="u4K-hz-axd"/>
+                        <segue destination="Qqx-2w-DXi" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="RVt-B3-C5Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVI-OC-Mf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -307,11 +307,12 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="Title" id="Zwd-YL-qhk">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="j6S-3g-IJO">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="j6S-3g-IJO">
                                             <connections>
-                                                <action selector="BackSent:" destination="UBD-ao-wFv" id="EVC-Pq-eyA"/>
+                                                <action selector="CancelSent:" destination="UBD-ao-wFv" id="e8I-LO-x8R"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Table View" id="nn9-cl-KF3"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -324,13 +325,18 @@
                             <constraint firstItem="cFM-zb-NHr" firstAttribute="leading" secondItem="x0Q-zd-hNx" secondAttribute="leadingMargin" constant="-20" id="Zdp-vC-Kjm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CancelButton" destination="j6S-3g-IJO" id="tl4-wF-nqB"/>
+                        <segue destination="DTE-zr-srn" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="XtF-4T-Ys5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhc-bT-rc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DTE-zr-srn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2118" y="1072"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Yra-0U-53n"/>
+        <segue reference="DLG-Tv-DTB"/>
     </inferredMetricsTieBreakers>
 </document>

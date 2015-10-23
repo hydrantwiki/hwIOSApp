@@ -41,6 +41,9 @@ class ViewController: UIViewController {
             else
             {
                 //Alert
+                let myAlert: UIAlertController = UIAlertController(title: "HydrantWiki", message: "Failed to login", preferredStyle: .Alert)
+                myAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(myAlert, animated: true, completion: nil)
             }
             
         }

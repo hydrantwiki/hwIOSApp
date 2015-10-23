@@ -36,6 +36,9 @@ public class HomeViewController : UIViewController {
         
         
     }
+    @IBAction func AboutSent(sender: AnyObject) {
+        performSegueWithIdentifier("ShowAbout", sender: nil)
+    }
     
     @IBAction func returnToHome(sender: UIStoryboardSegue) {
         

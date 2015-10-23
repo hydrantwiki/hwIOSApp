@@ -8,23 +8,13 @@
 
 import Foundation
 import UIKit
-import MapKit
 
-public class HydrantMapViewController : UIViewController {
+public class AboutViewController : UIViewController {
     
     public var user:User?;
     
-    @IBOutlet var OutsideStackView: UIStackView!
-    @IBOutlet var MapStackView: UIStackView!
     @IBOutlet weak var CancelButton: UIBarButtonItem!
     @IBOutlet weak var NavBar: UINavigationBar!
-    @IBOutlet weak var TableViewButton: UINavigationItem!
-    @IBOutlet weak var HydrantMap: MKMapView!
-    
-    @IBAction func CancelSent(sender: AnyObject) {
-        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
-        
-    }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -33,5 +23,8 @@ public class HydrantMapViewController : UIViewController {
         
     }
     
+    @IBAction func CancelSent(sender: AnyObject) {
+        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
+    }
     
 }

@@ -87,7 +87,11 @@
                                 <animations/>
                                 <items>
                                     <navigationItem title="HydrantWiki" id="AoX-oF-PbO">
-                                        <barButtonItem key="rightBarButtonItem" title="About" id="0xp-kv-sp7"/>
+                                        <barButtonItem key="rightBarButtonItem" title="About" id="0xp-kv-sp7">
+                                            <connections>
+                                                <action selector="AboutSent:" destination="jCK-Yx-AWn" id="aiB-ib-kis"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -139,11 +143,57 @@
                         <segue destination="xHc-kP-Qs8" kind="show" identifier="ShowTagHydrant" id="OWN-ZC-Jeh"/>
                         <segue destination="kiY-Dr-qAm" kind="show" identifier="ShowNearbyHydrants" id="Sk1-rp-ZMj"/>
                         <segue destination="UBD-ao-wFv" kind="show" identifier="ShowMap" id="Yra-0U-53n"/>
+                        <segue destination="RhS-Vl-HJD" kind="show" identifier="ShowAbout" id="NKf-23-OLF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xj8-Gj-KnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1401" y="176"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="4Nz-AL-aGD">
+            <objects>
+                <viewController id="RhS-Vl-HJD" customClass="AboutViewController" customModule="hwIOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="flC-Kc-iux"/>
+                        <viewControllerLayoutGuide type="bottom" id="HfK-Jr-hZR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1h4-ZY-9ma">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFi-JF-2Va">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Title" id="o6J-y6-0M6">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="p0V-gm-Ozg">
+                                            <connections>
+                                                <action selector="CancelSent:" destination="RhS-Vl-HJD" id="gdb-wF-707"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XFi-JF-2Va" firstAttribute="top" secondItem="1h4-ZY-9ma" secondAttribute="topMargin" id="HX1-Tr-t1Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XFi-JF-2Va" secondAttribute="trailing" constant="-20" id="Wj8-iP-OTm"/>
+                            <constraint firstItem="XFi-JF-2Va" firstAttribute="leading" secondItem="1h4-ZY-9ma" secondAttribute="leadingMargin" constant="-20" id="u3F-na-6mh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CancelButton" destination="p0V-gm-Ozg" id="WAO-Nf-xdF"/>
+                        <outlet property="NavBar" destination="XFi-JF-2Va" id="ys3-zH-SOh"/>
+                        <segue destination="06i-oT-4yq" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="KkG-j1-uC2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rQI-YT-lx0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="06i-oT-4yq" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="654" y="1090"/>
         </scene>
         <!--Nearby Hydrants View Controller-->
         <scene sceneID="Mhg-zI-PJ5">
@@ -157,48 +207,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vxC-aq-sgx">
-                                <rect key="frame" x="20" y="82" width="560" height="478"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vxC-aq-sgx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ndc-cC-reb">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="478"/>
-                                        <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="me6-xJ-p8K">
-                                                <rect key="frame" x="0.0" y="0.0" width="560" height="478"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </tableView>
-                                        </subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddg-bN-BxB">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                         <animations/>
-                                    </stackView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="GgC-Yt-lcz"/>
+                                        </constraints>
+                                        <items>
+                                            <navigationItem title="HydrantWiki" id="wju-dS-N8a">
+                                                <barButtonItem key="leftBarButtonItem" title="Cancel" id="S0O-1r-YD1">
+                                                    <connections>
+                                                        <action selector="CanceSent:" destination="kiY-Dr-qAm" id="AwW-VO-CGk"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" title="Map View" id="2Yz-Bk-qfr"/>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="me6-xJ-p8K">
+                                        <rect key="frame" x="0.0" y="50" width="600" height="550"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddg-bN-BxB">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <animations/>
-                                <items>
-                                    <navigationItem title="Title" id="wju-dS-N8a">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="S0O-1r-YD1">
-                                            <connections>
-                                                <action selector="CanceSent:" destination="kiY-Dr-qAm" id="AwW-VO-CGk"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Map View" id="2Yz-Bk-qfr"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ddg-bN-BxB" secondAttribute="trailing" constant="-20" id="0LW-Tl-HhY"/>
-                            <constraint firstItem="ddg-bN-BxB" firstAttribute="top" secondItem="xsp-lV-nok" secondAttribute="topMargin" id="alW-EA-u9e"/>
-                            <constraint firstItem="ddg-bN-BxB" firstAttribute="leading" secondItem="xsp-lV-nok" secondAttribute="leadingMargin" constant="-20" id="st1-EG-2pX"/>
+                            <constraint firstItem="vxC-aq-sgx" firstAttribute="centerX" secondItem="xsp-lV-nok" secondAttribute="centerX" id="EZ0-XK-ile"/>
+                            <constraint firstItem="vxC-aq-sgx" firstAttribute="leading" secondItem="xsp-lV-nok" secondAttribute="leadingMargin" constant="-20" id="It3-Tq-sOR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vxC-aq-sgx" secondAttribute="trailing" constant="-20" id="NUP-EQ-meI"/>
+                            <constraint firstItem="vxC-aq-sgx" firstAttribute="centerY" secondItem="xsp-lV-nok" secondAttribute="centerY" id="WWg-85-cvi"/>
+                            <constraint firstItem="hng-an-Fzv" firstAttribute="top" secondItem="vxC-aq-sgx" secondAttribute="bottom" id="hO7-f0-MOn"/>
+                            <constraint firstItem="vxC-aq-sgx" firstAttribute="top" secondItem="xsp-lV-nok" secondAttribute="topMargin" id="sgi-LC-jWD"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="CancelButton" destination="S0O-1r-YD1" id="HyR-Jr-3yY"/>
+                        <outlet property="HydrantTableView" destination="me6-xJ-p8K" id="yz9-U3-ToT"/>
+                        <outlet property="MapViewButton" destination="2Yz-Bk-qfr" id="whw-bs-xIj"/>
+                        <outlet property="NavBar" destination="ddg-bN-BxB" id="6go-8j-Ael"/>
                         <segue destination="UBD-ao-wFv" kind="show" identifier="ShowMapOfNearby" id="DLG-Tv-DTB"/>
                         <segue destination="ao0-IN-Xyt" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="OAo-t4-AT5"/>
                     </connections>
@@ -307,35 +360,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X0J-J0-LiZ">
-                                <rect key="frame" x="20" y="64" width="560" height="516"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eWb-4P-N1d">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="axO-5D-Srn">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
+                                        <subviews>
+                                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFM-zb-NHr">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="UYD-zh-QIy"/>
+                                                </constraints>
+                                                <items>
+                                                    <navigationItem title="Title" id="Zwd-YL-qhk">
+                                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="j6S-3g-IJO">
+                                                            <connections>
+                                                                <action selector="CancelSent:" destination="UBD-ao-wFv" id="e8I-LO-x8R"/>
+                                                            </connections>
+                                                        </barButtonItem>
+                                                        <barButtonItem key="rightBarButtonItem" title="Table View" id="nn9-cl-KF3"/>
+                                                    </navigationItem>
+                                                </items>
+                                            </navigationBar>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X0J-J0-LiZ">
+                                                <rect key="frame" x="0.0" y="50" width="600" height="510"/>
+                                                <animations/>
+                                            </mapView>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
                                 <animations/>
-                            </mapView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFM-zb-NHr">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <animations/>
-                                <items>
-                                    <navigationItem title="Title" id="Zwd-YL-qhk">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="j6S-3g-IJO">
-                                            <connections>
-                                                <action selector="CancelSent:" destination="UBD-ao-wFv" id="e8I-LO-x8R"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Table View" id="nn9-cl-KF3"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                                <constraints>
+                                    <constraint firstItem="axO-5D-Srn" firstAttribute="trailing" secondItem="eWb-4P-N1d" secondAttribute="trailingMargin" constant="10" id="A8y-tk-A7a"/>
+                                    <constraint firstItem="axO-5D-Srn" firstAttribute="centerY" secondItem="eWb-4P-N1d" secondAttribute="centerY" id="CMR-KZ-Gs7"/>
+                                    <constraint firstItem="axO-5D-Srn" firstAttribute="centerX" secondItem="eWb-4P-N1d" secondAttribute="centerX" id="D5z-TF-WgC"/>
+                                    <constraint firstItem="axO-5D-Srn" firstAttribute="leading" secondItem="eWb-4P-N1d" secondAttribute="leadingMargin" constant="10" id="bxV-Os-H7t"/>
+                                    <constraint firstItem="axO-5D-Srn" firstAttribute="bottom" secondItem="eWb-4P-N1d" secondAttribute="bottomMargin" constant="10" id="ilM-at-55D"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="cFM-zb-NHr" secondAttribute="trailing" constant="-20" id="A5O-da-Lym"/>
-                            <constraint firstItem="cFM-zb-NHr" firstAttribute="top" secondItem="x0Q-zd-hNx" secondAttribute="topMargin" id="WaM-LT-q60"/>
-                            <constraint firstItem="cFM-zb-NHr" firstAttribute="leading" secondItem="x0Q-zd-hNx" secondAttribute="leadingMargin" constant="-20" id="Zdp-vC-Kjm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eWb-4P-N1d" secondAttribute="trailing" constant="-20" id="4GX-Z6-jLu"/>
+                            <constraint firstItem="GnW-fb-SFp" firstAttribute="top" secondItem="eWb-4P-N1d" secondAttribute="bottom" constant="40" id="66P-9m-ZuT"/>
+                            <constraint firstItem="eWb-4P-N1d" firstAttribute="top" secondItem="x0Q-zd-hNx" secondAttribute="topMargin" id="UfM-uZ-8Fg"/>
+                            <constraint firstItem="eWb-4P-N1d" firstAttribute="leading" secondItem="x0Q-zd-hNx" secondAttribute="leadingMargin" constant="-20" id="dey-uu-LTe"/>
+                            <constraint firstItem="eWb-4P-N1d" firstAttribute="centerX" secondItem="x0Q-zd-hNx" secondAttribute="centerX" id="oWh-zk-h4S"/>
+                            <constraint firstItem="eWb-4P-N1d" firstAttribute="centerY" secondItem="x0Q-zd-hNx" secondAttribute="centerY" id="rzP-IX-7If"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="CancelButton" destination="j6S-3g-IJO" id="tl4-wF-nqB"/>
+                        <outlet property="HydrantMap" destination="X0J-J0-LiZ" id="C9x-9Q-ef8"/>
+                        <outlet property="MapStackView" destination="axO-5D-Srn" id="TOS-Ea-jvV"/>
+                        <outlet property="NavBar" destination="cFM-zb-NHr" id="MaL-pL-04Y"/>
+                        <outlet property="OutsideStackView" destination="eWb-4P-N1d" id="5ec-3r-G52"/>
+                        <outlet property="TableViewButton" destination="Zwd-YL-qhk" id="xH3-cN-xAm"/>
                         <segue destination="DTE-zr-srn" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="XtF-4T-Ys5"/>
                     </connections>
                 </viewController>

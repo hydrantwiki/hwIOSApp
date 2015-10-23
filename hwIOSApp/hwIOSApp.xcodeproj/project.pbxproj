@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		7781AF6F1BD4971200EEB195 /* TagHydrantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		7781AF731BD4990C00EEB195 /* HydrantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF721BD4990C00EEB195 /* HydrantMapViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */; };
+		7781AF6F1BD4971200EEB195 /* TagHydrantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */; };
+		7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */; };
+		7781AF731BD4990C00EEB195 /* HydrantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF721BD4990C00EEB195 /* HydrantMapViewController.swift */; };
 		7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */; };
 		7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71C1BC4C29A00DC9D0B /* ViewController.swift */; };
 		7789A7201BC4C29A00DC9D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7789A71E1BC4C29A00DC9D0B /* Main.storyboard */; };
@@ -19,17 +19,18 @@
 		7789A7301BC4C29A00DC9D0B /* hwIOSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A72F1BC4C29A00DC9D0B /* hwIOSAppTests.swift */; };
 		7789A73B1BC4C29A00DC9D0B /* hwIOSAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A73A1BC4C29A00DC9D0B /* hwIOSAppUITests.swift */; };
 		7789A7491BC4C36C00DC9D0B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7789A7481BC4C36C00DC9D0B /* MapKit.framework */; };
-		7789A74C1BC4CAEB00DC9D0B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A74B1BC4CAEB00DC9D0B /* AuthenticationService.swift */; settings = {ASSET_TAGS = (); }; };
-		7789A74E1BC4CC2200DC9D0B /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A74D1BC4CC2200DC9D0B /* TagService.swift */; settings = {ASSET_TAGS = (); }; };
-		7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */; settings = {ASSET_TAGS = (); }; };
-		7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7531BC4CC9200DC9D0B /* BaseService.swift */; settings = {ASSET_TAGS = (); }; };
-		77E72A0E1BCC895D0043123D /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = 77E72A0D1BCC895D0043123D /* Alamofire */; settings = {ASSET_TAGS = (); }; };
+		7789A74C1BC4CAEB00DC9D0B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A74B1BC4CAEB00DC9D0B /* AuthenticationService.swift */; };
+		7789A74E1BC4CC2200DC9D0B /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A74D1BC4CC2200DC9D0B /* TagService.swift */; };
+		7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */; };
+		7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7531BC4CC9200DC9D0B /* BaseService.swift */; };
+		77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA118F1BD9CFDB00957779 /* AboutViewController.swift */; };
+		77E72A0E1BCC895D0043123D /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = 77E72A0D1BCC895D0043123D /* Alamofire */; };
 		77E72A371BCC96040043123D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A1C1BCC95C70043123D /* Alamofire.framework */; };
 		77E72A381BCC96040043123D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A2E1BCC95EC0043123D /* ObjectMapper.framework */; };
-		77E72A3A1BCC9B050043123D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A391BCC9B050043123D /* User.swift */; settings = {ASSET_TAGS = (); }; };
-		77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A3B1BCC9B380043123D /* ServiceResult.swift */; settings = {ASSET_TAGS = (); }; };
-		77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A3F1BCCA5510043123D /* AuthenticationDTO.swift */; settings = {ASSET_TAGS = (); }; };
-		77F1EA181BCCAE4F004B3921 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 77F1EA171BCCAE4F004B3921 /* .gitignore */; settings = {ASSET_TAGS = (); }; };
+		77E72A3A1BCC9B050043123D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A391BCC9B050043123D /* User.swift */; };
+		77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A3B1BCC9B380043123D /* ServiceResult.swift */; };
+		77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A3F1BCCA5510043123D /* AuthenticationDTO.swift */; };
+		77F1EA181BCCAE4F004B3921 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 77F1EA171BCCAE4F004B3921 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		7789A74D1BC4CC2200DC9D0B /* TagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
 		7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyService.swift; sourceTree = "<group>"; };
 		7789A7531BC4CC9200DC9D0B /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		77AA118F1BD9CFDB00957779 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		77E72A0D1BCC895D0043123D /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = /SourceCode/HydrantWiki/hwIOSApp/hwIOSApp/Alamofire; sourceTree = "<absolute>"; };
 		77E72A131BCC95C60043123D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		77E72A251BCC95EC0043123D /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */,
 				7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */,
 				7781AF721BD4990C00EEB195 /* HydrantMapViewController.swift */,
+				77AA118F1BD9CFDB00957779 /* AboutViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */,
 				7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */,
+				77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */,
 				7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */,
 				77E72A3A1BCC9B050043123D /* User.swift in Sources */,
 				7781AF731BD4990C00EEB195 /* HydrantMapViewController.swift in Sources */,

@@ -14,7 +14,9 @@ public class NearbyHydrantsViewController : UIViewController {
     public var user:User?;
     
     @IBOutlet weak var CancelButton: UIBarButtonItem!
-    
+    @IBOutlet weak var HydrantTableView: UITableView!
+    @IBOutlet weak var MapViewButton: UIBarButtonItem!
+    @IBOutlet weak var NavBar: UINavigationBar!
     
     @IBAction func CanceSent(sender: AnyObject) {
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)

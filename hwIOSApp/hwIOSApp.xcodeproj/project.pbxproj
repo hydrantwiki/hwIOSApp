@@ -24,6 +24,9 @@
 		7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */; };
 		7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7531BC4CC9200DC9D0B /* BaseService.swift */; };
 		77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA118F1BD9CFDB00957779 /* AboutViewController.swift */; };
+		77AA119C1BDB301C00957779 /* LocationAverager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA119B1BDB301C00957779 /* LocationAverager.swift */; };
+		77AA119F1BDB31E700957779 /* LocationAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA119E1BDB31E700957779 /* LocationAverage.swift */; };
+		77AA11A11BDB321400957779 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA11A01BDB321400957779 /* Location.swift */; };
 		77E72A0E1BCC895D0043123D /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = 77E72A0D1BCC895D0043123D /* Alamofire */; };
 		77E72A371BCC96040043123D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A1C1BCC95C70043123D /* Alamofire.framework */; };
 		77E72A381BCC96040043123D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A2E1BCC95EC0043123D /* ObjectMapper.framework */; };
@@ -144,6 +147,9 @@
 		7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyService.swift; sourceTree = "<group>"; };
 		7789A7531BC4CC9200DC9D0B /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		77AA118F1BD9CFDB00957779 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		77AA119B1BDB301C00957779 /* LocationAverager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAverager.swift; sourceTree = "<group>"; };
+		77AA119E1BDB31E700957779 /* LocationAverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAverage.swift; sourceTree = "<group>"; };
+		77AA11A01BDB321400957779 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		77E72A0D1BCC895D0043123D /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = /SourceCode/HydrantWiki/hwIOSApp/hwIOSApp/Alamofire; sourceTree = "<absolute>"; };
 		77E72A131BCC95C60043123D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		77E72A251BCC95EC0043123D /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 		7789A7191BC4C29A00DC9D0B /* hwIOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				77AA119D1BDB31AF00957779 /* Manager */,
 				77E72A111BCC8CD70043123D /* Models */,
 				7789A74A1BC4CA7000DC9D0B /* Services */,
 				7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */,
@@ -264,10 +271,20 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		77AA119D1BDB31AF00957779 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				77AA119B1BDB301C00957779 /* LocationAverager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
 		77E72A111BCC8CD70043123D /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				77E72A391BCC9B050043123D /* User.swift */,
+				77AA119E1BDB31E700957779 /* LocationAverage.swift */,
+				77AA11A01BDB321400957779 /* Location.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -531,8 +548,11 @@
 				7789A74E1BC4CC2200DC9D0B /* TagService.swift in Sources */,
 				7789A74C1BC4CAEB00DC9D0B /* AuthenticationService.swift in Sources */,
 				7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */,
+				77AA119F1BDB31E700957779 /* LocationAverage.swift in Sources */,
+				77AA11A11BDB321400957779 /* Location.swift in Sources */,
 				7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */,
 				77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */,
+				77AA119C1BDB301C00957779 /* LocationAverager.swift in Sources */,
 				7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */,
 				77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */,

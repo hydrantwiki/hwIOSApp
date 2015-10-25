@@ -33,6 +33,8 @@ public class TagHydrantViewController : UIViewController {
     }
     
     override public func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         locationManager!.Start(){ (location:Location?) in
             if (location != nil)
             {

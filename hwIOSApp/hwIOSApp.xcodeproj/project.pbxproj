@@ -24,7 +24,7 @@
 		7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */; };
 		7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7531BC4CC9200DC9D0B /* BaseService.swift */; };
 		77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA118F1BD9CFDB00957779 /* AboutViewController.swift */; };
-		77AA119C1BDB301C00957779 /* LocationAverager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA119B1BDB301C00957779 /* LocationAverager.swift */; };
+		77AA119C1BDB301C00957779 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA119B1BDB301C00957779 /* LocationManager.swift */; };
 		77AA119F1BDB31E700957779 /* LocationAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA119E1BDB31E700957779 /* LocationAverage.swift */; };
 		77AA11A11BDB321400957779 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA11A01BDB321400957779 /* Location.swift */; };
 		77E72A0E1BCC895D0043123D /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = 77E72A0D1BCC895D0043123D /* Alamofire */; };
@@ -147,7 +147,7 @@
 		7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyService.swift; sourceTree = "<group>"; };
 		7789A7531BC4CC9200DC9D0B /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		77AA118F1BD9CFDB00957779 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		77AA119B1BDB301C00957779 /* LocationAverager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAverager.swift; sourceTree = "<group>"; };
+		77AA119B1BDB301C00957779 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		77AA119E1BDB31E700957779 /* LocationAverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAverage.swift; sourceTree = "<group>"; };
 		77AA11A01BDB321400957779 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		77E72A0D1BCC895D0043123D /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = /SourceCode/HydrantWiki/hwIOSApp/hwIOSApp/Alamofire; sourceTree = "<absolute>"; };
@@ -274,7 +274,7 @@
 		77AA119D1BDB31AF00957779 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				77AA119B1BDB301C00957779 /* LocationAverager.swift */,
+				77AA119B1BDB301C00957779 /* LocationManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -552,7 +552,7 @@
 				77AA11A11BDB321400957779 /* Location.swift in Sources */,
 				7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */,
 				77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */,
-				77AA119C1BDB301C00957779 /* LocationAverager.swift in Sources */,
+				77AA119C1BDB301C00957779 /* LocationManager.swift in Sources */,
 				7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */,
 				77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */,

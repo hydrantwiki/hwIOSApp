@@ -21,13 +21,27 @@ public class TagHydrantViewController : UIViewController {
     @IBOutlet weak var CountLabel: UILabel!
     @IBOutlet weak var HydrantImage: UIImageView!
     
+    var locationManager:LocationManager?
+    
     
     override public func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        locationManager = LocationManager()
         
     }
+    
+    override public func viewDidAppear(animated: Bool) {
+        locationManager!.Start(){ (location:Location?) in
+            if (location != nil)
+            {
+                self.LatitudeLabel.text = String(location!.latitude)
+            }
+        }
+    }
+    
+
     
     @IBAction func CancelSent(sender: AnyObject) {
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)

@@ -17,7 +17,7 @@ public class LocationAverage {
         locations.append(location)
     }
     
-    public func add(latitude:Double, longitude:Double, elevation:Double)
+    public func add(latitude:Double, longitude:Double, elevation:Double, accuracy:Double)
     {
         if (latitude != 0.0
             && longitude != 0.0)
@@ -27,6 +27,7 @@ public class LocationAverage {
             location.longitude = longitude
             location.dateTime = NSDate()
             location.elevation = elevation
+            location.accuracy = accuracy
             
             add(location);
         }
@@ -37,6 +38,7 @@ public class LocationAverage {
         var latitude : Double = 0
         var longitude : Double = 0
         var elevation : Double = 0
+        var accuracy : Double = 0
         
         for location in locations {
             if (location.latitude! != 0.0
@@ -46,6 +48,7 @@ public class LocationAverage {
                 latitude += location.latitude!
                 longitude += location.longitude!
                 elevation += location.elevation!
+                accuracy += location.accuracy!
             }
         }
         
@@ -56,6 +59,7 @@ public class LocationAverage {
             output.latitude = latitude / count
             output.longitude = longitude / count
             output.elevation = elevation / count
+            output.accuracy = accuracy / count
             
             return output
         }

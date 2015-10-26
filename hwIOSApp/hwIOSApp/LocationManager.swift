@@ -19,22 +19,23 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
     var warmUpPeriod : Int
     var alreadyRequested:Bool
     var allowed:Bool = false
-    public var locationAverage:LocationAverage;
-    var completionHandlers:[(Location?)->Void] = []
+    var locationAverage:LocationAverage;
+    var completionHandlers:[(Int, Location?)->Void] = []
+    public var locationAverageUpdated:ILocationUpdated? = nil
     
     override init(){
         locationManager = CLLocationManager()
         
     
         quantityToCollect = 10
-        periodBetween = 1
+        periodBetween = 0.5
         warmUpPeriod = 1
         cancelCollecting = false;
         locationAverage = LocationAverage()
         alreadyRequested = false
     }
     
-    public func Start(completion: (Location?) ->Void)
+    public func Start(completion: (count:Int, location:Location?) ->Void)
     {
         completionHandlers.append(completion)
         
@@ -77,11 +78,36 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             
-            locationAverage.add(location.coordinate.latitude, longitude: location.coordinate.longitude, elevation: location.altitude)
+            locationAverage.add(location.coordinate.latitude,
+                longitude: location.coordinate.longitude,
+                elevation: location.altitude,
+                accuracy:location.horizontalAccuracy)
+
             QuantityCollected += 1
+            
+            if (QuantityCollected <= quantityToCollect)
+            {
+                if (locationAverageUpdated != nil)
+                {
+                    let currentAverage:Location? = locationAverage.getAverage();
+                    
+                    if (currentAverage != nil)
+                    {
+                        locationAverageUpdated!.NewLocationAverage(
+                            QuantityCollected,
+                            latitude:currentAverage!.latitude!,
+                            longitude:currentAverage!.longitude!,
+                            elevation:currentAverage!.elevation!,
+                            accuracy:currentAverage!.accuracy!)
+                    }
+                }
+            }
+            
+
             
             if (QuantityCollected < quantityToCollect)
             {
+                NSThread.sleepForTimeInterval(periodBetween)
                 locationManager.requestLocation()
             }
             else
@@ -89,7 +115,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
                 if (completionHandlers.count>0)
                 {
                     locationManager.stopUpdatingLocation()
-                    completionHandlers[0](locationAverage.getAverage())
+                    completionHandlers[0](QuantityCollected, locationAverage.getAverage())
                 }
             }
         }

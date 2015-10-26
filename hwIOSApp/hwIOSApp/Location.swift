@@ -13,4 +13,5 @@ public class Location {
     var latitude : Double?
     var longitude : Double?
     var elevation : Double?
+    var accuracy : Double?
 }

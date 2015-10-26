@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class TagHydrantViewController : UIViewController {
+public class TagHydrantViewController : UIViewController, ILocationUpdated {
     
     public var user:User?;
     
@@ -18,6 +18,7 @@ public class TagHydrantViewController : UIViewController {
     @IBOutlet weak var TakePhotoButton: UIButton!
     @IBOutlet weak var LatitudeLabel: UILabel!
     @IBOutlet weak var LongitudeLabel: UILabel!
+    @IBOutlet weak var AccuracyLabel: UILabel!
     @IBOutlet weak var CountLabel: UILabel!
     @IBOutlet weak var HydrantImage: UIImageView!
     
@@ -29,21 +30,38 @@ public class TagHydrantViewController : UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         locationManager = LocationManager()
+        locationManager!.locationAverageUpdated = self
         
     }
     
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        locationManager!.Start(){ (location:Location?) in
+        locationManager!.Start(){ (count:Int, location:Location?) in
             if (location != nil)
             {
-                self.LatitudeLabel.text = String(location!.latitude)
-            }
+                self.CountLabel.text = "Count: 10"
+                self.LatitudeLabel.text = "Latitude: " + String(location!.latitude!)
+                self.LongitudeLabel.text = "Longitude: " + String(location!.longitude!)
+                self.AccuracyLabel.text = "Accuracy (m): " + String(location!.accuracy!)            }
         }
     }
     
 
+    public func NewLocationAverage(
+        count: Int,
+        latitude: Double,
+        longitude: Double,
+        elevation: Double,
+        accuracy: Double) {
+        
+            CountLabel.text = "Count: " + String(count)
+            LatitudeLabel.text = "Latitude: " + String(latitude)
+            LongitudeLabel.text = "Longitude: " + String(longitude)
+            AccuracyLabel.text = "Accuracy (m): " + String(accuracy)
+        
+    }
+    
     
     @IBAction func CancelSent(sender: AnyObject) {
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)

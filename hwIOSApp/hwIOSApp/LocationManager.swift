@@ -61,8 +61,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
 
     
     public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == CLAuthorizationStatus.Authorized
-            || status == CLAuthorizationStatus.AuthorizedAlways
+        if (status == CLAuthorizationStatus.AuthorizedAlways
             || status == CLAuthorizationStatus.AuthorizedWhenInUse)
         {
             allowed = true;

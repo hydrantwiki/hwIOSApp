@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import AVFoundation
 import UIKit
 
-public class TagHydrantViewController : UIViewController, ILocationUpdated {
+public class TagHydrantViewController : UIViewController, ILocationUpdated, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     public var user:User?;
     
@@ -23,6 +24,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated {
     @IBOutlet weak var HydrantImage: UIImageView!
     
     var locationManager:LocationManager?
+    let imagePicker = UIImagePickerController()
     
     
     override public func viewDidLoad() {
@@ -31,6 +33,12 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated {
         
         locationManager = LocationManager()
         locationManager!.locationAverageUpdated = self
+        
+        imagePicker.delegate = self
+        
+        if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) == nil {
+            TakePhotoButton.enabled = false
+        }
         
     }
     
@@ -44,6 +52,32 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated {
                 self.LatitudeLabel.text = "Latitude: " + String(location!.latitude!)
                 self.LongitudeLabel.text = "Longitude: " + String(location!.longitude!)
                 self.AccuracyLabel.text = "Accuracy (m): " + String(location!.accuracy!)            }
+        }
+    }
+    
+    @IBAction func TakePhotoPressed(sender: AnyObject) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .Camera
+        imagePicker.cameraCaptureMode = .Photo
+        
+        presentViewController(imagePicker, animated: true) { () -> Void in
+            
+        }
+        
+    }
+    
+    
+    
+    public func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        HydrantImage.contentMode = .ScaleAspectFit
+        HydrantImage.image = image
+    
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    public func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true) { () -> Void in
+            
         }
     }
     

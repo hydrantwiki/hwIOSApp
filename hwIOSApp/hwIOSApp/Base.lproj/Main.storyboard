@@ -298,6 +298,9 @@
                                 <rect key="frame" x="470" y="354" width="110" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <action selector="TakePhotoPressed:" destination="xHc-kP-Qs8" eventType="touchUpInside" id="wY9-gN-VTO"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-ob-EiZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>

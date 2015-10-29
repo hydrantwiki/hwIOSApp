@@ -166,7 +166,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <animations/>
                                 <items>
-                                    <navigationItem title="Title" id="o6J-y6-0M6">
+                                    <navigationItem title="About HydrantWiki" id="o6J-y6-0M6">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="p0V-gm-Ozg">
                                             <connections>
                                                 <action selector="CancelSent:" destination="RhS-Vl-HJD" id="gdb-wF-707"/>
@@ -273,7 +273,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-ob-EiZ">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-ob-EiZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <animations/>
                                 <constraints>
@@ -292,17 +292,14 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dFR-gA-kau">
-                                <rect key="frame" x="0.0" y="44" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQP-6C-uTo">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Latitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhA-mQ-Db6">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhA-mQ-Db6">
                                                 <rect key="frame" x="8" y="0.0" width="587" height="25"/>
                                                 <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="t8M-zV-lzx"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -335,8 +332,8 @@
                                             <constraint firstAttribute="height" constant="150" id="pHE-6I-sOI"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qVx-dY-vlW">
-                                        <rect key="frame" x="0.0" y="150" width="600" height="430"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qVx-dY-vlW">
+                                        <rect key="frame" x="0.0" y="150" width="600" height="406"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B6r-Bz-xbM">
                                                 <rect key="frame" x="13" y="0.0" width="313" height="397"/>
@@ -373,17 +370,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dFR-gA-kau" secondAttribute="trailing" constant="-20" id="2zQ-OF-SmC"/>
-                            <constraint firstItem="dFR-gA-kau" firstAttribute="top" secondItem="w8A-VC-gpU" secondAttribute="bottom" id="3jv-ty-J6z"/>
                             <constraint firstItem="TPH-ob-EiZ" firstAttribute="top" secondItem="zcX-Y5-RdD" secondAttribute="topMargin" id="7WJ-8A-haH"/>
                             <constraint firstItem="dFR-gA-kau" firstAttribute="leading" secondItem="zcX-Y5-RdD" secondAttribute="leadingMargin" constant="-20" id="CTm-Wq-y7A"/>
-                            <constraint firstItem="dFR-gA-kau" firstAttribute="leading" secondItem="zcX-Y5-RdD" secondAttribute="leadingMargin" constant="-20" id="DGg-6M-7Iu"/>
-                            <constraint firstItem="dFR-gA-kau" firstAttribute="leading" secondItem="zcX-Y5-RdD" secondAttribute="leadingMargin" constant="-20" id="GuJ-Yb-eD5"/>
                             <constraint firstItem="TPH-ob-EiZ" firstAttribute="leading" secondItem="zcX-Y5-RdD" secondAttribute="leadingMargin" constant="-20" id="Q3q-dk-FFh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TPH-ob-EiZ" secondAttribute="trailing" constant="-20" id="W6e-qB-Lz1"/>
                             <constraint firstItem="dFR-gA-kau" firstAttribute="top" secondItem="TPH-ob-EiZ" secondAttribute="bottom" id="cCY-Jn-rQv"/>
                             <constraint firstItem="RDN-rB-buu" firstAttribute="top" secondItem="dFR-gA-kau" secondAttribute="bottom" id="gsJ-2Z-GYN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dFR-gA-kau" secondAttribute="trailing" constant="-20" id="yQe-GR-hK1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dFR-gA-kau" secondAttribute="trailing" constant="-20" id="zkK-Me-qh6"/>
                         </constraints>
                     </view>
                     <connections>

@@ -37,6 +37,7 @@
 		77F1EA181BCCAE4F004B3921 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 77F1EA171BCCAE4F004B3921 /* .gitignore */; };
 		77FC298A1BE077E6002AE309 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A2E1BCC95EC0043123D /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77FC298E1BE077E6002AE309 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A1C1BCC95C70043123D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77FC29941BE465CD002AE309 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FC29931BE465CD002AE309 /* UIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 		77E72A3B1BCC9B380043123D /* ServiceResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceResult.swift; sourceTree = "<group>"; };
 		77E72A3F1BCCA5510043123D /* AuthenticationDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationDTO.swift; sourceTree = "<group>"; };
 		77F1EA171BCCAE4F004B3921 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		77FC29931BE465CD002AE309 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 		7789A7191BC4C29A00DC9D0B /* hwIOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				77FC29921BE465B8002AE309 /* Constants */,
 				7743E6001BDDCDCF00D37AD5 /* Protocols */,
 				77AA119D1BDB31AF00957779 /* Managers */,
 				77E72A111BCC8CD70043123D /* Models */,
@@ -368,6 +371,14 @@
 				77E72A3F1BCCA5510043123D /* AuthenticationDTO.swift */,
 			);
 			name = DTO;
+			sourceTree = "<group>";
+		};
+		77FC29921BE465B8002AE309 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				77FC29931BE465CD002AE309 /* UIConstants.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -611,6 +622,7 @@
 				7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */,
 				77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */,
+				77FC29941BE465CD002AE309 /* UIConstants.swift in Sources */,
 				7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */,
 				77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */,
 				7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */,

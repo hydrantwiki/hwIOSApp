@@ -40,12 +40,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
             TakePhotoButton.enabled = false
         }
         
-        TakePhotoButton.backgroundColor = UIConstants.ButtonBackgroundColor
-        TakePhotoButton.setTitleColor( UIConstants.ButtonTextColor, forState: UIControlState.Normal)
-        TakePhotoButton.setTitleColor( UIConstants.ButtonTextDisabledColor, forState: UIControlState.Disabled)
-        TakePhotoButton.layer.cornerRadius = 10
-        TakePhotoButton.clipsToBounds = true
-        
+        UILayoutHelper.Format(TakePhotoButton);
     }
     
     override public func viewDidAppear(animated: Bool) {

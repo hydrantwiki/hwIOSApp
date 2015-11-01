@@ -138,8 +138,10 @@
                     <connections>
                         <outlet property="AboutButton" destination="0xp-kv-sp7" id="txR-jH-fWG"/>
                         <outlet property="MapButton" destination="GfE-sl-n0M" id="Ldz-Mc-Rw7"/>
+                        <outlet property="NavBar" destination="5EJ-9s-DnO" id="vbg-jS-19J"/>
                         <outlet property="NearbyHydrantsButton" destination="RTn-T8-Sgi" id="Rab-a3-TmA"/>
                         <outlet property="TagHydrantButton" destination="O1H-aP-V9N" id="2xe-0v-zjA"/>
+                        <outlet property="ToolBar" destination="0y6-Wh-Ulz" id="B4K-YI-HIj"/>
                         <segue destination="xHc-kP-Qs8" kind="show" identifier="ShowTagHydrant" id="OWN-ZC-Jeh"/>
                         <segue destination="kiY-Dr-qAm" kind="show" identifier="ShowNearbyHydrants" id="Sk1-rp-ZMj"/>
                         <segue destination="UBD-ao-wFv" kind="show" identifier="ShowMap" id="Yra-0U-53n"/>

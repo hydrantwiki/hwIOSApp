@@ -16,7 +16,6 @@
 		7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71C1BC4C29A00DC9D0B /* ViewController.swift */; };
 		7789A7201BC4C29A00DC9D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7789A71E1BC4C29A00DC9D0B /* Main.storyboard */; };
 		7789A7221BC4C29A00DC9D0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7789A7211BC4C29A00DC9D0B /* Assets.xcassets */; };
-		7789A7251BC4C29A00DC9D0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7789A7231BC4C29A00DC9D0B /* LaunchScreen.storyboard */; };
 		7789A7301BC4C29A00DC9D0B /* hwIOSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A72F1BC4C29A00DC9D0B /* hwIOSAppTests.swift */; };
 		7789A73B1BC4C29A00DC9D0B /* hwIOSAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A73A1BC4C29A00DC9D0B /* hwIOSAppUITests.swift */; };
 		7789A7491BC4C36C00DC9D0B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7789A7481BC4C36C00DC9D0B /* MapKit.framework */; };
@@ -174,7 +173,6 @@
 		7789A71C1BC4C29A00DC9D0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7789A71F1BC4C29A00DC9D0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7789A7211BC4C29A00DC9D0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7789A7241BC4C29A00DC9D0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7789A7261BC4C29A00DC9D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7789A72B1BC4C29A00DC9D0B /* hwIOSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hwIOSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7789A72F1BC4C29A00DC9D0B /* hwIOSAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hwIOSAppTests.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				7781AF6B1BD48F6F00EEB195 /* ViewControllers */,
 				7789A71E1BC4C29A00DC9D0B /* Main.storyboard */,
 				7789A7211BC4C29A00DC9D0B /* Assets.xcassets */,
-				7789A7231BC4C29A00DC9D0B /* LaunchScreen.storyboard */,
 				7789A7261BC4C29A00DC9D0B /* Info.plist */,
 			);
 			path = hwIOSApp;
@@ -581,7 +578,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				77F1EA181BCCAE4F004B3921 /* .gitignore in Resources */,
-				7789A7251BC4C29A00DC9D0B /* LaunchScreen.storyboard in Resources */,
 				77E72A0E1BCC895D0043123D /* Alamofire in Resources */,
 				7789A7221BC4C29A00DC9D0B /* Assets.xcassets in Resources */,
 				7789A7201BC4C29A00DC9D0B /* Main.storyboard in Resources */,
@@ -684,14 +680,6 @@
 				7789A71F1BC4C29A00DC9D0B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7789A7231BC4C29A00DC9D0B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7789A7241BC4C29A00DC9D0B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

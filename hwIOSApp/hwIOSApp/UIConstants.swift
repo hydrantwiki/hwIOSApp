@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 import UIKit
 
 struct UIConstants {
@@ -14,8 +15,39 @@ struct UIConstants {
     static let ButtonBackgroundColor:UIColor = UIColor(red:176, green:196, blue:222)
     static let ButtonTextColor:UIColor = UIColor.whiteColor();
     static let ButtonTextDisabledColor:UIColor = UIColor.grayColor();
+    
+    static let HydrantWikiRed = UIColor(214, 50, 0);
+    static let HydrantWikiGray = UIColor(170, 162, 154)
+    static let HydrantWikiWhite = UIColor()
 }
 
+
+class UILayoutHelper {
+    
+    static func Format(control:UIButton)
+    {
+        control.backgroundColor = UIConstants.ButtonBackgroundColor
+        control.setTitleColor( UIConstants.ButtonTextColor, forState: UIControlState.Normal)
+        control.setTitleColor( UIConstants.ButtonTextDisabledColor, forState: UIControlState.Disabled)
+        control.layer.cornerRadius = 10
+        control.clipsToBounds = true
+    }
+    
+    static func Format(control:UIBarButtonItem)
+    {
+
+    }
+    
+    static func Format(control:UINavigationBar)
+    {
+        
+    }
+    
+    static func Format(control:UIToolbar)
+    {
+        control.backgroundColor = UIColor(
+    }
+}
 
 
 
@@ -30,3 +62,4 @@ extension UIColor
         self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
 }
+

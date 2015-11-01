@@ -16,6 +16,8 @@ public class HomeViewController : UIViewController {
     @IBOutlet weak var NearbyHydrantsButton: UIBarButtonItem!
     @IBOutlet weak var MapButton: UIBarButtonItem!
     @IBOutlet weak var AboutButton: UIBarButtonItem!
+    @IBOutlet var NavBar: UINavigationBar!
+    @IBOutlet var ToolBar: UIToolbar!
     
     @IBAction func TagHydrantSent(sender: AnyObject) {
         performSegueWithIdentifier("ShowTagHydrant", sender: nil)

@@ -45,9 +45,7 @@ class ViewController: UIViewController {
                 myAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 self.presentViewController(myAlert, animated: true, completion: nil)
             }
-            
         }
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -75,6 +73,9 @@ class ViewController: UIViewController {
             
             self.user = user;
         }
+        
+        UILayoutHelper.Format(LoginButton);
+        
     }
     
     override func viewDidAppear(animated: Bool) {

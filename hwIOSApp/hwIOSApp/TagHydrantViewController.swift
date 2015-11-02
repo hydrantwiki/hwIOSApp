@@ -14,6 +14,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     
     public var user:User?;
     
+    @IBOutlet var NavBar: UINavigationBar!
     @IBOutlet weak var CancelButton: UIBarButtonItem!
     @IBOutlet weak var SaveButton: UIBarButtonItem!
     @IBOutlet weak var TakePhotoButton: UIButton!
@@ -40,7 +41,21 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
             TakePhotoButton.enabled = false
         }
         
-        UILayoutHelper.Format(TakePhotoButton);
+        UIFormatHelper.Format(NavBar);
+        
+        //Top Button
+        UIFormatHelper.Format(CancelButton)
+        UIFormatHelper.Format(SaveButton)
+        
+        //Labels
+        UIFormatHelper.Format(LatitudeLabel);
+        UIFormatHelper.Format(LongitudeLabel);
+        UIFormatHelper.Format(AccuracyLabel);
+        UIFormatHelper.Format(CountLabel);
+        
+        //Buttons
+        UIFormatHelper.Format(TakePhotoButton);
+        
     }
     
     override public func viewDidAppear(animated: Bool) {

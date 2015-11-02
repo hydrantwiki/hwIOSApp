@@ -34,8 +34,18 @@ public class HomeViewController : UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        // Do any additional setup after loading the view, typically from a nib.
+        UIFormatHelper.Format(NavBar)
+        UIFormatHelper.Format(ToolBar)
+        
+        //Top buttons
+        UIFormatHelper.Format(AboutButton)
+        
+        //Bottom buttons
+        UIFormatHelper.Format(TagHydrantButton, image:"")
+        UIFormatHelper.Format(MapButton, image:"")
+        UIFormatHelper.Format(NearbyHydrantsButton, image:"")
         
     }
     @IBAction func AboutSent(sender: AnyObject) {

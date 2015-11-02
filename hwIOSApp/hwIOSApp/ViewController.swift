@@ -12,16 +12,16 @@ class ViewController: UIViewController {
     
     private var user:User?
 
-    @IBOutlet weak var UsernameLabel: UITextField!
+    @IBOutlet weak var UsernameText: UITextField!
     
-    @IBOutlet weak var PasswordLabel: UITextField!
+    @IBOutlet weak var PasswordText: UITextField!
     
     @IBOutlet weak var LoginButton: UIButton!
     
     @IBAction func LoginPressed(sender: AnyObject) {
         let service:AuthenticationService = AuthenticationService()
-        let username = UsernameLabel.text
-        let password = PasswordLabel.text
+        let username = UsernameText.text
+        let password = PasswordText.text
         
         service.login(username!, password: password!) {
             (result:User?) in
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
             self.user = user;
         }
         
-        UILayoutHelper.Format(LoginButton);
+        UIFormatHelper.Format(LoginButton);
         
     }
     

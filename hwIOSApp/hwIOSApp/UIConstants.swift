@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import MapKit;
 
 struct UIConstants {
     static let ButtonCornerRadius:Int = 10;
@@ -16,13 +17,13 @@ struct UIConstants {
     static let ButtonTextColor:UIColor = UIColor.whiteColor();
     static let ButtonTextDisabledColor:UIColor = UIColor.grayColor();
     
-    static let HydrantWikiRed = UIColor(214, 50, 0);
-    static let HydrantWikiGray = UIColor(170, 162, 154)
-    static let HydrantWikiWhite = UIColor()
+    static let HydrantWikiRed = UIColor(red:214, green:50, blue:0);
+    static let HydrantWikiGray = UIColor(red:170, green:162, blue:154)
+    static let HydrantWikiWhite = UIColor.whiteColor();
 }
 
 
-class UILayoutHelper {
+class UIFormatHelper {
     
     static func Format(control:UIButton)
     {
@@ -35,17 +36,51 @@ class UILayoutHelper {
     
     static func Format(control:UIBarButtonItem)
     {
-
+        var attributes = [String:AnyObject]()
+        
+        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiRed
+        
+        control.setTitleTextAttributes(attributes, forState: UIControlState.Normal)
+    }
+    
+    static func Format(control:UIBarButtonItem, image:String)
+    {
+        var attributes = [String:AnyObject]()
+        
+        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiRed
+        
+        control.setTitleTextAttributes(attributes, forState: UIControlState.Normal)
+    }
+    
+    static func Format(control:UILabel)
+    {
+        control.backgroundColor = UIConstants.HydrantWikiWhite
     }
     
     static func Format(control:UINavigationBar)
     {
-        
+        control.backgroundColor = UIConstants.HydrantWikiGray
     }
     
     static func Format(control:UIToolbar)
     {
-        control.backgroundColor = UIColor(
+        control.backgroundColor = UIConstants.HydrantWikiGray
+    }
+    
+    static func Format(control:UITableView)
+    {
+        
+    }
+    
+    static func Format(control:MKMapView)
+    {
+        
+    }
+    
+    static func Format(control:UITextField)
+    {
+        control.backgroundColor = UIConstants.HydrantWikiWhite
+        
     }
 }
 

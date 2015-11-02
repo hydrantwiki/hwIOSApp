@@ -20,6 +20,9 @@ public class AboutViewController : UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        UIFormatHelper.Format(NavBar)
+        
+        UIFormatHelper.Format(CancelButton)
         
     }
     

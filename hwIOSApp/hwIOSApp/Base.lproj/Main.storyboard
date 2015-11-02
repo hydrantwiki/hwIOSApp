@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wTn-Dm-L53">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wTn-Dm-L53">
                                 <rect key="frame" x="150" y="59" width="300" height="30"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration" hint="Username" label=""/>
@@ -28,7 +28,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ldd-Re-Zky">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ldd-Re-Zky">
                                 <rect key="frame" x="100" y="123" width="400" height="30"/>
                                 <animations/>
                                 <accessibility key="accessibilityConfiguration" hint="Password" label=""/>
@@ -61,8 +61,8 @@
                     </view>
                     <connections>
                         <outlet property="LoginButton" destination="dZf-nZ-bJC" id="OTu-RX-ADr"/>
-                        <outlet property="PasswordLabel" destination="Ldd-Re-Zky" id="atM-o6-4we"/>
-                        <outlet property="UsernameLabel" destination="wTn-Dm-L53" id="bI3-Mq-Mnm"/>
+                        <outlet property="PasswordText" destination="Ldd-Re-Zky" id="7Jh-8J-kbx"/>
+                        <outlet property="UsernameText" destination="wTn-Dm-L53" id="JM4-Vk-IAf"/>
                         <segue destination="jCK-Yx-AWn" kind="show" identifier="ShowHome" id="Ssf-yO-ftQ"/>
                     </connections>
                 </viewController>
@@ -392,6 +392,7 @@
                         <outlet property="HydrantImage" destination="B6r-Bz-xbM" id="YXH-ac-hVD"/>
                         <outlet property="LatitudeLabel" destination="NhA-mQ-Db6" id="Cdv-Ok-RkC"/>
                         <outlet property="LongitudeLabel" destination="bGY-YU-WGv" id="Nmg-cw-smG"/>
+                        <outlet property="NavBar" destination="TPH-ob-EiZ" id="42w-Yd-bcc"/>
                         <outlet property="SaveButton" destination="CHh-8Q-G9y" id="EBg-or-s2P"/>
                         <outlet property="TakePhotoButton" destination="TVw-Li-sdb" id="u4K-hz-axd"/>
                         <segue destination="Qqx-2w-DXi" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="RVt-B3-C5Z"/>
@@ -427,13 +428,17 @@
                                                     <constraint firstAttribute="height" constant="50" id="UYD-zh-QIy"/>
                                                 </constraints>
                                                 <items>
-                                                    <navigationItem title="Title" id="Zwd-YL-qhk">
+                                                    <navigationItem title="HydrantWiki Map View" id="Zwd-YL-qhk">
                                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="j6S-3g-IJO">
                                                             <connections>
                                                                 <action selector="CancelSent:" destination="UBD-ao-wFv" id="e8I-LO-x8R"/>
                                                             </connections>
                                                         </barButtonItem>
-                                                        <barButtonItem key="rightBarButtonItem" title="Table View" id="nn9-cl-KF3"/>
+                                                        <barButtonItem key="rightBarButtonItem" title="Table View" id="MaQ-dr-K6x">
+                                                            <connections>
+                                                                <action selector="TableViewButtonPressed:" destination="UBD-ao-wFv" id="tbF-SO-KiZ"/>
+                                                            </connections>
+                                                        </barButtonItem>
                                                     </navigationItem>
                                                 </items>
                                             </navigationBar>
@@ -470,9 +475,9 @@
                         <outlet property="CancelButton" destination="j6S-3g-IJO" id="tl4-wF-nqB"/>
                         <outlet property="HydrantMap" destination="X0J-J0-LiZ" id="C9x-9Q-ef8"/>
                         <outlet property="MapStackView" destination="axO-5D-Srn" id="TOS-Ea-jvV"/>
-                        <outlet property="NavBar" destination="cFM-zb-NHr" id="MaL-pL-04Y"/>
+                        <outlet property="NavBar" destination="cFM-zb-NHr" id="CLN-Cg-IvN"/>
                         <outlet property="OutsideStackView" destination="eWb-4P-N1d" id="5ec-3r-G52"/>
-                        <outlet property="TableViewButton" destination="Zwd-YL-qhk" id="xH3-cN-xAm"/>
+                        <outlet property="TableViewButton" destination="MaQ-dr-K6x" id="hOA-J5-X69"/>
                         <segue destination="DTE-zr-srn" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="XtF-4T-Ys5"/>
                     </connections>
                 </viewController>
@@ -483,6 +488,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Yra-0U-53n"/>
+        <segue reference="DLG-Tv-DTB"/>
     </inferredMetricsTieBreakers>
 </document>

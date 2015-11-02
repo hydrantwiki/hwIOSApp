@@ -14,12 +14,13 @@ public class HydrantMapViewController : UIViewController {
     
     public var user:User?;
     
+    @IBOutlet var NavBar: UINavigationBar!
     @IBOutlet var OutsideStackView: UIStackView!
     @IBOutlet var MapStackView: UIStackView!
     @IBOutlet weak var CancelButton: UIBarButtonItem!
-    @IBOutlet weak var NavBar: UINavigationBar!
-    @IBOutlet weak var TableViewButton: UINavigationItem!
     @IBOutlet weak var HydrantMap: MKMapView!
+    @IBOutlet var TableViewButton: UIBarButtonItem!
+    
     
     @IBAction func CancelSent(sender: AnyObject) {
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
@@ -31,7 +32,15 @@ public class HydrantMapViewController : UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
+        UIFormatHelper.Format(NavBar!);
+        UIFormatHelper.Format(CancelButton);
+        UIFormatHelper.Format(TableViewButton);
         
+        UIFormatHelper.Format(HydrantMap)
+    }
+    
+    @IBAction func TableViewButtonPressed(sender: AnyObject) {
+    
     }
     
     

@@ -289,7 +289,11 @@
                                                 <action selector="CancelSent:" destination="xHc-kP-Qs8" id="ihI-Kr-9Qi"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="CHh-8Q-G9y"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="CHh-8Q-G9y">
+                                            <connections>
+                                                <action selector="SavePressed:" destination="xHc-kP-Qs8" id="HO2-xY-z4b"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

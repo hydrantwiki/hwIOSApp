@@ -9,10 +9,36 @@
 import Foundation
 
 class BaseService {
+    //var BaseUrl = "http://app.hydrantwiki.com"
+    var BaseUrl = "http://192.168.50.6"
+
     
-    var BaseUrl = "http://app.hydrantwiki.com"
+    var credentials:Credentials
     
+    init()
+    {
+        credentials = Credentials.GetInstance()
+    }
     
+    var Username:String? {
+        get {
+            return credentials.userName;
+        }
+        
+        set(username) {
+            credentials.userName = username;
+        }
+    }
+    
+    var Token:String? {
+        get {
+            return credentials.userToken;
+        }
+        
+        set(token) {
+            credentials.userToken = token;
+        }
+    }
     
     
 }

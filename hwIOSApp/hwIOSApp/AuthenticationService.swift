@@ -18,7 +18,7 @@ class AuthenticationService : BaseService {
         var headers : [String:String] = [ "Username":username, "Password":password ]
         var parameters : [String:String]? = nil
         
-        Alamofire.request(.POST, BaseUrl + "/rest/authorize",
+        Alamofire.request(.POST, BaseUrl + "/api/authorize",
             parameters: parameters,
             headers:headers)
             .responseString { response in
@@ -40,6 +40,4 @@ class AuthenticationService : BaseService {
                 }
             }
     }
-    
-    
 }

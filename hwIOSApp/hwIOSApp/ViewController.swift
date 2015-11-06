@@ -35,6 +35,9 @@ class ViewController: UIViewController {
                 defaults.setObject(result?.AuthToken, forKey: "authToken")
                 defaults.setObject(result?.DisplayName, forKey: "displayName")
                 
+                Credentials.GetInstance().userName = self.user!.Username;
+                Credentials.GetInstance().userToken = self.user!.AuthToken;
+                
                  //Perform segue
                 self.performSegueWithIdentifier("ShowHome", sender:nil)
             }
@@ -58,6 +61,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        UIFormatHelper.Format(LoginButton);
         
         let defaults = NSUserDefaults.standardUserDefaults()
         let username = defaults.stringForKey("username")
@@ -72,10 +76,10 @@ class ViewController: UIViewController {
             user.Username = username
             
             self.user = user;
+            
+            Credentials.GetInstance().userName = user.Username;
+            Credentials.GetInstance().userToken = user.AuthToken;
         }
-        
-        UIFormatHelper.Format(LoginButton);
-        
     }
     
     override func viewDidAppear(animated: Bool) {

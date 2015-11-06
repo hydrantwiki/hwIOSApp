@@ -27,9 +27,9 @@ class UIFormatHelper {
     
     static func Format(control:UIButton)
     {
-        control.backgroundColor = UIConstants.ButtonBackgroundColor
-        control.setTitleColor( UIConstants.ButtonTextColor, forState: UIControlState.Normal)
-        control.setTitleColor( UIConstants.ButtonTextDisabledColor, forState: UIControlState.Disabled)
+        control.backgroundColor = UIConstants.HydrantWikiGray
+        control.setTitleColor( UIConstants.HydrantWikiRed, forState: UIControlState.Normal)
+        control.setTitleColor( UIConstants.HydrantWikiWhite, forState: UIControlState.Disabled)
         control.layer.cornerRadius = 10
         control.clipsToBounds = true
     }
@@ -37,10 +37,12 @@ class UIFormatHelper {
     static func Format(control:UIBarButtonItem)
     {
         var attributes = [String:AnyObject]()
-        
         attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiRed
-        
         control.setTitleTextAttributes(attributes, forState: UIControlState.Normal)
+        
+        var attributes2 = [String:AnyObject]()
+        attributes2[NSForegroundColorAttributeName] = UIConstants.HydrantWikiWhite
+        control.setTitleTextAttributes(attributes2, forState: UIControlState.Disabled)
     }
     
     static func Format(control:UIBarButtonItem, image:String)

@@ -46,6 +46,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         //Top Button
         UIFormatHelper.Format(CancelButton)
         UIFormatHelper.Format(SaveButton)
+        SaveButton.enabled = false;
         
         //Labels
         UIFormatHelper.Format(LatitudeLabel);
@@ -58,6 +59,31 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         
     }
     
+    @IBAction func SavePressed(sender: AnyObject) {
+        var tag:TagDTO = TagDTO()
+        
+        let location = locationManager?.locationAverage.getAverage()
+        
+        if (location != nil)
+        {
+            tag.Position = PositionDTO(location: location!, wasAveraged: true);
+            
+            //TODO - For now save directly.  Should store and forward async in future
+            
+            let service = TagService()
+            service.SaveTag(tag
+                , completion: { (response) -> Void in
+                    var uiAlert = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+                    self.presentViewController(uiAlert, animated: true, completion: nil)
+                    
+                    uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+                        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
+                    }))
+            })
+        }
+    }
+    
+    
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -67,7 +93,10 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
                 self.CountLabel.text = "Count: 10"
                 self.LatitudeLabel.text = "Latitude: " + String(location!.latitude!)
                 self.LongitudeLabel.text = "Longitude: " + String(location!.longitude!)
-                self.AccuracyLabel.text = "Accuracy (m): " + String(location!.accuracy!)            }
+                self.AccuracyLabel.text = "Accuracy (m): " + String(location!.accuracy!)
+                
+                self.SaveButton.enabled = true;
+            }
         }
     }
     
@@ -78,6 +107,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         
         presentViewController(imagePicker, animated: true) { () -> Void in
             
+
         }
         
     }

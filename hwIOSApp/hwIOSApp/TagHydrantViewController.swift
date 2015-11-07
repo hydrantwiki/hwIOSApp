@@ -60,6 +60,8 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     }
     
     @IBAction func SavePressed(sender: AnyObject) {
+        SaveButton.enabled = false;
+        
         var tag:TagDTO = TagDTO()
         
         let location = locationManager?.locationAverage.getAverage()
@@ -67,19 +69,36 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         if (location != nil)
         {
             tag.Position = PositionDTO(location: location!, wasAveraged: true);
+ 
+            var image:UIImage? = nil;
+            var imageName:String? = nil;
             
-            //TODO - For now save directly.  Should store and forward async in future
-            
+            if (HydrantImage.image != nil)
+            {
+                tag.AssignImageGuid();
+                
+                image = HydrantImage.image
+                imageName = tag.ImageGuid! + ".jpg";
+                
+                let writePath = FileHelper.fileInDocumentsDirectory(imageName!);
+                ImageHelper.saveImage(image!,path:writePath);
+                
+                
+                
+            }
             let service = TagService()
             service.SaveTag(tag
                 , completion: { (response) -> Void in
-                    var uiAlert = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
-                    self.presentViewController(uiAlert, animated: true, completion: nil)
+                                var uiAlert = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+                                self.presentViewController(uiAlert, animated: true, completion: nil)
                     
-                    uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
-                        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
-                    }))
-            })
+                                uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+                                                                                                         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
+                                                                                                        }
+                                                                )
+                                )
+                            }
+            )
         }
     }
     

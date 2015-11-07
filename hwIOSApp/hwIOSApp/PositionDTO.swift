@@ -36,7 +36,8 @@ struct PositionDTO : Mappable {
         Longitude           <- map["Longitude"]
         Altitude            <- map["Altitude"]
         Accuracy            <- map["Accuracy"]
-        DeviceDateTime      <- map["DeviceDateTime"]
         WasAveraged         <- map["WasAveraged"]
+        DeviceDateTime      <- (map["DeviceDateTime"], ISO8601DateTransform())
+        
     }
 }

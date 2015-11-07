@@ -10,8 +10,13 @@ import Foundation
 import ObjectMapper
 
 struct TagDTO : Mappable {
-    var ImageGuid:String? = NSUUID().UUIDString
+    var ImageGuid:String?;
     var Position:PositionDTO?
+    
+    mutating func AssignImageGuid()
+    {
+        self.ImageGuid = NSUUID().UUIDString;
+    }
     
     init() { }
     

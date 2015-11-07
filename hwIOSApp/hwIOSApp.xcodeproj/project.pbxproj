@@ -10,6 +10,8 @@
 		7743E6021BDDCE0000D37AD5 /* ILocationUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743E6011BDDCE0000D37AD5 /* ILocationUpdated.swift */; };
 		777C008C1BEC454800BCC098 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C008B1BEC454800BCC098 /* Credentials.swift */; };
 		777C00961BEC4AC200BCC098 /* TagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C00951BEC4AC200BCC098 /* TagResponse.swift */; };
+		777C009B1BEDB65800BCC098 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C009A1BEDB65800BCC098 /* FileHelper.swift */; };
+		777C009D1BEDB67B00BCC098 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C009C1BEDB67B00BCC098 /* ImageHelper.swift */; };
 		7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */; };
 		7781AF6F1BD4971200EEB195 /* TagHydrantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */; };
 		7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */; };
@@ -170,6 +172,8 @@
 		7743E6011BDDCE0000D37AD5 /* ILocationUpdated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILocationUpdated.swift; sourceTree = "<group>"; };
 		777C008B1BEC454800BCC098 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		777C00951BEC4AC200BCC098 /* TagResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagResponse.swift; sourceTree = "<group>"; };
+		777C009A1BEDB65800BCC098 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		777C009C1BEDB67B00BCC098 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagHydrantViewController.swift; sourceTree = "<group>"; };
 		7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyHydrantsViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +247,15 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		777C00991BEDB64100BCC098 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				777C009A1BEDB65800BCC098 /* FileHelper.swift */,
+				777C009C1BEDB67B00BCC098 /* ImageHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		7781AF6B1BD48F6F00EEB195 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				77FC29921BE465B8002AE309 /* Constants */,
+				777C00991BEDB64100BCC098 /* Helpers */,
 				7743E6001BDDCDCF00D37AD5 /* Protocols */,
 				77AA119D1BDB31AF00957779 /* Managers */,
 				77E72A111BCC8CD70043123D /* Models */,
@@ -319,7 +333,6 @@
 			isa = PBXGroup;
 			children = (
 				77E72A3E1BCCA53D0043123D /* DTO */,
-				77E72A3B1BCC9B380043123D /* ServiceResult.swift */,
 				7789A74B1BC4CAEB00DC9D0B /* AuthenticationService.swift */,
 				7789A74D1BC4CC2200DC9D0B /* TagService.swift */,
 				7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */,
@@ -375,8 +388,9 @@
 			isa = PBXGroup;
 			children = (
 				77E72A3F1BCCA5510043123D /* AuthenticationDTO.swift */,
-				77B079501BE84FDA009F3A9C /* TagDTO.swift */,
+				77E72A3B1BCC9B380043123D /* ServiceResult.swift */,
 				77B0795A1BE851AA009F3A9C /* PositionDTO.swift */,
+				77B079501BE84FDA009F3A9C /* TagDTO.swift */,
 				777C00951BEC4AC200BCC098 /* TagResponse.swift */,
 			);
 			name = DTO;
@@ -628,10 +642,12 @@
 				77AA11A11BDB321400957779 /* Location.swift in Sources */,
 				7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */,
 				77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */,
+				777C009B1BEDB65800BCC098 /* FileHelper.swift in Sources */,
 				77AA119C1BDB301C00957779 /* LocationManager.swift in Sources */,
 				7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */,
 				77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */,
+				777C009D1BEDB67B00BCC098 /* ImageHelper.swift in Sources */,
 				77FC29941BE465CD002AE309 /* UIConstants.swift in Sources */,
 				77B079511BE84FDA009F3A9C /* TagDTO.swift in Sources */,
 				7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */,

@@ -16,14 +16,13 @@ class TagService : BaseService {
     internal func SaveTag(tag:TagDTO,
         completion: (response:TagResponseDTO?) ->Void)
     {
-        
-        let headers : [String:String] = [ "Username":self.Username!, "AuthorizationToken":self.Token! ]
+        let headerArray : [String:String] = [ "Username":self.Username!, "AuthorizationToken":self.Token! ]
         let json = Mapper().toJSONString(tag, prettyPrint: false)
         
         Alamofire.request(.POST,
             BaseUrl + "/api/tag",
             parameters: [:],
-            headers:headers,
+            headers:headerArray,
             encoding: .Custom({ (convertible, params) in
                                 let mutableRequest = convertible.URLRequest.copy() as! NSMutableURLRequest
                                 mutableRequest.HTTPBody = json!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
@@ -37,23 +36,25 @@ class TagService : BaseService {
             }
     }
     
-    internal func SaveImage(fileName:String, fileLocation:String, completion: (response:TagResponseDTO?) ->Void)
+    internal func SaveImage(fileLocation:String,
+        fileName:String,
+        completion: (response:TagResponseDTO?) ->Void)
     {
-//        let headers : [String:String] = [ "Username":self.Username!, "AuthorizationToken":self.Token! ]
-//        let json = Mapper().toJSONString(nil, prettyPrint: false)
-//        
-//        Alamofire.request(.POST,
-//            BaseUrl + "/api/tag",
-//            parameters: [:],
-//            headers:headers)
-//            .responseString { response in
-//                            completion(response: nil)
-//        }
+        let fileUrl = NSURL(fileURLWithPath: fileLocation)
+        var headerArray = [String:String]();
+        headerArray["Username"] = self.Username!;
+        headerArray["AuthorizationToken"] = self.Token!;
         
-        
-
-        
-        
+        Alamofire.upload(.POST,
+            BaseUrl + "/api/image/" + fileName,
+            headers:headerArray,
+            file: fileUrl)
+            .responseString { response in
+                var output:TagResponseDTO = TagResponseDTO()
+                
+                output.Message = response.result.value;
+                
+                            completion(response: output)
+        }
     }
-    
 }

@@ -83,23 +83,72 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
                 let writePath = FileHelper.fileInDocumentsDirectory(imageName!);
                 ImageHelper.saveImage(image!,path:writePath);
                 
-                
-                
+                SaveImage(writePath, fileName:imageName!, tag: tag);
             }
-            let service = TagService()
-            service.SaveTag(tag
-                , completion: { (response) -> Void in
-                                var uiAlert = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
-                                self.presentViewController(uiAlert, animated: true, completion: nil)
-                    
-                                uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
-                                                                                                         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
-                                                                                                        }
-                                                                )
-                                )
-                            }
-            )
+            else
+            {
+                SaveTag(tag);
+            }
         }
+    }
+    
+    //Saves the Image then the Tag
+    private func SaveImage(writePath:String, fileName:String, tag:TagDTO)
+    {
+        let service = TagService()
+        service.SaveImage(writePath,
+            fileName:fileName,
+            completion: { (response) -> Void in
+                let uiAlert = UIAlertController(title: "HydrantWiki",
+                    message: response!.Message!,
+                    preferredStyle: UIAlertControllerStyle.Alert);
+                self.presentViewController(uiAlert, animated: true, completion: nil)
+                
+                uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+                    
+                    }
+                    )
+                )
+
+                
+                self.SaveTag(tag);
+        })
+    }
+    
+    //Save the Tag
+    private func SaveTag(tag:TagDTO)
+    {
+        let service = TagService()
+        
+        service.SaveTag(tag
+            , completion: { (response) -> Void in
+                if (response != nil)
+                {
+                    let title:String = "HydrantWiki";
+                    var message:String = "";
+                    
+                    if (response!.Success)
+                    {
+                        message = "Saved to server";
+                    }
+                    else
+                    {
+                        message = "Unable to save.  Will try again later";
+                    }
+                    
+                    let uiAlert = UIAlertController(title: title,
+                        message: message,
+                        preferredStyle: UIAlertControllerStyle.Alert);
+                    self.presentViewController(uiAlert, animated: true, completion: nil)
+                    
+                    uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+                        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
+                        }
+                        )
+                    )
+                }
+            }
+        )
     }
     
     

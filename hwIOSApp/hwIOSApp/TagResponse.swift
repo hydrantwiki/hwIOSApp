@@ -11,6 +11,9 @@ import ObjectMapper
 
 struct TagResponseDTO : Mappable {
     var Success:Bool = false
+    var Message:String? = nil;
+    
+    init() { }
     
     init?(_ map: Map){
         
@@ -18,5 +21,6 @@ struct TagResponseDTO : Mappable {
     
     mutating func mapping(map: Map) {
         Success           <- map["Success"]
+        Message           <- map["Message"]
     }
 }

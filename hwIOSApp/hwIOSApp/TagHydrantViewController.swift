@@ -99,18 +99,6 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         service.SaveImage(writePath,
             fileName:fileName,
             completion: { (response) -> Void in
-                let uiAlert = UIAlertController(title: "HydrantWiki",
-                    message: response!.Message!,
-                    preferredStyle: UIAlertControllerStyle.Alert);
-                self.presentViewController(uiAlert, animated: true, completion: nil)
-                
-                uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
-                    
-                    }
-                    )
-                )
-
-                
                 self.SaveTag(tag);
         })
     }

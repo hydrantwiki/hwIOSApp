@@ -45,16 +45,42 @@ class TagService : BaseService {
         headerArray["Username"] = self.Username!;
         headerArray["AuthorizationToken"] = self.Token!;
         
-        Alamofire.upload(.POST,
-            BaseUrl + "/api/image/" + fileName,
-            headers:headerArray,
-            file: fileUrl)
-            .responseString { response in
-                var output:TagResponseDTO = TagResponseDTO()
-                
-                output.Message = response.result.value;
-                
-                            completion(response: output)
-        }
+//        Alamofire.upload(.POST,
+//            BaseUrl + "/api/image/" + fileName,
+//            headers:headerArray,
+//            file: fileUrl)
+//            .responseString { response in
+//                var output:TagResponseDTO = TagResponseDTO()
+//                
+//                output.Message = response.result.value;
+//                
+//                            completion(response: output)
+//        }
+        
+        Alamofire.upload(
+            .POST,
+            BaseUrl + "/api/image/",
+            headers: headerArray,
+            multipartFormData: { multipartFormData in
+                multipartFormData.appendBodyPart(fileURL: fileUrl, name: fileName)
+            },
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .Success(let upload, _, _):
+                    upload.responseJSON { response in
+                        var output:TagResponseDTO = TagResponseDTO()
+                        output.Success = true;
+                        output.Message = "";
+                        completion(response: output)
+                    }
+                case .Failure(let encodingError):
+                    var output:TagResponseDTO = TagResponseDTO()
+                    output.Success = false;
+                    output.Message = "Failed to save image";
+                    completion(response: output)
+                }
+            }
+        )
+        
     }
 }

@@ -57,6 +57,9 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         //Buttons
         UIFormatHelper.Format(TakePhotoButton);
         
+        HydrantImage.layer.borderColor = UIColor.blackColor().CGColor;
+        HydrantImage.layer.borderWidth = 1;
+        
     }
     
     @IBAction func SavePressed(sender: AnyObject) {

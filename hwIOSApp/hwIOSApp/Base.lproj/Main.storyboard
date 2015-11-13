@@ -342,18 +342,20 @@
                                         <rect key="frame" x="0.0" y="150" width="600" height="406"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B6r-Bz-xbM">
-                                                <rect key="frame" x="13" y="0.0" width="313" height="397"/>
+                                                <rect key="frame" x="144" y="0.0" width="313" height="334"/>
                                                 <animations/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="B6r-Bz-xbM" secondAttribute="height" multiplier="313:397" id="lZL-pi-GMi"/>
+                                                    <constraint firstAttribute="width" secondItem="B6r-Bz-xbM" secondAttribute="height" multiplier="3:4" id="lZL-pi-GMi"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVw-Li-sdb">
-                                                <rect key="frame" x="387" y="193" width="173" height="40"/>
+                                                <rect key="frame" x="214" y="349" width="173" height="40"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.20491733696548436" green="0.39779955266893557" blue="0.66336714659685869" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="qV6-3D-4kQ"/>
+                                                    <constraint firstAttribute="width" secondItem="TVw-Li-sdb" secondAttribute="height" multiplier="173:40" id="Our-6z-LfE"/>
+                                                    <constraint firstAttribute="height" constant="50" id="qV6-3D-4kQ"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="100" id="zd5-Iq-diH"/>
                                                 </constraints>
                                                 <state key="normal" title="Take Photo"/>
                                                 <connections>
@@ -364,12 +366,11 @@
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="TVw-Li-sdb" firstAttribute="top" secondItem="qVx-dY-vlW" secondAttribute="topMargin" constant="181" id="DdC-GP-uLR"/>
+                                            <constraint firstAttribute="bottom" secondItem="TVw-Li-sdb" secondAttribute="bottom" constant="17" id="1Us-ot-8UZ"/>
+                                            <constraint firstItem="TVw-Li-sdb" firstAttribute="centerX" secondItem="qVx-dY-vlW" secondAttribute="centerX" id="4O9-is-pTi"/>
+                                            <constraint firstItem="TVw-Li-sdb" firstAttribute="top" secondItem="B6r-Bz-xbM" secondAttribute="bottom" constant="10" id="Cpw-i4-eDK"/>
                                             <constraint firstItem="B6r-Bz-xbM" firstAttribute="top" secondItem="qVx-dY-vlW" secondAttribute="top" constant="5" id="ITn-8e-sYP"/>
-                                            <constraint firstItem="B6r-Bz-xbM" firstAttribute="leading" secondItem="qVx-dY-vlW" secondAttribute="leading" constant="13" id="PKA-nA-Iy6"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="TVw-Li-sdb" secondAttribute="bottom" constant="203" id="RuT-DL-Def"/>
-                                            <constraint firstAttribute="bottom" secondItem="B6r-Bz-xbM" secondAttribute="bottom" constant="33" id="gTa-dr-2aC"/>
-                                            <constraint firstItem="TVw-Li-sdb" firstAttribute="trailing" secondItem="qVx-dY-vlW" secondAttribute="trailingMargin" id="wqv-Lx-A2g"/>
+                                            <constraint firstItem="B6r-Bz-xbM" firstAttribute="centerX" secondItem="qVx-dY-vlW" secondAttribute="centerX" id="Kzp-Xc-hKW"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -492,6 +493,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DLG-Tv-DTB"/>
+        <segue reference="Yra-0U-53n"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -22,11 +22,11 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
     var locationAverage:LocationAverage;
     var completionHandlers:[(Int, Location?)->Void] = []
     public var locationAverageUpdated:ILocationUpdated? = nil
+    var completionFired:Bool = false;
     
     override init(){
         locationManager = CLLocationManager()
         
-    
         quantityToCollect = 10
         periodBetween = 0.5
         warmUpPeriod = 1
@@ -57,8 +57,6 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
             locationManager.requestLocation()
         }
     }
-
-
     
     public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if (status == CLAuthorizationStatus.AuthorizedAlways
@@ -71,8 +69,6 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
             allowed = false;
         }
     }
-    
-    
     
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
@@ -102,8 +98,6 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
                 }
             }
             
-
-            
             if (QuantityCollected < quantityToCollect)
             {
                 NSThread.sleepForTimeInterval(periodBetween)
@@ -114,7 +108,12 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
                 if (completionHandlers.count>0)
                 {
                     locationManager.stopUpdatingLocation()
-                    completionHandlers[0](QuantityCollected, locationAverage.getAverage())
+                    
+                    if (!completionFired)
+                    {
+                        completionFired = true;
+                        completionHandlers[0](QuantityCollected, locationAverage.getAverage())
+                    }
                 }
             }
         }

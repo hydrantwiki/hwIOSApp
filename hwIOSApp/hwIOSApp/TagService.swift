@@ -16,13 +16,12 @@ class TagService : BaseService {
     internal func SaveTag(tag:TagDTO,
         completion: (response:TagResponseDTO?) ->Void)
     {
-        let headerArray : [String:String] = [ "Username":self.Username!, "AuthorizationToken":self.Token! ]
         let json = Mapper().toJSONString(tag, prettyPrint: false)
         
         Alamofire.request(.POST,
             BaseUrl + "/api/tag",
             parameters: [:],
-            headers:headerArray,
+            headers:GetAuthHeaders(),
             encoding: .Custom({ (convertible, params) in
                                 let mutableRequest = convertible.URLRequest.copy() as! NSMutableURLRequest
                                 mutableRequest.HTTPBody = json!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
@@ -41,26 +40,11 @@ class TagService : BaseService {
         completion: (response:TagResponseDTO?) ->Void)
     {
         let fileUrl = NSURL(fileURLWithPath: fileLocation)
-        var headerArray = [String:String]();
-        headerArray["Username"] = self.Username!;
-        headerArray["AuthorizationToken"] = self.Token!;
-        
-//        Alamofire.upload(.POST,
-//            BaseUrl + "/api/image/" + fileName,
-//            headers:headerArray,
-//            file: fileUrl)
-//            .responseString { response in
-//                var output:TagResponseDTO = TagResponseDTO()
-//                
-//                output.Message = response.result.value;
-//                
-//                            completion(response: output)
-//        }
         
         Alamofire.upload(
             .POST,
             BaseUrl + "/api/image/",
-            headers: headerArray,
+            headers: GetAuthHeaders(),
             multipartFormData: { multipartFormData in
                 multipartFormData.appendBodyPart(fileURL: fileUrl, name: fileName)
             },
@@ -81,6 +65,31 @@ class TagService : BaseService {
                 }
             }
         )
-        
+    }
+    
+    internal func GetMyTagCount(completion: (response:TagCountResponseDTO?) ->Void)
+    {
+        Alamofire.request(.GET,
+            BaseUrl + "/api/tags/mine/count",
+            parameters: [:],
+            headers:GetAuthHeaders()
+            )
+            .responseString { response in
+                if (response.result.value != nil)
+                {
+                    let json:String = response.result.value!
+                    let result:TagCountResponseDTO = Mapper<TagCountResponseDTO>().map(json)!
+                    
+                    completion(response: result)
+                }
+                else
+                {
+                    var result:TagCountResponseDTO = TagCountResponseDTO()
+                    result.Success = false;
+                    result.TagCount = 0;
+                    
+                    completion(response: result)
+                }
+        }
     }
 }

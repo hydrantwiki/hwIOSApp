@@ -12,6 +12,7 @@
 		777C00961BEC4AC200BCC098 /* TagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C00951BEC4AC200BCC098 /* TagResponse.swift */; };
 		777C009B1BEDB65800BCC098 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C009A1BEDB65800BCC098 /* FileHelper.swift */; };
 		777C009D1BEDB67B00BCC098 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C009C1BEDB67B00BCC098 /* ImageHelper.swift */; };
+		777C009F1BF7A57200BCC098 /* TagCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C009E1BF7A57200BCC098 /* TagCountResponse.swift */; };
 		7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */; };
 		7781AF6F1BD4971200EEB195 /* TagHydrantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */; };
 		7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */; };
@@ -174,6 +175,7 @@
 		777C00951BEC4AC200BCC098 /* TagResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagResponse.swift; sourceTree = "<group>"; };
 		777C009A1BEDB65800BCC098 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		777C009C1BEDB67B00BCC098 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		777C009E1BF7A57200BCC098 /* TagCountResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCountResponse.swift; sourceTree = "<group>"; };
 		7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagHydrantViewController.swift; sourceTree = "<group>"; };
 		7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyHydrantsViewController.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				77B0795A1BE851AA009F3A9C /* PositionDTO.swift */,
 				77B079501BE84FDA009F3A9C /* TagDTO.swift */,
 				777C00951BEC4AC200BCC098 /* TagResponse.swift */,
+				777C009E1BF7A57200BCC098 /* TagCountResponse.swift */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */,
 				77AA119F1BDB31E700957779 /* LocationAverage.swift in Sources */,
 				77AA11A11BDB321400957779 /* Location.swift in Sources */,
+				777C009F1BF7A57200BCC098 /* TagCountResponse.swift in Sources */,
 				7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */,
 				77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */,
 				777C009B1BEDB65800BCC098 /* FileHelper.swift in Sources */,

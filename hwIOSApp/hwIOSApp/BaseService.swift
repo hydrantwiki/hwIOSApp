@@ -40,5 +40,10 @@ class BaseService {
         }
     }
     
-    
+    func GetAuthHeaders() -> [String:String]
+    {
+        let headerArray : [String:String] = [ "Username":self.Username!, "AuthorizationToken":self.Token! ]
+        
+        return headerArray;
+    }
 }

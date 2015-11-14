@@ -20,6 +20,8 @@ struct UIConstants {
     static let HydrantWikiRed = UIColor(red:214, green:50, blue:0);
     static let HydrantWikiGray = UIColor(red:170, green:162, blue:154)
     static let HydrantWikiWhite = UIColor.whiteColor();
+    
+    static let ImageQuality = 0.5;
 }
 
 

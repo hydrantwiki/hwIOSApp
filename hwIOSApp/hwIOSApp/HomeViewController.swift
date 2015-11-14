@@ -18,6 +18,7 @@ public class HomeViewController : UIViewController {
     @IBOutlet weak var AboutButton: UIBarButtonItem!
     @IBOutlet var NavBar: UINavigationBar!
     @IBOutlet var ToolBar: UIToolbar!
+    @IBOutlet weak var MyHydrantCount: UILabel!
     
     @IBAction func TagHydrantSent(sender: AnyObject) {
         performSegueWithIdentifier("ShowTagHydrant", sender: nil)
@@ -47,7 +48,25 @@ public class HomeViewController : UIViewController {
         UIFormatHelper.Format(MapButton, image:"")
         UIFormatHelper.Format(NearbyHydrantsButton, image:"")
         
+        UIFormatHelper.Format(MyHydrantCount);
+        
+        LoadCounts();
     }
+    
+    func LoadCounts()
+    {
+        let service = TagService()
+        service.GetMyTagCount { (response) -> Void in
+            
+            if (response != nil
+                && response!.Success)
+            {
+                let text:String = "Hydrants Tagged : " + String(response!.TagCount);
+                self.MyHydrantCount.text = text;
+            }
+        }
+    }
+    
     @IBAction func AboutSent(sender: AnyObject) {
         performSegueWithIdentifier("ShowAbout", sender: nil)
     }

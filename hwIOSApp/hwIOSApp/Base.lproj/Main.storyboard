@@ -138,6 +138,7 @@
                     <connections>
                         <outlet property="AboutButton" destination="0xp-kv-sp7" id="txR-jH-fWG"/>
                         <outlet property="MapButton" destination="GfE-sl-n0M" id="Ldz-Mc-Rw7"/>
+                        <outlet property="MyHydrantCount" destination="Es9-Hu-h01" id="q1f-es-k2t"/>
                         <outlet property="NavBar" destination="5EJ-9s-DnO" id="vbg-jS-19J"/>
                         <outlet property="NearbyHydrantsButton" destination="RTn-T8-Sgi" id="Rab-a3-TmA"/>
                         <outlet property="TagHydrantButton" destination="O1H-aP-V9N" id="2xe-0v-zjA"/>

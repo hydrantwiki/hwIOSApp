@@ -60,6 +60,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         HydrantImage.layer.borderColor = UIColor.blackColor().CGColor;
         HydrantImage.layer.borderWidth = 1;
         
+        StartGPSCollection();
     }
     
     @IBAction func SavePressed(sender: AnyObject) {
@@ -84,7 +85,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
                 imageName = tag.ImageGuid! + ".jpg";
                 
                 let writePath = FileHelper.fileInDocumentsDirectory(imageName!);
-                ImageHelper.saveImage(image!,path:writePath);
+                ImageHelper.saveImage(image!,path:writePath, imageQuality:UIConstants.ImageQuality);
                 
                 SaveImage(writePath, fileName:imageName!, tag: tag);
             }
@@ -142,10 +143,8 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         )
     }
     
-    
-    override public func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    private func StartGPSCollection()
+    {
         locationManager!.Start(){ (count:Int, location:Location?) in
             if (location != nil)
             {
@@ -168,10 +167,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
             
 
         }
-        
     }
-    
-    
     
     public func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         HydrantImage.contentMode = .ScaleAspectFit

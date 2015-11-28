@@ -13,6 +13,8 @@ import UIKit
 public class TagHydrantViewController : UIViewController, ILocationUpdated, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     public var user:User?;
+    var locationManager:AveragingLocationManager?
+    let imagePicker = UIImagePickerController()
     
     @IBOutlet var NavBar: UINavigationBar!
     @IBOutlet weak var CancelButton: UIBarButtonItem!
@@ -24,15 +26,11 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     @IBOutlet weak var CountLabel: UILabel!
     @IBOutlet weak var HydrantImage: UIImageView!
     
-    var locationManager:LocationManager?
-    let imagePicker = UIImagePickerController()
-    
-    
     override public func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        locationManager = LocationManager()
+        locationManager = AveragingLocationManager()
         locationManager!.locationAverageUpdated = self
         
         imagePicker.delegate = self
@@ -183,7 +181,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     }
     
 
-    public func NewLocationAverage(
+    public func NewLocation(
         count: Int,
         latitude: Double,
         longitude: Double,

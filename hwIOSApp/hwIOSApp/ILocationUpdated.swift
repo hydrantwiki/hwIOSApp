@@ -10,5 +10,5 @@ import Foundation
 
 public protocol ILocationUpdated
 {
-    func NewLocationAverage(count:Int, latitude:Double, longitude:Double, elevation:Double, accuracy:Double)
+    func NewLocation(count:Int, latitude:Double, longitude:Double, elevation:Double, accuracy:Double)
 }

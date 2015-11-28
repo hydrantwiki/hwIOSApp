@@ -10,35 +10,25 @@ import Foundation
 import CoreLocation
 
 public class LocationManager: NSObject, CLLocationManagerDelegate  {
-    
-    public var QuantityCollected:Int = 0
     var cancelCollecting:Bool
     var locationManager : CLLocationManager
-    var quantityToCollect : Int
     var periodBetween : Double
     var warmUpPeriod : Int
     var alreadyRequested:Bool
     var allowed:Bool = false
-    var locationAverage:LocationAverage;
-    var completionHandlers:[(Int, Location?)->Void] = []
-    public var locationAverageUpdated:ILocationUpdated? = nil
-    var completionFired:Bool = false;
+    public var locationUpdated:ILocationUpdated? = nil
     
     override init(){
         locationManager = CLLocationManager()
         
-        quantityToCollect = 10
-        periodBetween = 0.5
+        periodBetween = 30
         warmUpPeriod = 1
         cancelCollecting = false;
-        locationAverage = LocationAverage()
         alreadyRequested = false
     }
     
-    public func Start(completion: (count:Int, location:Location?) ->Void)
+    public func Start()
     {
-        completionHandlers.append(completion)
-        
         locationManager.delegate = self
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -73,49 +63,18 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             
-            locationAverage.add(location.coordinate.latitude,
-                longitude: location.coordinate.longitude,
-                elevation: location.altitude,
-                accuracy:location.horizontalAccuracy)
+            if (locationUpdated != nil)
+            {
+                locationUpdated!.NewLocation(
+                    1,
+                    latitude:location.coordinate.latitude,
+                    longitude:location.coordinate.longitude,
+                    elevation:location.altitude,
+                    accuracy:location.horizontalAccuracy)
+            }
 
-            QuantityCollected += 1
-            
-            if (QuantityCollected <= quantityToCollect)
-            {
-                if (locationAverageUpdated != nil)
-                {
-                    let currentAverage:Location? = locationAverage.getAverage();
-                    
-                    if (currentAverage != nil)
-                    {
-                        locationAverageUpdated!.NewLocationAverage(
-                            QuantityCollected,
-                            latitude:currentAverage!.latitude!,
-                            longitude:currentAverage!.longitude!,
-                            elevation:currentAverage!.elevation!,
-                            accuracy:currentAverage!.accuracy!)
-                    }
-                }
-            }
-            
-            if (QuantityCollected < quantityToCollect)
-            {
-                NSThread.sleepForTimeInterval(periodBetween)
-                locationManager.requestLocation()
-            }
-            else
-            {
-                if (completionHandlers.count>0)
-                {
-                    locationManager.stopUpdatingLocation()
-                    
-                    if (!completionFired)
-                    {
-                        completionFired = true;
-                        completionHandlers[0](QuantityCollected, locationAverage.getAverage())
-                    }
-                }
-            }
+            NSThread.sleepForTimeInterval(periodBetween)
+            locationManager.requestLocation()
         }
     }
     
@@ -125,6 +84,6 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
         locationManager.requestLocation()
     }
     
-
+    
     
 }

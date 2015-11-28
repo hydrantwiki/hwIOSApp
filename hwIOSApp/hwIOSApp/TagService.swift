@@ -78,18 +78,54 @@ class TagService : BaseService {
                 if (response.result.value != nil)
                 {
                     let json:String = response.result.value!
-                    let result:TagCountResponseDTO = Mapper<TagCountResponseDTO>().map(json)!
+                    
+                    if (!json.hasPrefix("<!DOCTYPE"))
+                    {
+                        let result:TagCountResponseDTO = Mapper<TagCountResponseDTO>().map(json)!
+                        completion(response: result);
+                    }
+                    return;
+                }
+
+                var resultDefault:TagCountResponseDTO = TagCountResponseDTO()
+                resultDefault.Success = false;
+                resultDefault.TagCount = 0;
+                completion(response: resultDefault);
+        }
+    }
+    
+    internal func GetNearbyHydrants(
+        latitude:Double,
+        longitude:Double,
+        distance:Double,
+        completion: (response:TagQueryResponseDTO?) ->Void)
+    {
+        Alamofire.request(.GET,
+            BaseUrl + "/api/hydrants/"
+                    + String(latitude) + "/"
+                    + String(longitude) + "/"
+                    + String(distance),
+            parameters: [:],
+            headers:GetAuthHeaders()
+            )
+            .responseString { response in
+                if (response.result.value != nil)
+                {
+                    let json:String = response.result.value!
+                    let result:TagQueryResponseDTO = Mapper<TagQueryResponseDTO>().map(json)!
                     
                     completion(response: result)
                 }
                 else
                 {
-                    var result:TagCountResponseDTO = TagCountResponseDTO()
+                    var result:TagQueryResponseDTO = TagQueryResponseDTO()
                     result.Success = false;
-                    result.TagCount = 0;
+                    result.Hydrants = nil;
                     
                     completion(response: result)
                 }
         }
+
     }
+    
 }

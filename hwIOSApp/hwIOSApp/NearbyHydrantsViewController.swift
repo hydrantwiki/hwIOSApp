@@ -9,32 +9,41 @@
 import Foundation
 import UIKit
 
-public class NearbyHydrantsViewController : UIViewController {
+public class NearbyHydrantsViewController : UIViewController, ILocationUpdated {
     
     public var user:User?;
+    var locationManager:LocationManager?
     
     @IBOutlet weak var CancelButton: UIBarButtonItem!
     @IBOutlet weak var HydrantTableView: UITableView!
     @IBOutlet weak var MapViewButton: UIBarButtonItem!
     @IBOutlet weak var NavBar: UINavigationBar!
     
+    
     @IBAction func CanceSent(sender: AnyObject) {
-        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
-        
+        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)        
     }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        locationManager = LocationManager()
+        locationManager!.locationUpdated = self
+        locationManager!.Start()
         
         UIFormatHelper.Format(NavBar)
-        
         UIFormatHelper.Format(CancelButton)
         UIFormatHelper.Format(MapViewButton)
-        
         UIFormatHelper.Format(HydrantTableView)
-        
-        
+    }
+    
+    public func NewLocation(
+        count: Int,
+        latitude: Double,
+        longitude: Double,
+        elevation: Double,
+        accuracy: Double) {
+            
+            
     }
     
     

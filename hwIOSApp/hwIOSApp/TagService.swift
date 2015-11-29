@@ -93,39 +93,4 @@ class TagService : BaseService {
                 completion(response: resultDefault);
         }
     }
-    
-    internal func GetNearbyHydrants(
-        latitude:Double,
-        longitude:Double,
-        distance:Double,
-        completion: (response:TagQueryResponseDTO?) ->Void)
-    {
-        Alamofire.request(.GET,
-            BaseUrl + "/api/hydrants/"
-                    + String(latitude) + "/"
-                    + String(longitude) + "/"
-                    + String(distance),
-            parameters: [:],
-            headers:GetAuthHeaders()
-            )
-            .responseString { response in
-                if (response.result.value != nil)
-                {
-                    let json:String = response.result.value!
-                    let result:TagQueryResponseDTO = Mapper<TagQueryResponseDTO>().map(json)!
-                    
-                    completion(response: result)
-                }
-                else
-                {
-                    var result:TagQueryResponseDTO = TagQueryResponseDTO()
-                    result.Success = false;
-                    result.Hydrants = nil;
-                    
-                    completion(response: result)
-                }
-        }
-
-    }
-    
 }

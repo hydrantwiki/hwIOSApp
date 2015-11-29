@@ -14,7 +14,7 @@
 		777C009B1BEDB65800BCC098 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C009A1BEDB65800BCC098 /* FileHelper.swift */; };
 		777C009D1BEDB67B00BCC098 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C009C1BEDB67B00BCC098 /* ImageHelper.swift */; };
 		777C009F1BF7A57200BCC098 /* TagCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C009E1BF7A57200BCC098 /* TagCountResponse.swift */; };
-		777C00A11BFAD67600BCC098 /* TagQueryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C00A01BFAD67600BCC098 /* TagQueryResponse.swift */; };
+		777C00A11BFAD67600BCC098 /* HydrantQueryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C00A01BFAD67600BCC098 /* HydrantQueryResponse.swift */; };
 		7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */; };
 		7781AF6F1BD4971200EEB195 /* TagHydrantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */; };
 		7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */; };
@@ -28,7 +28,7 @@
 		7789A7491BC4C36C00DC9D0B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7789A7481BC4C36C00DC9D0B /* MapKit.framework */; };
 		7789A74C1BC4CAEB00DC9D0B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A74B1BC4CAEB00DC9D0B /* AuthenticationService.swift */; };
 		7789A74E1BC4CC2200DC9D0B /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A74D1BC4CC2200DC9D0B /* TagService.swift */; };
-		7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */; };
+		7789A7521BC4CC5F00DC9D0B /* HydrantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7511BC4CC5F00DC9D0B /* HydrantService.swift */; };
 		7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A7531BC4CC9200DC9D0B /* BaseService.swift */; };
 		77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA118F1BD9CFDB00957779 /* AboutViewController.swift */; };
 		77AA119C1BDB301C00957779 /* AveragingLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA119B1BDB301C00957779 /* AveragingLocationManager.swift */; };
@@ -180,7 +180,7 @@
 		777C009A1BEDB65800BCC098 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		777C009C1BEDB67B00BCC098 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		777C009E1BF7A57200BCC098 /* TagCountResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCountResponse.swift; sourceTree = "<group>"; };
-		777C00A01BFAD67600BCC098 /* TagQueryResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagQueryResponse.swift; sourceTree = "<group>"; };
+		777C00A01BFAD67600BCC098 /* HydrantQueryResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantQueryResponse.swift; sourceTree = "<group>"; };
 		7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagHydrantViewController.swift; sourceTree = "<group>"; };
 		7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyHydrantsViewController.swift; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		7789A7481BC4C36C00DC9D0B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7789A74B1BC4CAEB00DC9D0B /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		7789A74D1BC4CC2200DC9D0B /* TagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
-		7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyService.swift; sourceTree = "<group>"; };
+		7789A7511BC4CC5F00DC9D0B /* HydrantService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantService.swift; sourceTree = "<group>"; };
 		7789A7531BC4CC9200DC9D0B /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		77AA118F1BD9CFDB00957779 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		77AA119B1BDB301C00957779 /* AveragingLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AveragingLocationManager.swift; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 				77E72A3E1BCCA53D0043123D /* DTO */,
 				7789A74B1BC4CAEB00DC9D0B /* AuthenticationService.swift */,
 				7789A74D1BC4CC2200DC9D0B /* TagService.swift */,
-				7789A7511BC4CC5F00DC9D0B /* NearbyService.swift */,
+				7789A7511BC4CC5F00DC9D0B /* HydrantService.swift */,
 				7789A7531BC4CC9200DC9D0B /* BaseService.swift */,
 			);
 			name = Services;
@@ -402,7 +402,7 @@
 				77E72A3B1BCC9B380043123D /* ServiceResult.swift */,
 				77B079501BE84FDA009F3A9C /* TagDTO.swift */,
 				777C009E1BF7A57200BCC098 /* TagCountResponse.swift */,
-				777C00A01BFAD67600BCC098 /* TagQueryResponse.swift */,
+				777C00A01BFAD67600BCC098 /* HydrantQueryResponse.swift */,
 				777C00951BEC4AC200BCC098 /* TagResponse.swift */,
 			);
 			name = DTO;
@@ -656,13 +656,13 @@
 				77AA11A11BDB321400957779 /* Location.swift in Sources */,
 				777C009F1BF7A57200BCC098 /* TagCountResponse.swift in Sources */,
 				7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */,
-				777C00A11BFAD67600BCC098 /* TagQueryResponse.swift in Sources */,
+				777C00A11BFAD67600BCC098 /* HydrantQueryResponse.swift in Sources */,
 				77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */,
 				777C009B1BEDB65800BCC098 /* FileHelper.swift in Sources */,
 				77AA119C1BDB301C00957779 /* AveragingLocationManager.swift in Sources */,
 				7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */,
 				77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */,
-				7789A7521BC4CC5F00DC9D0B /* NearbyService.swift in Sources */,
+				7789A7521BC4CC5F00DC9D0B /* HydrantService.swift in Sources */,
 				777C009D1BEDB67B00BCC098 /* ImageHelper.swift in Sources */,
 				77FC29941BE465CD002AE309 /* UIConstants.swift in Sources */,
 				77B079511BE84FDA009F3A9C /* TagDTO.swift in Sources */,

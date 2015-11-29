@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct TagQueryResponseDTO : Mappable {
+struct HydrantQueryResponseDTO : Mappable {
     var Success:Bool = false;
     var Hydrants:[HydrantDTO]? = nil;
     

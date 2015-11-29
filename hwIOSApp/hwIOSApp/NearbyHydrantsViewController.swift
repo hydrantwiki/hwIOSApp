@@ -12,7 +12,9 @@ import UIKit
 public class NearbyHydrantsViewController : UIViewController, ILocationUpdated {
     
     public var user:User?;
-    var locationManager:LocationManager?
+    var locationManager:LocationManager?;
+    var hydrantService:HydrantService?;
+    var hydrants:[HydrantDTO]?;
     
     @IBOutlet weak var CancelButton: UIBarButtonItem!
     @IBOutlet weak var HydrantTableView: UITableView!
@@ -26,14 +28,21 @@ public class NearbyHydrantsViewController : UIViewController, ILocationUpdated {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        locationManager = LocationManager()
-        locationManager!.locationUpdated = self
-        locationManager!.Start()
+        locationManager = LocationManager();
+        locationManager!.locationUpdated = self;
+        locationManager!.Start();
         
-        UIFormatHelper.Format(NavBar)
-        UIFormatHelper.Format(CancelButton)
-        UIFormatHelper.Format(MapViewButton)
-        UIFormatHelper.Format(HydrantTableView)
+        UIFormatHelper.Format(NavBar);
+        UIFormatHelper.Format(CancelButton);
+        UIFormatHelper.Format(MapViewButton);
+        UIFormatHelper.Format(HydrantTableView);
+        
+        hydrantService = HydrantService();
+    }
+    
+    public func RefreshTable()
+    {
+        
     }
     
     public func NewLocation(
@@ -42,9 +51,20 @@ public class NearbyHydrantsViewController : UIViewController, ILocationUpdated {
         longitude: Double,
         elevation: Double,
         accuracy: Double) {
-            
-            
+            hydrantService?.GetNearbyHydrants(
+                latitude,
+                longitude: longitude,
+                distance: 300,
+                completion: { (response) -> Void in
+                    
+                    if (response != nil)
+                    {
+                        if (response!.Success)
+                        {
+                            self.hydrants = response!.Hydrants;
+                            self.RefreshTable();
+                        }
+                    }
+            })
     }
-    
-    
 }

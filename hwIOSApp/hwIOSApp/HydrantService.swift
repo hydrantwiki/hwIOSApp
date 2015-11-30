@@ -43,7 +43,44 @@ internal class HydrantService : BaseService {
                     
                     completion(response: result)
                 }
+        }        
+    }
+    
+    
+    internal func GetHydrantsInBox(
+        minLatitude:Double,
+        maxLatitude:Double,
+        minLongitude:Double,
+        maxLongitude:Double,
+        completion: (response:HydrantQueryResponseDTO?) ->Void)
+    {
+        Alamofire.request(.GET,
+            BaseUrl + "/api/hydrants/"
+                + String(maxLongitude) + "/"
+                + String(minLongitude) + "/"
+                + String(maxLatitude) + "/"
+                + String(minLatitude),
+            parameters: [:],
+            headers:GetAuthHeaders()
+            )
+            .responseString { response in
+                if (response.result.value != nil)
+                {
+                    let json:String = response.result.value!
+                    let result:HydrantQueryResponseDTO = Mapper<HydrantQueryResponseDTO>().map(json)!
+                    
+                    completion(response: result)
+                }
+                else
+                {
+                    var result:HydrantQueryResponseDTO = HydrantQueryResponseDTO()
+                    result.Success = false;
+                    result.Hydrants = nil;
+                    
+                    completion(response: result)
+                }
         }
         
     }
+
 }

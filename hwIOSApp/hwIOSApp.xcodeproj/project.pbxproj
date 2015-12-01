@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7730854A1BFAE84B0063C1D1 /* HydrantDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773085491BFAE84B0063C1D1 /* HydrantDTO.swift */; };
+		773B2CE81C0D570E00171A4D /* HydrantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773B2CE71C0D570E00171A4D /* HydrantTableViewCell.swift */; };
 		7743E6021BDDCE0000D37AD5 /* ILocationUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743E6011BDDCE0000D37AD5 /* ILocationUpdated.swift */; };
 		777C008C1BEC454800BCC098 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C008B1BEC454800BCC098 /* Credentials.swift */; };
 		777C00961BEC4AC200BCC098 /* TagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C00951BEC4AC200BCC098 /* TagResponse.swift */; };
@@ -174,6 +175,7 @@
 
 /* Begin PBXFileReference section */
 		773085491BFAE84B0063C1D1 /* HydrantDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantDTO.swift; sourceTree = "<group>"; };
+		773B2CE71C0D570E00171A4D /* HydrantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantTableViewCell.swift; sourceTree = "<group>"; };
 		7743E6011BDDCE0000D37AD5 /* ILocationUpdated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILocationUpdated.swift; sourceTree = "<group>"; };
 		777C008B1BEC454800BCC098 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		777C00951BEC4AC200BCC098 /* TagResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagResponse.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */,
 				7781AF6B1BD48F6F00EEB195 /* ViewControllers */,
 				7789A71E1BC4C29A00DC9D0B /* Main.storyboard */,
+				773B2CE71C0D570E00171A4D /* HydrantTableViewCell.swift */,
 				7789A7211BC4C29A00DC9D0B /* Assets.xcassets */,
 				7789A7261BC4C29A00DC9D0B /* Info.plist */,
 			);
@@ -671,6 +674,7 @@
 				777C00961BEC4AC200BCC098 /* TagResponse.swift in Sources */,
 				7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */,
 				77E72A3A1BCC9B050043123D /* User.swift in Sources */,
+				773B2CE81C0D570E00171A4D /* HydrantTableViewCell.swift in Sources */,
 				7781AF731BD4990C00EEB195 /* HydrantMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -37,6 +37,7 @@
 		77AA11A11BDB321400957779 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA11A01BDB321400957779 /* Location.swift */; };
 		77B079511BE84FDA009F3A9C /* TagDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B079501BE84FDA009F3A9C /* TagDTO.swift */; };
 		77B0795B1BE851AA009F3A9C /* PositionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0795A1BE851AA009F3A9C /* PositionDTO.swift */; };
+		77D26A631C100982005ACAE8 /* HydrantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D26A621C100982005ACAE8 /* HydrantTableViewController.swift */; };
 		77E72A0E1BCC895D0043123D /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = 77E72A0D1BCC895D0043123D /* Alamofire */; };
 		77E72A371BCC96040043123D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A1C1BCC95C70043123D /* Alamofire.framework */; };
 		77E72A381BCC96040043123D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A2E1BCC95EC0043123D /* ObjectMapper.framework */; };
@@ -210,6 +211,7 @@
 		77AA11A01BDB321400957779 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		77B079501BE84FDA009F3A9C /* TagDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDTO.swift; sourceTree = "<group>"; };
 		77B0795A1BE851AA009F3A9C /* PositionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionDTO.swift; sourceTree = "<group>"; };
+		77D26A621C100982005ACAE8 /* HydrantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantTableViewController.swift; sourceTree = "<group>"; };
 		77E72A0D1BCC895D0043123D /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = /SourceCode/HydrantWiki/hwIOSApp/hwIOSApp/Alamofire; sourceTree = "<absolute>"; };
 		77E72A131BCC95C60043123D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		77E72A251BCC95EC0043123D /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 		7789A7191BC4C29A00DC9D0B /* hwIOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				77D26A591C100926005ACAE8 /* Tables */,
 				77FC29921BE465B8002AE309 /* Constants */,
 				777C00991BEDB64100BCC098 /* Helpers */,
 				7743E6001BDDCDCF00D37AD5 /* Protocols */,
@@ -315,7 +318,6 @@
 				7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */,
 				7781AF6B1BD48F6F00EEB195 /* ViewControllers */,
 				7789A71E1BC4C29A00DC9D0B /* Main.storyboard */,
-				773B2CE71C0D570E00171A4D /* HydrantTableViewCell.swift */,
 				7789A7211BC4C29A00DC9D0B /* Assets.xcassets */,
 				7789A7261BC4C29A00DC9D0B /* Info.plist */,
 			);
@@ -359,6 +361,15 @@
 				77FC28D01C09390A007CA82E /* LocationManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		77D26A591C100926005ACAE8 /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+				773B2CE71C0D570E00171A4D /* HydrantTableViewCell.swift */,
+				77D26A621C100982005ACAE8 /* HydrantTableViewController.swift */,
+			);
+			name = Tables;
 			sourceTree = "<group>";
 		};
 		77E72A111BCC8CD70043123D /* Models */ = {
@@ -672,6 +683,7 @@
 				7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */,
 				77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */,
 				777C00961BEC4AC200BCC098 /* TagResponse.swift in Sources */,
+				77D26A631C100982005ACAE8 /* HydrantTableViewController.swift in Sources */,
 				7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */,
 				77E72A3A1BCC9B050043123D /* User.swift in Sources */,
 				773B2CE81C0D570E00171A4D /* HydrantTableViewCell.swift in Sources */,

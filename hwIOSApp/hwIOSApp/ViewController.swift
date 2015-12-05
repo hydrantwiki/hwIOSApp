@@ -26,9 +26,7 @@ class ViewController: UIViewController {
         if ((username ?? "").isEmpty
             || (password ?? "").isEmpty)
         {
-            let myAlert: UIAlertController = UIAlertController(title: "HydrantWiki", message: "Username and password required.", preferredStyle: .Alert)
-            myAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(myAlert, animated: true, completion: nil)
+            self.ShowOKAlert("HydrantWiki", message: "Username and password required");
             return;
         }
         
@@ -53,9 +51,7 @@ class ViewController: UIViewController {
             else
             {
                 //Alert
-                let myAlert: UIAlertController = UIAlertController(title: "HydrantWiki", message: "Failed to login", preferredStyle: .Alert)
-                myAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                self.presentViewController(myAlert, animated: true, completion: nil)
+                self.ShowOKAlert("HydrantWiki", message: "Failed to login to server");
             }
         }
     }
@@ -103,7 +99,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

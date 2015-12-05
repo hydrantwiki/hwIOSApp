@@ -22,6 +22,15 @@ class ViewController: UIViewController {
         let service:AuthenticationService = AuthenticationService()
         let username = UsernameText.text
         let password = PasswordText.text
+
+        if ((username ?? "").isEmpty
+            || (password ?? "").isEmpty)
+        {
+            let myAlert: UIAlertController = UIAlertController(title: "HydrantWiki", message: "Username and password required.", preferredStyle: .Alert)
+            myAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(myAlert, animated: true, completion: nil)
+            return;
+        }
         
         service.login(username!, password: password!) {
             (result:User?) in

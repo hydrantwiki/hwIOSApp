@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-public class NearbyHydrantsViewController : UIViewController, ILocationUpdated {
+public class NearbyHydrantsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, ILocationUpdated {
     
     public var user:User?;
     var locationManager:LocationManager?;
     var hydrantService:HydrantService?;
-    var hydrants:[HydrantDTO]?;
+    var hydrants:[HydrantDTO] = [];
     
     @IBOutlet weak var CancelButton: UIBarButtonItem!
     @IBOutlet weak var HydrantTableView: UITableView!
@@ -23,6 +23,10 @@ public class NearbyHydrantsViewController : UIViewController, ILocationUpdated {
     
     
     @IBAction func CanceSent(sender: AnyObject) {
+        if (locationManager != nil)
+        {
+            locationManager?.Stop();
+        }
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)        
     }
     
@@ -30,6 +34,7 @@ public class NearbyHydrantsViewController : UIViewController, ILocationUpdated {
         super.viewDidLoad()
         locationManager = LocationManager();
         locationManager!.locationUpdated = self;
+        locationManager!.OnlyOnce = true;
         locationManager!.Start();
         
         UIFormatHelper.Format(NavBar);
@@ -38,11 +43,43 @@ public class NearbyHydrantsViewController : UIViewController, ILocationUpdated {
         UIFormatHelper.Format(HydrantTableView);
         
         hydrantService = HydrantService();
+        HydrantTableView.delegate = self;
+        HydrantTableView.dataSource = self;
     }
     
     public func RefreshTable()
     {
+        HydrantTableView.reloadData();
+    }
+    
+    // MARK:  UITextFieldDelegate Methods
+    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return hydrants.count
+    }
+    
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "HydrantTableViewCell";
         
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! HydrantTableViewCell
+        
+        // Configure the cell...
+        let hydrant = hydrants[indexPath.row]
+        
+        cell.DistanceLabel.text = "";
+        cell.LocationLabel.text = hydrant.Position!.GetLocationString();
+        cell.DetailsLabel.text = "";
+        cell.HydrantImage = nil;
+        
+        return cell
+    }
+    
+    // MARK:  UITableViewDelegate Methods
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     public func NewLocation(
@@ -61,7 +98,15 @@ public class NearbyHydrantsViewController : UIViewController, ILocationUpdated {
                     {
                         if (response!.Success)
                         {
-                            self.hydrants = response!.Hydrants;
+                            if (response!.Hydrants != nil)
+                            {
+                                self.hydrants = response!.Hydrants!;
+                            }
+                            else
+                            {
+                                self.hydrants = [];
+                            }
+                            
                             self.RefreshTable();
                         }
                     }

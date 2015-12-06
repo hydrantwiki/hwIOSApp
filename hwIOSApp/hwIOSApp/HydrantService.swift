@@ -19,31 +19,37 @@ internal class HydrantService : BaseService {
         distance:Double,
         completion: (response:HydrantQueryResponseDTO?) ->Void)
     {
+        let uri = BaseUrl + "/api/hydrants/"
+            + String(latitude) + "/"
+            + String(longitude) + "/"
+            + String(distance);
+        
         Alamofire.request(.GET,
-            BaseUrl + "/api/hydrants/"
-                + String(latitude) + "/"
-                + String(longitude) + "/"
-                + String(distance),
+            uri,
             parameters: [:],
             headers:GetAuthHeaders()
             )
             .responseString { response in
-                if (response.result.value != nil)
+                if (response.result.isSuccess
+                    && response.result.value != nil
+                    && response.result.error == nil)
                 {
-                    let json:String = response.result.value!
-                    let result:HydrantQueryResponseDTO = Mapper<HydrantQueryResponseDTO>().map(json)!
+                    let json:String = response.result.value!;
                     
-                    completion(response: result)
+                    if (!json.hasPrefix("<!DOCTYPE"))
+                    {
+                        let result:HydrantQueryResponseDTO = Mapper<HydrantQueryResponseDTO>().map(json)!
+                        completion(response: result)
+                        
+                        return;
+                    }
                 }
-                else
-                {
-                    var result:HydrantQueryResponseDTO = HydrantQueryResponseDTO()
-                    result.Success = false;
-                    result.Hydrants = nil;
-                    
-                    completion(response: result)
-                }
-        }        
+                
+                var result:HydrantQueryResponseDTO = HydrantQueryResponseDTO()
+                result.Success = false;
+                result.Hydrants = nil;
+                completion(response: result)
+        }
     }
     
     

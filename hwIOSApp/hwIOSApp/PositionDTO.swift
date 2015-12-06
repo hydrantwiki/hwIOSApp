@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct PositionDTO : Mappable {
+public struct PositionDTO : Mappable {
     var Latitude:Double?
     var Longitude:Double?
     var Altitude:Double?
@@ -17,7 +17,7 @@ struct PositionDTO : Mappable {
     var DeviceDateTime:NSDate?
     var WasAveraged:Bool = false
     
-    init?(_ map: Map){
+    public init?(_ map: Map){
         
     }
     
@@ -31,7 +31,7 @@ struct PositionDTO : Mappable {
         self.WasAveraged = wasAveraged;
     }
     
-    mutating func mapping(map: Map) {
+    mutating public func mapping(map: Map) {
         Latitude            <- map["Latitude"]
         Longitude           <- map["Longitude"]
         Altitude            <- map["Altitude"]
@@ -39,5 +39,10 @@ struct PositionDTO : Mappable {
         WasAveraged         <- map["WasAveraged"]
         DeviceDateTime      <- (map["DeviceDateTime"], ISO8601DateTransform())
         
+    }
+    
+    public func GetLocationString() -> String{
+        return "Latitude: " + String(self.Latitude) + ", Longitude: " + String(self.Longitude);
+    
     }
 }

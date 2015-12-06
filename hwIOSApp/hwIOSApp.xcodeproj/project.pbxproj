@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7730854A1BFAE84B0063C1D1 /* HydrantDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773085491BFAE84B0063C1D1 /* HydrantDTO.swift */; };
+		773410F61C1405800002466B /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773410F51C1405800002466B /* UserDTO.swift */; };
+		773411001C14063B0002466B /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773410FF1C14063B0002466B /* AuthenticationResponse.swift */; };
 		773B2CE81C0D570E00171A4D /* HydrantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773B2CE71C0D570E00171A4D /* HydrantTableViewCell.swift */; };
 		7743E6021BDDCE0000D37AD5 /* ILocationUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743E6011BDDCE0000D37AD5 /* ILocationUpdated.swift */; };
 		777C008C1BEC454800BCC098 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777C008B1BEC454800BCC098 /* Credentials.swift */; };
@@ -37,14 +39,14 @@
 		77AA11A11BDB321400957779 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA11A01BDB321400957779 /* Location.swift */; };
 		77B079511BE84FDA009F3A9C /* TagDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B079501BE84FDA009F3A9C /* TagDTO.swift */; };
 		77B0795B1BE851AA009F3A9C /* PositionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0795A1BE851AA009F3A9C /* PositionDTO.swift */; };
-		77D26A631C100982005ACAE8 /* HydrantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D26A621C100982005ACAE8 /* HydrantTableViewController.swift */; };
 		77E72A0E1BCC895D0043123D /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = 77E72A0D1BCC895D0043123D /* Alamofire */; };
 		77E72A371BCC96040043123D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A1C1BCC95C70043123D /* Alamofire.framework */; };
 		77E72A381BCC96040043123D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A2E1BCC95EC0043123D /* ObjectMapper.framework */; };
 		77E72A3A1BCC9B050043123D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A391BCC9B050043123D /* User.swift */; };
 		77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A3B1BCC9B380043123D /* ServiceResult.swift */; };
-		77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A3F1BCCA5510043123D /* AuthenticationDTO.swift */; };
+		77E72A401BCCA5510043123D /* AvailableResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E72A3F1BCCA5510043123D /* AvailableResponse.swift */; };
 		77F1EA181BCCAE4F004B3921 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 77F1EA171BCCAE4F004B3921 /* .gitignore */; };
+		77F7CD071C13724900EB51FC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F7CD061C13724900EB51FC /* UIViewControllerExtension.swift */; };
 		77FC28D11C09390A007CA82E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FC28D01C09390A007CA82E /* LocationManager.swift */; };
 		77FC298A1BE077E6002AE309 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A2E1BCC95EC0043123D /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77FC298E1BE077E6002AE309 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A1C1BCC95C70043123D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -176,6 +178,8 @@
 
 /* Begin PBXFileReference section */
 		773085491BFAE84B0063C1D1 /* HydrantDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantDTO.swift; sourceTree = "<group>"; };
+		773410F51C1405800002466B /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		773410FF1C14063B0002466B /* AuthenticationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
 		773B2CE71C0D570E00171A4D /* HydrantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantTableViewCell.swift; sourceTree = "<group>"; };
 		7743E6011BDDCE0000D37AD5 /* ILocationUpdated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILocationUpdated.swift; sourceTree = "<group>"; };
 		777C008B1BEC454800BCC098 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -211,14 +215,14 @@
 		77AA11A01BDB321400957779 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		77B079501BE84FDA009F3A9C /* TagDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDTO.swift; sourceTree = "<group>"; };
 		77B0795A1BE851AA009F3A9C /* PositionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionDTO.swift; sourceTree = "<group>"; };
-		77D26A621C100982005ACAE8 /* HydrantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantTableViewController.swift; sourceTree = "<group>"; };
 		77E72A0D1BCC895D0043123D /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = /SourceCode/HydrantWiki/hwIOSApp/hwIOSApp/Alamofire; sourceTree = "<absolute>"; };
 		77E72A131BCC95C60043123D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		77E72A251BCC95EC0043123D /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
 		77E72A391BCC9B050043123D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		77E72A3B1BCC9B380043123D /* ServiceResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceResult.swift; sourceTree = "<group>"; };
-		77E72A3F1BCCA5510043123D /* AuthenticationDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationDTO.swift; sourceTree = "<group>"; };
+		77E72A3F1BCCA5510043123D /* AvailableResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableResponse.swift; sourceTree = "<group>"; };
 		77F1EA171BCCAE4F004B3921 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		77F7CD061C13724900EB51FC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		77FC28D01C09390A007CA82E /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		77FC29931BE465CD002AE309 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,6 +255,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		773411011C14065F0002466B /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				773410FF1C14063B0002466B /* AuthenticationResponse.swift */,
+				77E72A3F1BCCA5510043123D /* AvailableResponse.swift */,
+				777C00A01BFAD67600BCC098 /* HydrantQueryResponse.swift */,
+				777C009E1BF7A57200BCC098 /* TagCountResponse.swift */,
+				777C00951BEC4AC200BCC098 /* TagResponse.swift */,
+			);
+			name = Responses;
+			sourceTree = "<group>";
+		};
 		7743E6001BDDCDCF00D37AD5 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +287,7 @@
 		7781AF6B1BD48F6F00EEB195 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				77F7CCFD1C13722200EB51FC /* Extensions */,
 				7789A71C1BC4C29A00DC9D0B /* ViewController.swift */,
 				7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */,
 				7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */,
@@ -345,6 +362,7 @@
 		7789A74A1BC4CA7000DC9D0B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				773411011C14065F0002466B /* Responses */,
 				77E72A3E1BCCA53D0043123D /* DTO */,
 				7789A74B1BC4CAEB00DC9D0B /* AuthenticationService.swift */,
 				7789A74D1BC4CC2200DC9D0B /* TagService.swift */,
@@ -367,7 +385,6 @@
 			isa = PBXGroup;
 			children = (
 				773B2CE71C0D570E00171A4D /* HydrantTableViewCell.swift */,
-				77D26A621C100982005ACAE8 /* HydrantTableViewController.swift */,
 			);
 			name = Tables;
 			sourceTree = "<group>";
@@ -410,16 +427,21 @@
 		77E72A3E1BCCA53D0043123D /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				77E72A3F1BCCA5510043123D /* AuthenticationDTO.swift */,
 				773085491BFAE84B0063C1D1 /* HydrantDTO.swift */,
 				77B0795A1BE851AA009F3A9C /* PositionDTO.swift */,
 				77E72A3B1BCC9B380043123D /* ServiceResult.swift */,
 				77B079501BE84FDA009F3A9C /* TagDTO.swift */,
-				777C009E1BF7A57200BCC098 /* TagCountResponse.swift */,
-				777C00A01BFAD67600BCC098 /* HydrantQueryResponse.swift */,
-				777C00951BEC4AC200BCC098 /* TagResponse.swift */,
+				773410F51C1405800002466B /* UserDTO.swift */,
 			);
 			name = DTO;
+			sourceTree = "<group>";
+		};
+		77F7CCFD1C13722200EB51FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				77F7CD061C13724900EB51FC /* UIViewControllerExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		77FC29921BE465B8002AE309 /* Constants */ = {
@@ -668,14 +690,17 @@
 				7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */,
 				77AA119F1BDB31E700957779 /* LocationAverage.swift in Sources */,
 				77AA11A11BDB321400957779 /* Location.swift in Sources */,
+				773411001C14063B0002466B /* AuthenticationResponse.swift in Sources */,
 				777C009F1BF7A57200BCC098 /* TagCountResponse.swift in Sources */,
 				7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */,
 				777C00A11BFAD67600BCC098 /* HydrantQueryResponse.swift in Sources */,
+				773410F61C1405800002466B /* UserDTO.swift in Sources */,
 				77E72A3C1BCC9B380043123D /* ServiceResult.swift in Sources */,
 				777C009B1BEDB65800BCC098 /* FileHelper.swift in Sources */,
 				77AA119C1BDB301C00957779 /* AveragingLocationManager.swift in Sources */,
 				7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */,
-				77E72A401BCCA5510043123D /* AuthenticationDTO.swift in Sources */,
+				77F7CD071C13724900EB51FC /* UIViewControllerExtension.swift in Sources */,
+				77E72A401BCCA5510043123D /* AvailableResponse.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* HydrantService.swift in Sources */,
 				777C009D1BEDB67B00BCC098 /* ImageHelper.swift in Sources */,
 				77FC29941BE465CD002AE309 /* UIConstants.swift in Sources */,
@@ -683,7 +708,6 @@
 				7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */,
 				77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */,
 				777C00961BEC4AC200BCC098 /* TagResponse.swift in Sources */,
-				77D26A631C100982005ACAE8 /* HydrantTableViewController.swift in Sources */,
 				7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */,
 				77E72A3A1BCC9B050043123D /* User.swift in Sources */,
 				773B2CE81C0D570E00171A4D /* HydrantTableViewCell.swift in Sources */,

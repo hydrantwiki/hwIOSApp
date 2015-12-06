@@ -7,17 +7,24 @@
 //
 
 import Foundation
+import Alamofire
 
 class BaseService {
     //var BaseUrl = "http://app.hydrantwiki.com"
-    var BaseUrl = "http://192.168.50.6"
-
-    
+    var BaseUrl = "http://192.168.50.6/mobileapi"
     var credentials:Credentials
     
     init()
     {
         credentials = Credentials.GetInstance()
+    }
+
+    func GetAlamofireManager(timeout:Double) -> Alamofire.Manager
+    {
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForResource = timeout
+        
+        return Alamofire.Manager(configuration: configuration)
     }
     
     var Username:String? {

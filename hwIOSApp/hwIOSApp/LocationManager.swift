@@ -15,8 +15,10 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
     var periodBetween : Double
     var warmUpPeriod : Int
     var alreadyRequested:Bool
-    var allowed:Bool = false
+    var allowed:Bool = false;
+    var stopped:Bool = false;
     public var locationUpdated:ILocationUpdated? = nil
+    public var OnlyOnce:Bool = false;
     
     override init(){
         locationManager = CLLocationManager()
@@ -48,6 +50,11 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
         }
     }
     
+    public func Stop()
+    {
+        stopped = true;
+    }
+    
     public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if (status == CLAuthorizationStatus.AuthorizedAlways
             || status == CLAuthorizationStatus.AuthorizedWhenInUse)
@@ -61,20 +68,33 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
     }
     
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            
-            if (locationUpdated != nil)
-            {
-                locationUpdated!.NewLocation(
-                    1,
-                    latitude:location.coordinate.latitude,
-                    longitude:location.coordinate.longitude,
-                    elevation:location.altitude,
-                    accuracy:location.horizontalAccuracy)
-            }
+        if (!stopped)
+        {
+            if let location = locations.first {
+                
+                if (locationUpdated != nil)
+                {
+                    locationUpdated!.NewLocation(
+                        1,
+                        latitude:location.coordinate.latitude,
+                        longitude:location.coordinate.longitude,
+                        elevation:location.altitude,
+                        accuracy:location.horizontalAccuracy)
+                }
 
-            NSThread.sleepForTimeInterval(periodBetween)
-            locationManager.requestLocation()
+                locationManager.stopUpdatingLocation();
+
+                if (OnlyOnce)
+                {
+                    stopped = true;
+                }
+                
+                if (!stopped)
+                {
+                    NSThread.sleepForTimeInterval(periodBetween)
+                    locationManager.requestLocation()
+                }
+            }
         }
     }
     

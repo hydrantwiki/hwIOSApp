@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct AuthenticationResponse: Mappable {
+struct IsAvailableResponse: Mappable {
     var Success:Bool = false;
     var Available:Bool = false;
     

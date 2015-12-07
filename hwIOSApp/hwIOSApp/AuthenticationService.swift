@@ -27,17 +27,22 @@ class AuthenticationService : BaseService {
                     && response.result.value != nil)
                 {
                     let json:String = response.result.value!
-                    let result:AuthenticationDTO = Mapper<AuthenticationDTO>().map(json)!
+                    let result:AuthenticationResponse = Mapper<AuthenticationResponse>().map(json)!
                     
-                    if (result.Result=="Success")
+                    if (result.Success)
                     {
-                        var user:User = User()
-                        user.AuthToken = result.AuthorizationToken
-                        user.Username = result.UserName
-                        user.DisplayName = result.DisplayName
+                        var resultUser = result.User;
                         
-                        completion(user);
-                        return;
+                        if (resultUser != nil)
+                        {
+                            var user:User = User();
+                            user.AuthToken = resultUser!.AuthorizationToken
+                            user.Username = resultUser!.UserName
+                            user.DisplayName = resultUser!.DisplayName
+                            completion(user);
+                            
+                            return;
+                        }
                     }
                 }
                 

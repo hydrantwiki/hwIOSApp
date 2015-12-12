@@ -37,7 +37,7 @@ class AuthenticationService : BaseService {
                         {
                             var user:User = User();
                             user.AuthToken = resultUser!.AuthorizationToken
-                            user.Username = resultUser!.UserName
+                            user.Username = resultUser!.Username
                             user.DisplayName = resultUser!.DisplayName
                             completion(user);
                             

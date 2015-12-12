@@ -12,7 +12,7 @@ import ObjectMapper
 struct UserDTO: Mappable {
     var AuthorizationToken:String?
     var DisplayName:String?
-    var UserName:String?
+    var Username:String?
     
     init?(_ map: Map){
         
@@ -21,6 +21,6 @@ struct UserDTO: Mappable {
     mutating func mapping(map: Map) {
         AuthorizationToken  <- map["AuthorizationToken"]
         DisplayName         <- map["DisplayName"]
-        UserName            <- map["UserName"]
+        Username            <- map["Username"]
     }
 }

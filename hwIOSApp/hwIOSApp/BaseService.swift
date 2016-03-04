@@ -11,12 +11,15 @@ import Alamofire
 
 class BaseService {
     //var BaseUrl = "http://app.hydrantwiki.com"
-    var BaseUrl = "http://192.168.50.6/mobileapi"
+    var BaseUrl:String;
     var credentials:Credentials
     
     init()
     {
         credentials = Credentials.GetInstance()
+        
+        let infoPlist = NSBundle.mainBundle().infoDictionary;
+        BaseUrl = infoPlist!["HWAppURL"] as! String;
     }
 
     func GetAlamofireManager(timeout:Double) -> Alamofire.Manager

@@ -44,6 +44,8 @@ class AuthenticationService : BaseService {
                             return;
                         }
                     }
+                    
+                    
                 }
                 
                 completion(nil);

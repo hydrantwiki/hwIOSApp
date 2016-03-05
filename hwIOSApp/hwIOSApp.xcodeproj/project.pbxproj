@@ -39,6 +39,8 @@
 		77AA11A11BDB321400957779 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AA11A01BDB321400957779 /* Location.swift */; };
 		77B079511BE84FDA009F3A9C /* TagDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B079501BE84FDA009F3A9C /* TagDTO.swift */; };
 		77B0795B1BE851AA009F3A9C /* PositionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0795A1BE851AA009F3A9C /* PositionDTO.swift */; };
+		77BCC6801C8B2A03007732DC /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCC67F1C8B2A03007732DC /* AlertHelper.swift */; };
+		77BCC6821C8B301C007732DC /* UIFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCC6811C8B301C007732DC /* UIFormatHelper.swift */; };
 		77E72A0E1BCC895D0043123D /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = 77E72A0D1BCC895D0043123D /* Alamofire */; };
 		77E72A371BCC96040043123D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A1C1BCC95C70043123D /* Alamofire.framework */; };
 		77E72A381BCC96040043123D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A2E1BCC95EC0043123D /* ObjectMapper.framework */; };
@@ -215,6 +217,8 @@
 		77AA11A01BDB321400957779 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		77B079501BE84FDA009F3A9C /* TagDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDTO.swift; sourceTree = "<group>"; };
 		77B0795A1BE851AA009F3A9C /* PositionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionDTO.swift; sourceTree = "<group>"; };
+		77BCC67F1C8B2A03007732DC /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		77BCC6811C8B301C007732DC /* UIFormatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFormatHelper.swift; sourceTree = "<group>"; };
 		77E72A0D1BCC895D0043123D /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = /SourceCode/HydrantWiki/hwIOSApp/hwIOSApp/Alamofire; sourceTree = "<absolute>"; };
 		77E72A131BCC95C60043123D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		77E72A251BCC95EC0043123D /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 			children = (
 				777C009A1BEDB65800BCC098 /* FileHelper.swift */,
 				777C009C1BEDB67B00BCC098 /* ImageHelper.swift */,
+				77BCC67F1C8B2A03007732DC /* AlertHelper.swift */,
+				77BCC6811C8B301C007732DC /* UIFormatHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -691,6 +697,7 @@
 				77AA119F1BDB31E700957779 /* LocationAverage.swift in Sources */,
 				77AA11A11BDB321400957779 /* Location.swift in Sources */,
 				773411001C14063B0002466B /* AuthenticationResponse.swift in Sources */,
+				77BCC6801C8B2A03007732DC /* AlertHelper.swift in Sources */,
 				777C009F1BF7A57200BCC098 /* TagCountResponse.swift in Sources */,
 				7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */,
 				777C00A11BFAD67600BCC098 /* HydrantQueryResponse.swift in Sources */,
@@ -700,6 +707,7 @@
 				77AA119C1BDB301C00957779 /* AveragingLocationManager.swift in Sources */,
 				7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */,
 				77F7CD071C13724900EB51FC /* UIViewControllerExtension.swift in Sources */,
+				77BCC6821C8B301C007732DC /* UIFormatHelper.swift in Sources */,
 				77E72A401BCCA5510043123D /* AvailableResponse.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* HydrantService.swift in Sources */,
 				777C009D1BEDB67B00BCC098 /* ImageHelper.swift in Sources */,

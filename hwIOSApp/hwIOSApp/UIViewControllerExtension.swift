@@ -10,15 +10,7 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    
-    
     func ShowOKAlert(title:String, message:String) {
-        let myAlert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        myAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        
-        self.presentViewController(myAlert, animated: true, completion: nil)
+        AlertHelper.ShowOkAlert(title, message: message, controller: self)
     }
-    
-    
-    
 }

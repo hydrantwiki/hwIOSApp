@@ -36,6 +36,9 @@ public class HomeViewController : UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        //Temp - Disable map button for now
+        MapButton.enabled = false;
+        
         // Do any additional setup after loading the view, typically from a nib.
         UIFormatHelper.Format(NavBar)
         UIFormatHelper.Format(ToolBar)
@@ -48,8 +51,9 @@ public class HomeViewController : UIViewController {
         UIFormatHelper.Format(MapButton, image:"")
         UIFormatHelper.Format(NearbyHydrantsButton, image:"")
         
+        //Other Controls
         UIFormatHelper.Format(MyHydrantCount);
-        
+                
         LoadCounts();
     }
     

@@ -180,12 +180,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GOp-DV-YP2">
+                                <rect key="frame" x="14" y="63" width="571" height="517"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">HydrantWiki is an crowd source hydrant location database.  
+
+For more information on the system please see http://www.hydrantwiki.com.  Open Source Projects Used - Alamofire - ObjectMapper</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GOp-DV-YP2" firstAttribute="top" secondItem="XFi-JF-2Va" secondAttribute="top" id="2bS-Wz-QWE"/>
+                            <constraint firstItem="GOp-DV-YP2" firstAttribute="leading" secondItem="1h4-ZY-9ma" secondAttribute="leadingMargin" constant="-6" id="GfD-U5-YBO"/>
                             <constraint firstItem="XFi-JF-2Va" firstAttribute="top" secondItem="1h4-ZY-9ma" secondAttribute="topMargin" id="HX1-Tr-t1Y"/>
+                            <constraint firstItem="GOp-DV-YP2" firstAttribute="centerX" secondItem="XFi-JF-2Va" secondAttribute="centerX" id="Q6y-37-If6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XFi-JF-2Va" secondAttribute="trailing" constant="-20" id="Wj8-iP-OTm"/>
+                            <constraint firstAttribute="bottom" secondItem="GOp-DV-YP2" secondAttribute="bottom" constant="20" symbolic="YES" id="bhQ-I3-OvH"/>
                             <constraint firstItem="XFi-JF-2Va" firstAttribute="leading" secondItem="1h4-ZY-9ma" secondAttribute="leadingMargin" constant="-20" id="u3F-na-6mh"/>
                         </constraints>
                     </view>

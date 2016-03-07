@@ -468,15 +468,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="axO-5D-Srn">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="k6m-sw-8By">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFM-zb-NHr">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                         <animations/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="600" id="8jf-7y-PbV"/>
-                                            <constraint firstAttribute="height" constant="50" id="UYD-zh-QIy"/>
+                                            <constraint firstAttribute="height" constant="50" id="qSU-Jx-C2S"/>
                                         </constraints>
                                         <items>
                                             <navigationItem title="HydrantWiki Map View" id="Zwd-YL-qhk">
@@ -496,61 +495,26 @@
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X0J-J0-LiZ">
                                         <rect key="frame" x="0.0" y="50" width="600" height="550"/>
                                         <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="550" id="c38-aO-8rL"/>
-                                        </constraints>
                                     </mapView>
                                 </subviews>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="leading" secondItem="cFM-zb-NHr" secondAttribute="leading" id="1PB-mn-fqM"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="top" secondItem="cFM-zb-NHr" secondAttribute="bottom" id="4ZX-0C-VAP"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="centerX" secondItem="axO-5D-Srn" secondAttribute="centerX" id="6mf-F8-YnL"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leading" id="7F7-Ec-IL9"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leading" id="84b-nd-66a"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leadingMargin" id="Ayw-rc-9ak"/>
-                                    <constraint firstAttribute="bottom" secondItem="X0J-J0-LiZ" secondAttribute="bottom" id="BUA-Kr-7aG"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leading" id="Ej5-Pz-Y95"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leading" id="LLa-y4-HWq"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leading" id="Rjv-6W-0E9"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leadingMargin" id="T1Q-P7-eAs"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="top" secondItem="axO-5D-Srn" secondAttribute="top" constant="50" id="VkG-jM-bBd"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="centerX" secondItem="X0J-J0-LiZ" secondAttribute="centerX" id="XpD-8f-mhj"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="top" secondItem="cFM-zb-NHr" secondAttribute="bottom" id="YWN-zk-v67"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="top" secondItem="axO-5D-Srn" secondAttribute="top" constant="50" id="ZQp-6L-BnX"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="trailing" secondItem="axO-5D-Srn" secondAttribute="trailingMargin" id="aD7-Gi-lFs"/>
-                                    <constraint firstAttribute="bottom" secondItem="X0J-J0-LiZ" secondAttribute="bottom" id="au5-8a-VlO"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="top" secondItem="cFM-zb-NHr" secondAttribute="bottom" id="dDm-vy-ezc"/>
-                                    <constraint firstAttribute="trailing" secondItem="cFM-zb-NHr" secondAttribute="trailing" id="dRR-co-ztU"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="top" secondItem="axO-5D-Srn" secondAttribute="topMargin" id="eBT-qc-Bok"/>
-                                    <constraint firstAttribute="trailing" secondItem="X0J-J0-LiZ" secondAttribute="trailing" id="fLa-tz-Rer"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="top" secondItem="axO-5D-Srn" secondAttribute="top" id="hJp-fH-1Gt"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="trailing" secondItem="axO-5D-Srn" secondAttribute="trailingMargin" id="jTv-nO-9ph"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="top" secondItem="axO-5D-Srn" secondAttribute="top" id="ja8-vL-7lL"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="top" secondItem="axO-5D-Srn" secondAttribute="top" id="jc8-GD-3Ik"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="trailing" secondItem="X0J-J0-LiZ" secondAttribute="trailing" id="nMM-RZ-2C2"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leading" id="p18-S5-sSe"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leading" id="sSJ-fW-Buu"/>
-                                    <constraint firstAttribute="trailing" secondItem="cFM-zb-NHr" secondAttribute="trailing" id="u43-dD-G7a"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="centerX" secondItem="axO-5D-Srn" secondAttribute="centerX" id="uEj-l6-dFr"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="leading" secondItem="axO-5D-Srn" secondAttribute="leading" id="uh9-zT-PPc"/>
-                                    <constraint firstAttribute="trailing" secondItem="X0J-J0-LiZ" secondAttribute="trailing" id="ulZ-yH-WNZ"/>
-                                    <constraint firstItem="cFM-zb-NHr" firstAttribute="top" secondItem="axO-5D-Srn" secondAttribute="top" id="v3h-Hq-RR0"/>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="bottom" secondItem="axO-5D-Srn" secondAttribute="bottomMargin" id="vVB-VT-Ufz"/>
+                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="centerX" secondItem="k6m-sw-8By" secondAttribute="centerX" id="fpO-94-oje"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="axO-5D-Srn" firstAttribute="bottom" secondItem="GnW-fb-SFp" secondAttribute="top" id="LWP-H2-gjC"/>
-                            <constraint firstItem="axO-5D-Srn" firstAttribute="leading" secondItem="x0Q-zd-hNx" secondAttribute="leading" id="s4g-h7-vdf"/>
+                            <constraint firstAttribute="trailing" secondItem="k6m-sw-8By" secondAttribute="trailing" id="7HT-p8-SCn"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="k6m-sw-8By" secondAttribute="bottom" constant="-20" id="ZlZ-EO-qnP"/>
+                            <constraint firstItem="k6m-sw-8By" firstAttribute="leading" secondItem="x0Q-zd-hNx" secondAttribute="leading" id="Zw5-cZ-iTb"/>
+                            <constraint firstItem="k6m-sw-8By" firstAttribute="top" secondItem="DbC-lR-Gw6" secondAttribute="bottom" id="xHk-07-G7E"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="CancelButton" destination="j6S-3g-IJO" id="tl4-wF-nqB"/>
                         <outlet property="HydrantMap" destination="X0J-J0-LiZ" id="C9x-9Q-ef8"/>
-                        <outlet property="MapStackView" destination="axO-5D-Srn" id="TOS-Ea-jvV"/>
                         <outlet property="NavBar" destination="cFM-zb-NHr" id="CLN-Cg-IvN"/>
                         <outlet property="TableViewButton" destination="MaQ-dr-K6x" id="hOA-J5-X69"/>
                         <segue destination="DTE-zr-srn" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="XtF-4T-Ys5"/>
@@ -559,13 +523,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhc-bT-rc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DTE-zr-srn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2118" y="1072"/>
+            <point key="canvasLocation" x="2118" y="1081"/>
         </scene>
     </scenes>
     <resources>
         <image name="NoImage" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yra-0U-53n"/>
+        <segue reference="DLG-Tv-DTB"/>
     </inferredMetricsTieBreakers>
 </document>

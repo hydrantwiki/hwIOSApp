@@ -24,6 +24,16 @@ struct UIConstants {
     static let ImageQuality = 0.5;
 }
 
+struct UITextConstants
+{
+
+    static let AboutBoxText = "HydrantWiki is an crowd source hydrant location database. " +
+        "For more information on the system please see http://www.hydrantwiki.com. " +
+        "Open Source Projects Used " +
+        "- Alamofire " +
+        "- ObjectMapper ";
+}
+
 
 extension UIColor
 {

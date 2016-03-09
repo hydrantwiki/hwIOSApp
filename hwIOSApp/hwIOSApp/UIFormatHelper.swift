@@ -43,19 +43,24 @@ public class UIFormatHelper {
         control.setTitleTextAttributes(attributes2, forState: UIControlState.Disabled)
     }
     
+    static func Format(control:UITextView)
+    {
+        control.backgroundColor = UIConstants.HydrantWikiGray;
+    }
+    
     static func Format(control:UILabel)
     {
-        control.backgroundColor = UIConstants.HydrantWikiWhite
+        control.backgroundColor = UIConstants.HydrantWikiWhite;
     }
     
     static func Format(control:UINavigationBar)
     {
-        control.backgroundColor = UIConstants.HydrantWikiGray
+        control.backgroundColor = UIConstants.HydrantWikiGray;
     }
     
     static func Format(control:UIToolbar)
     {
-        control.backgroundColor = UIConstants.HydrantWikiGray
+        control.backgroundColor = UIConstants.HydrantWikiGray;
     }
     
     static func Format(control:UITableView)
@@ -70,7 +75,24 @@ public class UIFormatHelper {
     
     static func Format(control:UITextField)
     {
-        control.backgroundColor = UIConstants.HydrantWikiWhite
+        control.backgroundColor = UIConstants.HydrantWikiWhite;
         
     }
+    
+    static func GetScreenWidth() -> Float
+    {
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width;
+        
+        return Float(screenWidth);
+    }
+    
+    static func GetScreenHeight() -> Float
+    {
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenHeight = screenSize.height;
+        
+        return Float(screenHeight);
+    }
+    
 }

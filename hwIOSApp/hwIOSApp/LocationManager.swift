@@ -103,7 +103,4 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
         
         locationManager.requestLocation()
     }
-    
-    
-    
 }

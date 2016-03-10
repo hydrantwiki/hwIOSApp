@@ -26,11 +26,10 @@ struct UIConstants {
 
 struct UITextConstants
 {
-
-    static let AboutBoxText = "HydrantWiki is an crowd source hydrant location database. " +
-        "For more information on the system please see http://www.hydrantwiki.com. " +
-        "Open Source Projects Used " +
-        "- Alamofire " +
+    static let AboutBoxText = "HydrantWiki is an crowd source hydrant location database.\r\n \r\n" +
+        "For more information on the system please see http://www.hydrantwiki.com.\r\n \r\n" +
+        "Open Source Projects Used\r\n" +
+        "- Alamofire\r\n" +
         "- ObjectMapper ";
 }
 

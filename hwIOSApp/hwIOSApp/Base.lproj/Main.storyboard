@@ -445,56 +445,10 @@
                     <view key="view" contentMode="scaleToFill" id="x0Q-zd-hNx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="k6m-sw-8By">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFM-zb-NHr">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="qSU-Jx-C2S"/>
-                                        </constraints>
-                                        <items>
-                                            <navigationItem title="HydrantWiki Map View" id="Zwd-YL-qhk">
-                                                <barButtonItem key="leftBarButtonItem" title="Cancel" id="j6S-3g-IJO">
-                                                    <connections>
-                                                        <action selector="CancelSent:" destination="UBD-ao-wFv" id="e8I-LO-x8R"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="Table View" id="MaQ-dr-K6x">
-                                                    <connections>
-                                                        <action selector="TableViewButtonPressed:" destination="UBD-ao-wFv" id="tbF-SO-KiZ"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X0J-J0-LiZ">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="550"/>
-                                        <animations/>
-                                    </mapView>
-                                </subviews>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstItem="X0J-J0-LiZ" firstAttribute="centerX" secondItem="k6m-sw-8By" secondAttribute="centerX" id="fpO-94-oje"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="k6m-sw-8By" secondAttribute="trailing" id="7HT-p8-SCn"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="k6m-sw-8By" secondAttribute="bottom" constant="-20" id="ZlZ-EO-qnP"/>
-                            <constraint firstItem="k6m-sw-8By" firstAttribute="leading" secondItem="x0Q-zd-hNx" secondAttribute="leading" id="Zw5-cZ-iTb"/>
-                            <constraint firstItem="k6m-sw-8By" firstAttribute="top" secondItem="DbC-lR-Gw6" secondAttribute="bottom" id="xHk-07-G7E"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="CancelButton" destination="j6S-3g-IJO" id="tl4-wF-nqB"/>
-                        <outlet property="HydrantMap" destination="X0J-J0-LiZ" id="C9x-9Q-ef8"/>
-                        <outlet property="NavBar" destination="cFM-zb-NHr" id="CLN-Cg-IvN"/>
-                        <outlet property="TableViewButton" destination="MaQ-dr-K6x" id="hOA-J5-X69"/>
                         <segue destination="DTE-zr-srn" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="XtF-4T-Ys5"/>
                     </connections>
                 </viewController>

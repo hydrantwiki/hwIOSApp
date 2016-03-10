@@ -45,7 +45,9 @@ public class UIFormatHelper {
     
     static func Format(control:UITextView)
     {
-        control.backgroundColor = UIConstants.HydrantWikiGray;
+        control.backgroundColor = UIConstants.HydrantWikiWhite;
+        control.layer.borderColor = UIColor.blackColor().CGColor;
+        control.layer.borderWidth = 1;
     }
     
     static func Format(control:UILabel)
@@ -93,6 +95,45 @@ public class UIFormatHelper {
         let screenHeight = screenSize.height;
         
         return Float(screenHeight);
+    }
+    
+    static func CreateNavBarButton(
+        buttonTitle:String,
+        targetView:UIViewController,
+        buttonAction:Selector) -> UIBarButtonItem
+    {
+        let button = UIBarButtonItem(
+            title:buttonTitle,
+            style:UIBarButtonItemStyle.Plain,
+            target:targetView,
+            action:buttonAction);
+        
+        return button;
+    }
+    
+    static func CreateNavBar(barTitle:String, leftButton:UIBarButtonItem?, rightButton:UIBarButtonItem?) -> UINavigationBar
+    {
+        let navFrame = CGRect(x: 0, y: 0, width: Int(UIFormatHelper.GetScreenWidth()), height: 50);
+        
+        //Setup the title bar
+        let NavBar = UINavigationBar(frame: navFrame);
+        
+        let navItem = UINavigationItem();
+        navItem.title = barTitle;
+        
+        if (leftButton != nil)
+        {
+            navItem.leftBarButtonItem = leftButton;
+        }
+        
+        if (rightButton != nil)
+        {
+            navItem.rightBarButtonItem = rightButton;
+        }
+                
+        NavBar.setItems([navItem], animated: false);
+        
+        return NavBar;
     }
     
 }

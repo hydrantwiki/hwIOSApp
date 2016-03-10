@@ -17,23 +17,10 @@ public class AboutViewController : UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad();
         
-        let navFrame = CGRect(x: 0, y: 0, width: Int(UIFormatHelper.GetScreenWidth()), height: 50);
+        CancelButton = UIFormatHelper.CreateNavBarButton("Cancel", targetView: self, buttonAction: Selector("CancelSent:"));
         
-        //Setup the title bar
-        NavBar = UINavigationBar(frame: navFrame);
+        NavBar = UIFormatHelper.CreateNavBar("About HydrantWiki", leftButton: CancelButton, rightButton: nil);
         view.addSubview(NavBar);
-        
-        let navItem = UINavigationItem();
-        navItem.title = "About HydrantWiki";
-        
-        CancelButton = UIBarButtonItem(
-            title:"Cancel",
-            style:UIBarButtonItemStyle.Plain,
-            target:self,
-            action:"CancelSent:");
-        
-        navItem.leftBarButtonItem = CancelButton;
-        NavBar.setItems([navItem], animated: false);
         
         //Add TextView
         let aboutFrame = CGRect(
@@ -51,25 +38,7 @@ public class AboutViewController : UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         UIFormatHelper.Format(NavBar)
         UIFormatHelper.Format(CancelButton)
-        UIFormatHelper.Format(AboutBox);
-        
-        LayoutControls();
-    }
-    
-    private func LayoutControls()
-    {
-        //NavBar.topAnchor.constraintEqualToAnchor(view.topAnchor).active=true;
-        //NavBar.heightAnchor.constraintEqualToConstant(CGFloat(50)).active=true;
-        //NavBar.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active=true;
-        //NavBar.leftAnchor.constraintEqualToAnchor(view.leftAnchor).active=true;
-        //NavBar.rightAnchor.constraintEqualToAnchor(view.rightAnchor).active=true;
-        //NavBar.widthAnchor.constraintEqualToConstant(CGFloat(UIFormatHelper.GetScreenWidth())).active=true;
-        
-        //AboutBox.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 58).active=true;
-        //AboutBox.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active=true;
-//        AboutBox.leftAnchor.constraintEqualToAnchor(view.leftAnchor, constant: 8).active=true;
-//        AboutBox.rightAnchor.constraintEqualToAnchor(view.rightAnchor, constant: 8).active=true;
-//        AboutBox.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: 8).active=true;
+        UIFormatHelper.Format(AboutBox);        
     }
     
     

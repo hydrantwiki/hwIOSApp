@@ -24,10 +24,6 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager = LocationManager();
-        locationManager.locationUpdated = self;
-        locationManager.Start()
-                
         CancelButton = UIFormatHelper.CreateNavBarButton("Cancel", targetView: self, buttonAction: Selector("CancelSent:"));
         TableViewButton = UIFormatHelper.CreateNavBarButton("Table View", targetView: self, buttonAction: Selector("TableViewButtonPressed:"));
         
@@ -46,38 +42,51 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         HydrantMap.frame.origin.x = 0;
         HydrantMap.frame.origin.y = 50;
         HydrantMap.zoomEnabled = false;
-        HydrantMap.showsUserLocation = true;
-        HydrantMap.mapType = MKMapType.Standard;
+        //HydrantMap.showsUserLocation = true;
+        //HydrantMap.mapType = MKMapType.Standard;
         view.addSubview(HydrantMap);
         
-        UIFormatHelper.Format(NavBar!);
+        UIFormatHelper.Format(NavBar);
         UIFormatHelper.Format(CancelButton);
         UIFormatHelper.Format(TableViewButton);
-        
         UIFormatHelper.Format(HydrantMap)
+    
+        //Start the location manager
+        locationManager = LocationManager();
+        locationManager.locationUpdated = self;
     }
     
+    override public func viewDidAppear(animated: Bool) {
+        StartGPSCollection();
+    }
     
+    private func StartGPSCollection()
+    {
+        locationManager!.Start();
+    }
+
     func ZoomToCurrentLocation(latitude:Double, longitude:Double)
     {
-        let spanX = 0.00725;
-        let spanY = 0.00725;
+        let spanX = 0.5;
+        let spanY = 0.5;
         
-        var region = MKCoordinateRegion();
-        region.center.latitude = latitude;
-        region.center.longitude = longitude;
-        region.span.latitudeDelta = spanX;
-        region.span.longitudeDelta = spanY;
+        let location = CLLocationCoordinate2D(
+            latitude: latitude,
+            longitude: longitude
+        )
+        
+        let span = MKCoordinateSpanMake(spanX, spanY)
+        let region = MKCoordinateRegion(center: location, span: span)
         
         HydrantMap.setRegion(region, animated: true);
     }
     
-    func TableViewButtonPressed(sender: AnyObject)
+    func TableViewButtonPressed(sender: UIBarButtonItem)
     {
     
     }
     
-    func CancelSent(sender: AnyObject)
+    func CancelSent(sender: UIBarButtonItem)
     {
         locationManager.Stop();
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)

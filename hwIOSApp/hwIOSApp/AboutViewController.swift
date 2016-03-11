@@ -18,7 +18,6 @@ public class AboutViewController : UIViewController {
         super.viewDidLoad();
         
         CancelButton = UIFormatHelper.CreateNavBarButton("Cancel", targetView: self, buttonAction: Selector("CancelSent:"));
-        
         NavBar = UIFormatHelper.CreateNavBar("About HydrantWiki", leftButton: CancelButton, rightButton: nil);
         view.addSubview(NavBar);
         

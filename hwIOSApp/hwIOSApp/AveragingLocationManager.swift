@@ -28,7 +28,7 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate  {
         locationManager = CLLocationManager()
         
         quantityToCollect = 10
-        periodBetween = 0.5
+        periodBetween = 1
         warmUpPeriod = 1
         cancelCollecting = false;
         locationAverage = LocationAverage()
@@ -54,7 +54,12 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate  {
         
         if (allowed)
         {
-            locationManager.requestLocation()
+            NSTimer.scheduledTimerWithTimeInterval(
+                0,
+                target: self,
+                selector: "RequestLocation",
+                userInfo: nil,
+                repeats: false);
         }
     }
     
@@ -100,8 +105,13 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate  {
             
             if (QuantityCollected < quantityToCollect)
             {
-                NSThread.sleepForTimeInterval(periodBetween)
-                locationManager.requestLocation()
+                NSTimer.scheduledTimerWithTimeInterval(
+                    0,
+                    target: self,
+                    selector: "RequestLocation",
+                    userInfo: nil,
+                    repeats: false);
+
             }
             else
             {
@@ -119,12 +129,15 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate  {
         }
     }
     
+    public func RequestLocation()
+    {
+        NSThread.sleepForTimeInterval(0.5);
+        locationManager.requestLocation();
+    }
+    
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Failed to find user's location: \(error.localizedDescription)")
         
         locationManager.requestLocation()
     }
-    
-
-    
 }

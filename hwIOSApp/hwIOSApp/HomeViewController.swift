@@ -51,7 +51,12 @@ public class HomeViewController : UIViewController {
         //Other Controls
         UIFormatHelper.Format(MyHydrantCount);
                 
-        LoadCounts();
+        NSTimer.scheduledTimerWithTimeInterval(
+            0.25,
+            target: self,
+            selector: "LoadCounts",
+            userInfo: nil,
+            repeats: false);
     }
     
     func LoadCounts()

@@ -23,10 +23,10 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
     override init(){
         locationManager = CLLocationManager()
         
-        periodBetween = 30
-        warmUpPeriod = 1
+        periodBetween = 30;
+        warmUpPeriod = 1;
         cancelCollecting = false;
-        alreadyRequested = false
+        alreadyRequested = false;
     }
     
     public func Start()
@@ -46,7 +46,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
         
         if (allowed)
         {
-            locationManager.requestLocation()
+            locationManager.requestLocation();
         }
     }
     
@@ -55,7 +55,10 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
         stopped = true;
     }
     
-    public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(
+        manager: CLLocationManager,
+        didChangeAuthorizationStatus status: CLAuthorizationStatus)
+    {
         if (status == CLAuthorizationStatus.AuthorizedAlways
             || status == CLAuthorizationStatus.AuthorizedWhenInUse)
         {
@@ -67,7 +70,10 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
         }
     }
     
-    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(
+        manager: CLLocationManager,
+        didUpdateLocations locations: [CLLocation])
+    {
         if (!stopped)
         {
             if let location = locations.first {
@@ -91,14 +97,29 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
                 
                 if (!stopped)
                 {
-                    NSThread.sleepForTimeInterval(periodBetween)
-                    locationManager.requestLocation()
+                    NSTimer.scheduledTimerWithTimeInterval(
+                        periodBetween,
+                        target: self,
+                        selector: "RequestLocation",
+                        userInfo: nil,
+                        repeats: false);
                 }
             }
         }
     }
     
-    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    public func RequestLocation()
+    {
+        if (!stopped)
+        {
+            locationManager.requestLocation();
+        }
+    }
+    
+    public func locationManager(
+        manager: CLLocationManager,
+        didFailWithError error: NSError)
+    {
         print("Failed to find user's location: \(error.localizedDescription)")
         
         locationManager.requestLocation()

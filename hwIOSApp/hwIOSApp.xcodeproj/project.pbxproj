@@ -41,6 +41,7 @@
 		77B0795B1BE851AA009F3A9C /* PositionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B0795A1BE851AA009F3A9C /* PositionDTO.swift */; };
 		77BCC6801C8B2A03007732DC /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCC67F1C8B2A03007732DC /* AlertHelper.swift */; };
 		77BCC6821C8B301C007732DC /* UIFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCC6811C8B301C007732DC /* UIFormatHelper.swift */; };
+		77BCC6841C947EF6007732DC /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCC6831C947EF6007732DC /* MapHelper.swift */; };
 		77E72A0E1BCC895D0043123D /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = 77E72A0D1BCC895D0043123D /* Alamofire */; };
 		77E72A371BCC96040043123D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A1C1BCC95C70043123D /* Alamofire.framework */; };
 		77E72A381BCC96040043123D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A2E1BCC95EC0043123D /* ObjectMapper.framework */; };
@@ -219,6 +220,7 @@
 		77B0795A1BE851AA009F3A9C /* PositionDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionDTO.swift; sourceTree = "<group>"; };
 		77BCC67F1C8B2A03007732DC /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		77BCC6811C8B301C007732DC /* UIFormatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFormatHelper.swift; sourceTree = "<group>"; };
+		77BCC6831C947EF6007732DC /* MapHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
 		77E72A0D1BCC895D0043123D /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = /SourceCode/HydrantWiki/hwIOSApp/hwIOSApp/Alamofire; sourceTree = "<absolute>"; };
 		77E72A131BCC95C60043123D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		77E72A251BCC95EC0043123D /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				777C009C1BEDB67B00BCC098 /* ImageHelper.swift */,
 				77BCC67F1C8B2A03007732DC /* AlertHelper.swift */,
 				77BCC6811C8B301C007732DC /* UIFormatHelper.swift */,
+				77BCC6831C947EF6007732DC /* MapHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */,
 				777C00961BEC4AC200BCC098 /* TagResponse.swift in Sources */,
 				7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */,
+				77BCC6841C947EF6007732DC /* MapHelper.swift in Sources */,
 				77E72A3A1BCC9B050043123D /* User.swift in Sources */,
 				773B2CE81C0D570E00171A4D /* HydrantTableViewCell.swift in Sources */,
 				7781AF731BD4990C00EEB195 /* HydrantMapViewController.swift in Sources */,

@@ -42,7 +42,7 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         HydrantMap.frame.origin.x = 0;
         HydrantMap.frame.origin.y = 50;
         HydrantMap.zoomEnabled = false;
-        //HydrantMap.showsUserLocation = true;
+        HydrantMap.showsUserLocation = true;
         //HydrantMap.mapType = MKMapType.Standard;
         view.addSubview(HydrantMap);
         
@@ -54,21 +54,15 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         //Start the location manager
         locationManager = LocationManager();
         locationManager.locationUpdated = self;
-    }
-    
-    override public func viewDidAppear(animated: Bool) {
-        StartGPSCollection();
-    }
-    
-    private func StartGPSCollection()
-    {
         locationManager!.Start();
     }
-
+    
+    
+    
     func ZoomToCurrentLocation(latitude:Double, longitude:Double)
     {
-        let spanX = 0.5;
-        let spanY = 0.5;
+        let spanX = 0.0125;
+        let spanY = 0.0125;
         
         let location = CLLocationCoordinate2D(
             latitude: latitude,
@@ -79,6 +73,34 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         let region = MKCoordinateRegion(center: location, span: span)
         
         HydrantMap.setRegion(region, animated: true);
+        
+        GetHydrants();
+    }
+    
+    func GetHydrants() {
+        let edgePoints = HydrantMap.edgePoints();
+        
+        let minLat = edgePoints.sw.latitude;
+        let maxLat = edgePoints.ne.latitude;
+        let minLon = edgePoints.sw.longitude;
+        let maxLon = edgePoints.ne.longitude;
+        
+        let service = HydrantService()
+        service.GetHydrantsInBox(minLat, maxLatitude: maxLat, minLongitude: minLon, maxLongitude: maxLon)
+            { (response) -> Void in
+            
+            if (response != nil
+                && response!.Success
+                && response!.Hydrants != nil)
+            {
+                self.AddHydrantsToMap((response?.Hydrants!)!);
+            }
+        }
+    }
+    
+    func AddHydrantsToMap(Hydrants:[HydrantDTO])
+    {
+        
     }
     
     func TableViewButtonPressed(sender: UIBarButtonItem)

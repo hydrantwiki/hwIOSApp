@@ -42,7 +42,7 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         HydrantMap.frame.origin.x = 0;
         HydrantMap.frame.origin.y = 50;
         HydrantMap.zoomEnabled = false;
-        HydrantMap.showsUserLocation = true;
+        HydrantMap.showsUserLocation = false;
         //HydrantMap.mapType = MKMapType.Standard;
         view.addSubview(HydrantMap);
         
@@ -57,7 +57,28 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         locationManager!.Start();
     }
     
+    public func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        GetHydrants();
+    }
     
+    public func mapView(
+        mapView: MKMapView,
+        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+            if (annotation is MKUserLocation) { return nil }
+            
+            let reuseID = "hydrant"
+            var v = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID)
+            
+            if v != nil {
+                v!.annotation = annotation
+            } else {
+                v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+                
+                v!.image = UIImage(named:"HydrantPin")
+            }
+            
+            return v
+    }
     
     func ZoomToCurrentLocation(latitude:Double, longitude:Double)
     {
@@ -72,7 +93,7 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         let span = MKCoordinateSpanMake(spanX, spanY)
         let region = MKCoordinateRegion(center: location, span: span)
         
-        HydrantMap.setRegion(region, animated: true);
+        HydrantMap.setRegion(region, animated: false);
         
         GetHydrants();
     }
@@ -98,9 +119,23 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         }
     }
     
-    func AddHydrantsToMap(Hydrants:[HydrantDTO])
+    func AddHydrantsToMap(hydrants:[HydrantDTO])
     {
+        HydrantMap.removeAnnotations( HydrantMap.annotations )
         
+        for hydrant in hydrants {
+            if (hydrant.Position != nil)
+            {
+                let hydAnn = HydrantAnnotation(
+                    title: "",
+                    subtitle: "",
+                    coordinate: CLLocationCoordinate2D(
+                        latitude: (hydrant.Position?.Latitude)!,
+                        longitude: (hydrant.Position?.Longitude)!));
+                
+                HydrantMap.addAnnotation(hydAnn);
+            }
+        }
     }
     
     func TableViewButtonPressed(sender: UIBarButtonItem)
@@ -121,6 +156,8 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         elevation: Double,
         accuracy: Double)
     {
+        locationManager.Stop();
+        
         ZoomToCurrentLocation(latitude, longitude: longitude);
     }
     

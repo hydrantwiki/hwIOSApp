@@ -60,7 +60,7 @@ internal class HydrantService : BaseService {
         maxLongitude:Double,
         completion: (response:HydrantQueryResponseDTO?) ->Void)
     {
-        let url:String = BaseUrl + "/api/hydrants/"
+        let url:String = BaseUrl + "/api/hydrants/box/"
             + String(maxLongitude) + "/"
             + String(minLongitude) + "/"
             + String(maxLatitude) + "/"

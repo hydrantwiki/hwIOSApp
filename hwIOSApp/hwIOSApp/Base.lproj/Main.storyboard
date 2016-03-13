@@ -189,97 +189,10 @@
                     <view key="view" contentMode="scaleToFill" id="xsp-lV-nok">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vxC-aq-sgx">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddg-bN-BxB">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="GgC-Yt-lcz"/>
-                                        </constraints>
-                                        <items>
-                                            <navigationItem title="HydrantWiki" id="wju-dS-N8a">
-                                                <barButtonItem key="leftBarButtonItem" title="Cancel" id="S0O-1r-YD1">
-                                                    <connections>
-                                                        <action selector="CanceSent:" destination="kiY-Dr-qAm" id="AwW-VO-CGk"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="Map View" id="2Yz-Bk-qfr"/>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="me6-xJ-p8K">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="550"/>
-                                        <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HydrantTableViewCell" rowHeight="100" id="np8-ka-GqC" customClass="HydrantTableViewCell" customModule="hwIOSApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="600" height="100"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="np8-ka-GqC" id="Xg9-NS-YkG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NoImage" translatesAutoresizingMaskIntoConstraints="NO" id="9xt-zE-KFg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="99" height="99"/>
-                                                            <animations/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD0-1R-Zdn">
-                                                            <rect key="frame" x="107" y="8" width="485" height="21"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJx-h2-Jgc">
-                                                            <rect key="frame" x="107" y="37" width="485" height="21"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Og-15-EWe">
-                                                            <rect key="frame" x="107" y="66" width="485" height="21"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <animations/>
-                                                </tableViewCellContentView>
-                                                <animations/>
-                                                <connections>
-                                                    <outlet property="DetailsLabel" destination="Xg9-NS-YkG" id="Y1a-Fv-EIH"/>
-                                                    <outlet property="DistanceLabel" destination="Xg9-NS-YkG" id="jGi-N5-CAw"/>
-                                                    <outlet property="HydrantImage" destination="9xt-zE-KFg" id="2rW-g8-avp"/>
-                                                    <outlet property="LocationLabel" destination="Xg9-NS-YkG" id="cAY-jv-bmk"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
-                                <animations/>
-                            </stackView>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="vxC-aq-sgx" firstAttribute="centerX" secondItem="xsp-lV-nok" secondAttribute="centerX" id="EZ0-XK-ile"/>
-                            <constraint firstItem="vxC-aq-sgx" firstAttribute="leading" secondItem="xsp-lV-nok" secondAttribute="leadingMargin" constant="-20" id="It3-Tq-sOR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vxC-aq-sgx" secondAttribute="trailing" constant="-20" id="NUP-EQ-meI"/>
-                            <constraint firstItem="vxC-aq-sgx" firstAttribute="centerY" secondItem="xsp-lV-nok" secondAttribute="centerY" id="WWg-85-cvi"/>
-                            <constraint firstItem="hng-an-Fzv" firstAttribute="top" secondItem="vxC-aq-sgx" secondAttribute="bottom" id="hO7-f0-MOn"/>
-                            <constraint firstItem="vxC-aq-sgx" firstAttribute="top" secondItem="xsp-lV-nok" secondAttribute="topMargin" id="sgi-LC-jWD"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="CancelButton" destination="S0O-1r-YD1" id="HyR-Jr-3yY"/>
-                        <outlet property="HydrantTableView" destination="me6-xJ-p8K" id="yz9-U3-ToT"/>
-                        <outlet property="MapViewButton" destination="2Yz-Bk-qfr" id="whw-bs-xIj"/>
-                        <outlet property="NavBar" destination="ddg-bN-BxB" id="6go-8j-Ael"/>
                         <segue destination="UBD-ao-wFv" kind="show" identifier="ShowMapOfNearby" id="DLG-Tv-DTB"/>
                         <segue destination="ao0-IN-Xyt" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="OAo-t4-AT5"/>
                     </connections>
@@ -450,6 +363,7 @@
                     </view>
                     <connections>
                         <segue destination="DTE-zr-srn" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="XtF-4T-Ys5"/>
+                        <segue destination="kiY-Dr-qAm" kind="show" identifier="ShowNearbyTable" id="010-h0-Pyq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mhc-bT-rc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -458,10 +372,8 @@
             <point key="canvasLocation" x="2118" y="1081"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="NoImage" width="100" height="100"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="DLG-Tv-DTB"/>
+        <segue reference="010-h0-Pyq"/>
     </inferredMetricsTieBreakers>
 </document>

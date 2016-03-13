@@ -140,7 +140,8 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
     
     func TableViewButtonPressed(sender: UIBarButtonItem)
     {
-    
+        locationManager.Stop();
+        self.performSegueWithIdentifier("ShowNearbyTable", sender: nil)
     }
     
     func CancelSent(sender: UIBarButtonItem)

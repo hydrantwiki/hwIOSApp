@@ -13,18 +13,19 @@ import UIKit
 
 internal class HydrantService : BaseService {
     
-    internal func GetNearbyHydrants(
+    internal func GetHydrantsInCircle(
         latitude:Double,
         longitude:Double,
         distance:Double,
         completion: (response:HydrantQueryResponseDTO?) ->Void)
     {
-        let uri = BaseUrl + "/api/hydrants/"
+        let uri = BaseUrl + "/api/hydrants/circle/"
             + String(latitude) + "/"
             + String(longitude) + "/"
             + String(distance);
         
-        Alamofire.request(.GET,
+        Alamofire.request(
+            .GET,
             uri,
             parameters: [:],
             headers:GetAuthHeaders()
@@ -66,7 +67,9 @@ internal class HydrantService : BaseService {
             + String(maxLatitude) + "/"
             + String(minLatitude)
         
-        Alamofire.request(.GET, url,
+        Alamofire.request(
+            .GET,
+            url,
             parameters: [:],
             headers:GetAuthHeaders()
             )

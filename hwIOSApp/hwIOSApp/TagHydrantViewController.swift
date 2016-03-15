@@ -31,20 +31,21 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        locationManager = AveragingLocationManager()
-        locationManager!.locationAverageUpdated = self
+        locationManager = AveragingLocationManager();
+        locationManager!.locationAverageUpdated = self;
         
-        imagePicker.delegate = self
+        imagePicker.delegate = self;
         
-        if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) == nil {
-            TakePhotoButton.enabled = false
+        if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) == nil
+        {
+            TakePhotoButton.enabled = false;
         }
         
         UIFormatHelper.Format(NavBar);
         
         //Top Button
-        UIFormatHelper.Format(CancelButton)
-        UIFormatHelper.Format(SaveButton)
+        UIFormatHelper.Format(CancelButton);
+        UIFormatHelper.Format(SaveButton);
         SaveButton.enabled = false;
         
         //Labels
@@ -66,9 +67,9 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     {
         SaveButton.enabled = false;
         
-        var tag:TagDTO = TagDTO()
+        var tag:TagDTO = TagDTO();
         
-        let location = locationManager?.locationAverage.getAverage()
+        let location = locationManager?.locationAverage.getAverage();
         
         if (location != nil)
         {
@@ -99,21 +100,23 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     //Saves the Image then the Tag
     private func SaveImage(writePath:String, fileName:String, tag:TagDTO)
     {
-        let service = TagService()
-        service.SaveImage(writePath,
+        let service = TagService();
+
+        service.SaveImage(
+            writePath,
             fileName:fileName,
             completion: { (response) -> Void in
                 self.SaveTag(tag);
-        })
+        });
     }
     
     //Save the Tag
     private func SaveTag(tag:TagDTO)
     {
-        let service = TagService()
+        let service = TagService();
         
-        service.SaveTag(tag
-            , completion: { (response) -> Void in
+        service.SaveTag(tag,
+            completion: { (response) -> Void in
                 if (response != nil)
                 {
                     let title:String = "HydrantWiki";
@@ -131,13 +134,13 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
                     let uiAlert = UIAlertController(title: title,
                         message: message,
                         preferredStyle: UIAlertControllerStyle.Alert);
-                    self.presentViewController(uiAlert, animated: true, completion: nil)
+                    self.presentViewController(uiAlert, animated: true, completion: nil);
                     
                     uiAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
                         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
                         }
                         )
-                    )
+                    );
                 }
             }
         )
@@ -148,11 +151,10 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         locationManager!.Start(){ (count:Int, location:Location?) in
             if (location != nil)
             {
-                self.CountLabel.text = "Count: 10"
-                self.LatitudeLabel.text = "Latitude: " + String(location!.latitude!)
-                self.LongitudeLabel.text = "Longitude: " + String(location!.longitude!)
-                self.AccuracyLabel.text = "Accuracy (m): " + String(location!.accuracy!)
-                
+                self.CountLabel.text = "Count: 10";
+                self.LatitudeLabel.text = "Latitude: " + String(location!.latitude!);
+                self.LongitudeLabel.text = "Longitude: " + String(location!.longitude!);
+                self.AccuracyLabel.text = "Accuracy (m): " + String(location!.accuracy!);
                 self.SaveButton.enabled = true;
             }
         }
@@ -160,22 +162,21 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     
     @IBAction func TakePhotoPressed(sender: AnyObject)
     {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .Camera
-        imagePicker.cameraCaptureMode = .Photo
+        imagePicker.allowsEditing = false;
+        imagePicker.sourceType = .Camera;
+        imagePicker.cameraCaptureMode = .Photo;
         
-        presentViewController(imagePicker, animated: true) { () -> Void in
-            
+        presentViewController(imagePicker, animated: true) { () -> Void in            
 
         }
     }
     
     public func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?)
     {
-        HydrantImage.contentMode = .ScaleAspectFit
-        HydrantImage.image = image
+        HydrantImage.contentMode = .ScaleAspectFit;
+        HydrantImage.image = image;
     
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil);
     }
     
     public func imagePickerControllerDidCancel(picker: UIImagePickerController)
@@ -192,15 +193,14 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         elevation: Double,
         accuracy: Double)
     {
-        
-            CountLabel.text = "Count: " + String(count)
-            LatitudeLabel.text = "Latitude: " + String(latitude)
-            LongitudeLabel.text = "Longitude: " + String(longitude)
-            AccuracyLabel.text = "Accuracy (m): " + String(accuracy)
+        CountLabel.text = "Count: " + String(count);
+        LatitudeLabel.text = "Latitude: " + String(latitude);
+        LongitudeLabel.text = "Longitude: " + String(longitude);
+        AccuracyLabel.text = "Accuracy (m): " + String(accuracy);
     }
     
     @IBAction func CancelSent(sender: AnyObject)
     {
-        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
+        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil);
     }
 }

@@ -25,22 +25,22 @@ public struct PositionDTO : Mappable
     
     init(location:Location, wasAveraged:Bool)
     {
-        self.Latitude = location.latitude
-        self.Longitude = location.longitude
-        self.Altitude = location.elevation
-        self.Accuracy = location.accuracy
-        self.DeviceDateTime = NSDate()
+        self.Latitude = location.latitude;
+        self.Longitude = location.longitude;
+        self.Altitude = location.elevation;
+        self.Accuracy = location.accuracy;
+        self.DeviceDateTime = NSDate();
         self.WasAveraged = wasAveraged;
     }
     
     mutating public func mapping(map: Map)
     {
-        Latitude            <- map["Latitude"]
-        Longitude           <- map["Longitude"]
-        Altitude            <- map["Altitude"]
-        Accuracy            <- map["Accuracy"]
-        WasAveraged         <- map["WasAveraged"]
-        DeviceDateTime      <- (map["DeviceDateTime"], ISO8601DateTransform())        
+        Latitude            <- map["Latitude"];
+        Longitude           <- map["Longitude"];
+        Altitude            <- map["Altitude"];
+        Accuracy            <- map["Accuracy"];
+        WasAveraged         <- map["WasAveraged"];
+        DeviceDateTime      <- (map["DeviceDateTime"], ISO8601DateTransform());
     }
     
     public func GetLocationString() -> String

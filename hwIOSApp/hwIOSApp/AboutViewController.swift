@@ -25,13 +25,14 @@ public class AboutViewController : UIViewController
         view.addSubview(NavBar);
         
         let height:Float = UIFormatHelper.GetScreenHeight();
+        let width:Float = UIFormatHelper.GetScreenWidth();
         
         //Add TextView
         let aboutFrame = CGRect(
             x: 0,
             y: 0,
             width: Int(UIFormatHelper.GetScreenWidth()) - 16,
-            height: Int(height) - 164
+            height: Int(height) - 130
         );
         
         AboutBox = UITextView(frame: aboutFrame);
@@ -40,10 +41,16 @@ public class AboutViewController : UIViewController
         AboutBox.frame.origin.y = 58;
         view.addSubview(AboutBox);
         
-        Logout = UIButton();
-        Logout.titleLabel!.text = "Logout";
-        Logout.titleLabel!.frame = CGRectMake(5, CGFloat(height) - 50, 300, 25);
-        Logout.titleLabel!.textAlignment = .Center
+        let logoutFrame = CGRect(
+            x: 10,
+            y: CGFloat(height) - 50,
+            width: CGFloat(width) - 20,
+            height: 25
+        );
+        
+        Logout = UIButton(frame: logoutFrame);
+        Logout.setTitle("Logout", forState: UIControlState.Normal);
+        Logout.addTarget(self, action: "LogoutClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(Logout);
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,6 +62,16 @@ public class AboutViewController : UIViewController
     
     func CancelSent(sender: UIBarButtonItem)
     {
-        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
+        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil);
+    }
+    
+    func LogoutClicked(sender:UIButton)
+    {
+        let defaults = NSUserDefaults.standardUserDefaults();
+        defaults.setObject(nil, forKey: "username");
+        defaults.setObject(nil, forKey: "authToken");
+        defaults.setObject(nil, forKey: "displayName");
+        
+        self.performSegueWithIdentifier("ReturnToLogin", sender: nil);
     }
 }

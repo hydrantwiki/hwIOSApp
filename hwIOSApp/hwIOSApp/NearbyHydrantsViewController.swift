@@ -9,20 +9,21 @@
 import Foundation
 import UIKit
 
-public class NearbyHydrantsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, ILocationUpdated {
+public class NearbyHydrantsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, ILocationUpdated
+{
     
     public var user:User?;
     var locationManager:LocationManager!;
     var hydrants:[HydrantDTO] = [];
     
-    var NavBar: UINavigationBar!
-    var CancelButton: UIBarButtonItem!
-    var MapViewButton: UIBarButtonItem!
-    var HydrantTableView: UITableView!
+    var NavBar: UINavigationBar!;
+    var CancelButton: UIBarButtonItem!;
+    var MapViewButton: UIBarButtonItem!;
+    var HydrantTableView: UITableView!;
     
     override public func viewDidLoad()
     {
-        super.viewDidLoad()
+        super.viewDidLoad();
         
         CancelButton = UIFormatHelper.CreateNavBarButton(
             "Cancel",
@@ -41,7 +42,8 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
             x: 0,
             y: 0,
             width: Int(UIFormatHelper.GetScreenWidth()) - 16,
-            height: Int(UIFormatHelper.GetScreenHeight()) - 66);
+            height: Int(UIFormatHelper.GetScreenHeight()) - 66
+        );
         
         HydrantTableView = UITableView(frame: tableFrame);
         HydrantTableView.delegate = self;
@@ -54,7 +56,6 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
         UIFormatHelper.Format(NavBar);
         UIFormatHelper.Format(CancelButton);
         UIFormatHelper.Format(MapViewButton);
-        //UIFormatHelper.Format(HydrantTableView);
         
         //Start the location manager
         locationManager = LocationManager();
@@ -65,12 +66,12 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
     func MapViewButtonPressed(sender: UIBarButtonItem)
     {
         locationManager.Stop();
-        self.performSegueWithIdentifier("ShowMapOfNearby", sender: nil)
+        self.performSegueWithIdentifier("ShowMapOfNearby", sender: nil);
     }
     
     func CancelSent(sender: UIBarButtonItem) {
         locationManager.Stop();
-        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
+        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil);
     }
     
     public func RefreshTable()
@@ -78,35 +79,33 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
         HydrantTableView.reloadData();
     }
     
-    // MARK:  UITextFieldDelegate Methods
     public func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        return 1
+        return 1;
     }
     
     public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return hydrants.count
+        return hydrants.count;
     }
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cellIdentifier = "HydrantTableViewCell";
-        
-        let cell:HydrantTableViewCell = HydrantTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
+        let cell:HydrantTableViewCell = HydrantTableViewCell(
+            style: UITableViewCellStyle.Subtitle,
+            reuseIdentifier: cellIdentifier);
         
         // Configure the cell...
-        let hydrant = hydrants[indexPath.row]
-        
+        let hydrant = hydrants[indexPath.row];
         cell.Populate(hydrant);
-        
-        return cell
+        return cell;
     }
     
     // MARK:  UITableViewDelegate Methods
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true);
     }
     
     public func NewLocation(
@@ -122,8 +121,7 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
             latitude,
             longitude: longitude,
             distance: 300,
-            completion: { (response) -> Void in
-                
+            completion: { (response) -> Void in                
                 if (response != nil)
                 {
                     if (response!.Success)

@@ -21,7 +21,7 @@ struct IsAvailableResponse: Mappable
     
     mutating func mapping(map: Map)
     {
-        Success           <- map["Success"]
-        Available         <- map["Available"]
+        Success           <- map["Success"];
+        Available         <- map["Available"];
     }
 }

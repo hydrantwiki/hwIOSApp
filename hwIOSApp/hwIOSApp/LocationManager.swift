@@ -23,7 +23,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
     
     override init()
     {
-        locationManager = CLLocationManager()
+        locationManager = CLLocationManager();
         
         periodBetween = 30;
         warmUpPeriod = 1;
@@ -33,13 +33,13 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
     
     public func Start()
     {
-        locationManager.delegate = self
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.delegate = self;
+        locationManager.distanceFilter = kCLDistanceFilterNone;
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
         
         if (CLLocationManager.authorizationStatus() == .NotDetermined)
         {
-            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestWhenInUseAuthorization();
         }
         else if (CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse)
         {
@@ -48,13 +48,13 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
         
         if (allowed)
         {
-            locationManager.requestLocation();
+            locationManager.startMonitoringSignificantLocationChanges();
         }
     }
     
     public func Stop()
     {
-        stopped = true;
+        locationManager.stopMonitoringSignificantLocationChanges();
     }
     
     public func locationManager(
@@ -78,8 +78,8 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
     {
         if (!stopped)
         {
-            if let location = locations.first {
-                
+            if let location = locations.first
+            {
                 if (locationUpdated != nil)
                 {
                     locationUpdated!.NewLocation(
@@ -87,7 +87,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
                         latitude:location.coordinate.latitude,
                         longitude:location.coordinate.longitude,
                         elevation:location.altitude,
-                        accuracy:location.horizontalAccuracy)
+                        accuracy:location.horizontalAccuracy);
                 }
 
                 locationManager.stopUpdatingLocation();
@@ -95,16 +95,6 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
                 if (OnlyOnce)
                 {
                     stopped = true;
-                }
-                
-                if (!stopped)
-                {
-                    NSTimer.scheduledTimerWithTimeInterval(
-                        periodBetween,
-                        target: self,
-                        selector: "RequestLocation",
-                        userInfo: nil,
-                        repeats: false);
                 }
             }
         }
@@ -116,14 +106,5 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
         {
             locationManager.requestLocation();
         }
-    }
-    
-    public func locationManager(
-        manager: CLLocationManager,
-        didFailWithError error: NSError)
-    {
-        print("Failed to find user's location: \(error.localizedDescription)")
-        
-        locationManager.requestLocation()
-    }
+    }    
 }

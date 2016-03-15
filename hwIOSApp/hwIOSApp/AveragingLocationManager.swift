@@ -26,27 +26,27 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate
     
     override init()
     {
-        locationManager = CLLocationManager()
+        locationManager = CLLocationManager();
         
-        quantityToCollect = 10
-        periodBetween = 1
-        warmUpPeriod = 1
+        quantityToCollect = 10;
+        periodBetween = 1;
+        warmUpPeriod = 1;
         cancelCollecting = false;
-        locationAverage = LocationAverage()
-        alreadyRequested = false
+        locationAverage = LocationAverage();
+        alreadyRequested = false;
     }
     
     public func Start(completion: (count:Int, location:Location?) ->Void)
     {
         completionHandlers.append(completion)
         
-        locationManager.delegate = self
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.delegate = self;
+        locationManager.distanceFilter = kCLDistanceFilterNone;
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
         
         if (CLLocationManager.authorizationStatus() == .NotDetermined)
         {
-            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestWhenInUseAuthorization();
         }
         else if (CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse)
         {
@@ -101,7 +101,7 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate
                             latitude:currentAverage!.latitude!,
                             longitude:currentAverage!.longitude!,
                             elevation:currentAverage!.elevation!,
-                            accuracy:currentAverage!.accuracy!)
+                            accuracy:currentAverage!.accuracy!);
                     }
                 }
             }
@@ -114,18 +114,17 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate
                     selector: "RequestLocation",
                     userInfo: nil,
                     repeats: false);
-
             }
             else
             {
                 if (completionHandlers.count>0)
                 {
-                    locationManager.stopUpdatingLocation()
+                    locationManager.stopUpdatingLocation();
                     
                     if (!completionFired)
                     {
                         completionFired = true;
-                        completionHandlers[0](QuantityCollected, locationAverage.getAverage())
+                        completionHandlers[0](QuantityCollected, locationAverage.getAverage());
                     }
                 }
             }
@@ -140,8 +139,7 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate
     
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
     {
-        print("Failed to find user's location: \(error.localizedDescription)")
-        
-        locationManager.requestLocation()
+        print("Failed to find user's location: \(error.localizedDescription)");
+        locationManager.requestLocation();
     }
 }

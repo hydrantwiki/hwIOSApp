@@ -12,49 +12,92 @@ import UIKit
 public class HomeViewController : UIViewController
 {
     public var user:User?;
-    @IBOutlet weak var TagHydrantButton: UIBarButtonItem!
-    @IBOutlet weak var NearbyHydrantsButton: UIBarButtonItem!
-    @IBOutlet weak var MapButton: UIBarButtonItem!
-    @IBOutlet weak var AboutButton: UIBarButtonItem!
-    @IBOutlet var NavBar: UINavigationBar!
-    @IBOutlet var ToolBar: UIToolbar!
-    @IBOutlet weak var MyHydrantCount: UILabel!
+    var NavBar: UINavigationBar!
+    var AboutButton: UIBarButtonItem!
+
+    var TagHydrantButton: UIButton!
+    var NearbyHydrantsButton: UIButton!
+    var MapButton: UIButton!
     
-    @IBAction func TagHydrantSent(sender: AnyObject)
-    {
-        performSegueWithIdentifier("ShowTagHydrant", sender: nil)
-    }
+    var MyHydrantCount: UILabel!
     
-    @IBAction func NearbyHydrantsSent(sender: AnyObject)
-    {
-        performSegueWithIdentifier("ShowNearbyHydrants", sender: nil)
-    }
-    
-    
-    @IBAction func MapSent(sender: AnyObject)
-    {
-        performSegueWithIdentifier("ShowMap", sender: nil)
-    }
     
     override public func viewDidLoad()
     {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        
+        let height:Float = UIFormatHelper.GetScreenHeight();
+        let width:Float = UIFormatHelper.GetScreenWidth();
+        
+        /* setup the Navbar */
+        AboutButton = UIFormatHelper.CreateNavBarButton(
+            "About",
+            targetView: self,
+            buttonAction: Selector("AboutPressed:"));
+        
+        NavBar = UIFormatHelper.CreateNavBar("HydrantWiki", leftButton: nil, rightButton: AboutButton);
+        view.addSubview(NavBar);
+        
+        /* Setup other controls */
+        let countFrame = CGRect(
+            x: 10,
+            y: 60,
+            width: Int(UIFormatHelper.GetScreenWidth()) - 20,
+            height: 25
+        );
+        MyHydrantCount = UILabel(frame: countFrame);
+        MyHydrantCount.text = "Hydrants Tagged : Loading...";
+        view.addSubview(MyHydrantCount);
+        
+        /* Tag Hydrant */
+        let tagHydrantFrame = CGRect(
+            x: 10,
+            y: 100,
+            width: Int(UIFormatHelper.GetScreenWidth()) - 20,
+            height: 25
+        );
+        TagHydrantButton = UIButton(frame: tagHydrantFrame);
+        TagHydrantButton.setTitle("Tag Hydrant", forState: UIControlState.Normal);
+        TagHydrantButton.addTarget(self, action: "TagHydrantPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(TagHydrantButton);
+        
+        /* Nearby Hydrants */
+        let nearbyHydrantsFrame = CGRect(
+            x: 10,
+            y: 150,
+            width: Int(UIFormatHelper.GetScreenWidth()) - 20,
+            height: 25
+        );
+        NearbyHydrantsButton = UIButton(frame: nearbyHydrantsFrame);
+        NearbyHydrantsButton.setTitle("Nearby Hydrants", forState: UIControlState.Normal);
+        NearbyHydrantsButton.addTarget(self, action: "NearbyHydrantsPresssed:", forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(NearbyHydrantsButton);
+        
+        /* Map Hydrants */
+        let mapFrame = CGRect(
+            x: 10,
+            y: 200,
+            width: Int(UIFormatHelper.GetScreenWidth()) - 20,
+            height: 25
+        );
+        MapButton = UIButton(frame: mapFrame);
+        MapButton.setTitle("Map of Hydrants", forState: UIControlState.Normal);
+        MapButton.addTarget(self, action: "MapPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(MapButton);
+
         
         // Do any additional setup after loading the view, typically from a nib.
-        UIFormatHelper.Format(NavBar)
-        UIFormatHelper.Format(ToolBar)
+        UIFormatHelper.Format(NavBar);
         
         //Top buttons
-        UIFormatHelper.Format(AboutButton)
-        
-        //Bottom buttons
-        UIFormatHelper.Format(TagHydrantButton, image:"")
-        UIFormatHelper.Format(MapButton, image:"")
-        UIFormatHelper.Format(NearbyHydrantsButton, image:"")
+        UIFormatHelper.Format(AboutButton);
         
         //Other Controls
         UIFormatHelper.Format(MyHydrantCount);
-                
+        UIFormatHelper.Format(TagHydrantButton);
+        UIFormatHelper.Format(MapButton);
+        UIFormatHelper.Format(NearbyHydrantsButton);
+        
         NSTimer.scheduledTimerWithTimeInterval(
             0.25,
             target: self,
@@ -77,13 +120,29 @@ public class HomeViewController : UIViewController
         }
     }
     
-    @IBAction func AboutSent(sender: AnyObject)
+    func TagHydrantPressed(sender: AnyObject)
     {
-        performSegueWithIdentifier("ShowAbout", sender: nil)
+        performSegueWithIdentifier("ShowTagHydrant", sender: nil);
+    }
+    
+    func NearbyHydrantsPresssed(sender: AnyObject)
+    {
+        performSegueWithIdentifier("ShowNearbyHydrants", sender: nil);
+    }
+    
+    func MapPressed(sender: AnyObject)
+    {
+        performSegueWithIdentifier("ShowMap", sender: nil);
+    }
+    
+    func AboutPressed(sender: AnyObject)
+    {
+        performSegueWithIdentifier("ShowAbout", sender: nil);
     }
     
     @IBAction func returnToHome(sender: UIStoryboardSegue)
-    {        
-        
+    {
+        //Placeholder
     }
+
 }

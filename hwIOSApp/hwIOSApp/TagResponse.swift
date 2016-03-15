@@ -23,7 +23,7 @@ struct TagResponseDTO : Mappable
     
     mutating func mapping(map: Map)
     {
-        Success           <- map["Success"]
-        Message           <- map["Message"]
+        Success           <- map["Success"];
+        Message           <- map["Message"];
     }
 }

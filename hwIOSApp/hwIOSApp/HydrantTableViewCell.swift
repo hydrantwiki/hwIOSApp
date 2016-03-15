@@ -59,7 +59,15 @@ class HydrantTableViewCell: UITableViewCell
         {
             let url = NSURL(string: hydrant.ThumbnailUrl!);
             let data = NSData(contentsOfURL: url!); //make sure your image in this url does exist, otherwise unwrap in a if let check
-            HydrantImage.image = UIImage(data: data!);
+            
+            if (data != nil)
+            {
+                HydrantImage.image = UIImage(data: data!);
+            }
+            else
+            {
+                HydrantImage.image = UIImage(named:"NoImage");
+            }
         }
     }
 }

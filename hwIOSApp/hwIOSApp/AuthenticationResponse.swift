@@ -22,8 +22,8 @@ struct AuthenticationResponse: Mappable
     
     mutating func mapping(map: Map)
     {
-        User            <- map["User"]
-        Success         <- map["Success"]
-        Message         <- map["Message"]
+        User            <- map["User"];
+        Success         <- map["Success"];
+        Message         <- map["Message"];
     }
 }

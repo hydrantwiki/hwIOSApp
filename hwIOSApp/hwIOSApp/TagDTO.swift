@@ -28,7 +28,7 @@ struct TagDTO : Mappable
     
     mutating func mapping(map: Map)
     {
-        ImageGuid           <- map["ImageGuid"]
-        Position            <- map["Position"]
+        ImageGuid           <- map["ImageGuid"];
+        Position            <- map["Position"];
     }
 }

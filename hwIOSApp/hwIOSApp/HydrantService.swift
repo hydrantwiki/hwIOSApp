@@ -13,13 +13,13 @@ import UIKit
 
 internal class HydrantService : BaseService
 {
-    
     internal func GetHydrantsInCircle(
         latitude:Double,
         longitude:Double,
         distance:Double,
         completion: (response:HydrantQueryResponseDTO?) ->Void)
     {
+        var manager = GetAlamofireManager(5);
         let uri = BaseUrl + "/api/hydrants/circle/"
             + String(latitude) + "/"
             + String(longitude) + "/"
@@ -40,20 +40,18 @@ internal class HydrantService : BaseService
                     
                     if (!json.hasPrefix("<!DOCTYPE"))
                     {
-                        let result:HydrantQueryResponseDTO = Mapper<HydrantQueryResponseDTO>().map(json)!
-                        completion(response: result)
-                        
+                        let result:HydrantQueryResponseDTO = Mapper<HydrantQueryResponseDTO>().map(json)!;
+                        completion(response: result);
                         return;
                     }
                 }
                 
-                var result:HydrantQueryResponseDTO = HydrantQueryResponseDTO()
+                var result:HydrantQueryResponseDTO = HydrantQueryResponseDTO();
                 result.Success = false;
                 result.Hydrants = nil;
-                completion(response: result)
+                completion(response: result);
         }
-    }
-    
+    }    
     
     internal func GetHydrantsInBox(
         minLatitude:Double,
@@ -62,11 +60,12 @@ internal class HydrantService : BaseService
         maxLongitude:Double,
         completion: (response:HydrantQueryResponseDTO?) ->Void)
     {
+        var manager = GetAlamofireManager(5);
         let url:String = BaseUrl + "/api/hydrants/box/"
             + String(maxLongitude) + "/"
             + String(minLongitude) + "/"
             + String(maxLatitude) + "/"
-            + String(minLatitude)
+            + String(minLatitude);
         
         Alamofire.request(
             .GET,
@@ -78,25 +77,22 @@ internal class HydrantService : BaseService
                 if (response.result.value != nil)
                 {
                     do {
-                        let json:String = response.result.value!
-                        let result:HydrantQueryResponseDTO = Mapper<HydrantQueryResponseDTO>().map(json)!
-                        
-                        completion(response: result)
+                        let json:String = response.result.value!;
+                        let result:HydrantQueryResponseDTO = Mapper<HydrantQueryResponseDTO>().map(json)!;
+                        completion(response: result);
                     } catch _ {
-                        var result:HydrantQueryResponseDTO = HydrantQueryResponseDTO()
+                        var result:HydrantQueryResponseDTO = HydrantQueryResponseDTO();
                         result.Success = false;
                         result.Hydrants = nil;
-                        
-                        completion(response: result)
+                        completion(response: result);
                     }
                 }
                 else
                 {
-                    var result:HydrantQueryResponseDTO = HydrantQueryResponseDTO()
+                    var result:HydrantQueryResponseDTO = HydrantQueryResponseDTO();
                     result.Success = false;
-                    result.Hydrants = nil;
-                    
-                    completion(response: result)
+                    result.Hydrants = nil;                    
+                    completion(response: result);
                 }
         }
         

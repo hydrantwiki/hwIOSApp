@@ -83,68 +83,10 @@
                     <view key="view" contentMode="scaleToFill" id="cru-ha-VKq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5EJ-9s-DnO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <animations/>
-                                <items>
-                                    <navigationItem title="HydrantWiki" id="AoX-oF-PbO">
-                                        <barButtonItem key="rightBarButtonItem" title="About" id="0xp-kv-sp7">
-                                            <connections>
-                                                <action selector="AboutSent:" destination="jCK-Yx-AWn" id="aiB-ib-kis"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hydrants Tagged:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Es9-Hu-h01">
-                                <rect key="frame" x="20" y="69" width="379" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0y6-Wh-Ulz">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <animations/>
-                                <items>
-                                    <barButtonItem title="Tag Hydrant" id="O1H-aP-V9N">
-                                        <connections>
-                                            <action selector="TagHydrantSent:" destination="jCK-Yx-AWn" id="Hfs-Wc-Y3O"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Nearby Hydrants" id="RTn-T8-Sgi">
-                                        <connections>
-                                            <action selector="NearbyHydrantsSent:" destination="jCK-Yx-AWn" id="Mxs-gt-6xG"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Map" id="GfE-sl-n0M">
-                                        <connections>
-                                            <action selector="MapSent:" destination="jCK-Yx-AWn" id="HMi-ny-ACe"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="5EJ-9s-DnO" secondAttribute="trailing" constant="-20" id="397-sN-ubN"/>
-                            <constraint firstItem="0y6-Wh-Ulz" firstAttribute="leading" secondItem="cru-ha-VKq" secondAttribute="leadingMargin" constant="-20" id="3mw-ab-Qfl"/>
-                            <constraint firstItem="5EJ-9s-DnO" firstAttribute="top" secondItem="cru-ha-VKq" secondAttribute="topMargin" id="81Z-Jc-J6E"/>
-                            <constraint firstItem="SuD-qo-hg7" firstAttribute="top" secondItem="0y6-Wh-Ulz" secondAttribute="bottom" id="IYC-Ju-Z60"/>
-                            <constraint firstItem="5EJ-9s-DnO" firstAttribute="leading" secondItem="cru-ha-VKq" secondAttribute="leadingMargin" constant="-20" id="cFm-K7-58P"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0y6-Wh-Ulz" secondAttribute="trailing" constant="-20" id="mkI-iP-cgf"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="AboutButton" destination="0xp-kv-sp7" id="txR-jH-fWG"/>
-                        <outlet property="MapButton" destination="GfE-sl-n0M" id="Ldz-Mc-Rw7"/>
-                        <outlet property="MyHydrantCount" destination="Es9-Hu-h01" id="q1f-es-k2t"/>
-                        <outlet property="NavBar" destination="5EJ-9s-DnO" id="vbg-jS-19J"/>
-                        <outlet property="NearbyHydrantsButton" destination="RTn-T8-Sgi" id="Rab-a3-TmA"/>
-                        <outlet property="TagHydrantButton" destination="O1H-aP-V9N" id="2xe-0v-zjA"/>
-                        <outlet property="ToolBar" destination="0y6-Wh-Ulz" id="B4K-YI-HIj"/>
                         <segue destination="xHc-kP-Qs8" kind="show" identifier="ShowTagHydrant" id="OWN-ZC-Jeh"/>
                         <segue destination="kiY-Dr-qAm" kind="show" identifier="ShowNearbyHydrants" id="Sk1-rp-ZMj"/>
                         <segue destination="UBD-ao-wFv" kind="show" identifier="ShowMap" id="Yra-0U-53n"/>
@@ -171,6 +113,7 @@
                     </view>
                     <connections>
                         <segue destination="06i-oT-4yq" kind="unwind" identifier="returnToHomeSegue" unwindAction="returnToHome:" id="KkG-j1-uC2"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ReturnToLogin" id="ahB-mz-SAf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQI-YT-lx0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -373,7 +316,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DLG-Tv-DTB"/>
-        <segue reference="010-h0-Pyq"/>
+        <segue reference="Yra-0U-53n"/>
+        <segue reference="Sk1-rp-ZMj"/>
     </inferredMetricsTieBreakers>
 </document>

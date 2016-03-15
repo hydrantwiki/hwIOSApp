@@ -13,6 +13,6 @@ extension UIViewController
 {
     func ShowOKAlert(title:String, message:String)
     {
-        AlertHelper.ShowOkAlert(title, message: message, controller: self)
+        AlertHelper.ShowOkAlert(title, message: message, controller: self);
     }
 }

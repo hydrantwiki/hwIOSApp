@@ -14,8 +14,8 @@ class AuthenticationService : BaseService {
 
     internal func login(username:String, password:String, completion: (User?) ->Void)
     {
-        var headers : [String:String] = [ "Username":username, "Password":password ]
-        var parameters : [String:String]? = nil        
+        var headers : [String:String] = [ "Username":username, "Password":password ];
+        var parameters : [String:String]? = nil;
         var manager = GetAlamofireManager(5);
         
         Alamofire.request(.POST, BaseUrl + "/api/authorize",
@@ -25,8 +25,8 @@ class AuthenticationService : BaseService {
                 if (response.result.isSuccess
                     && response.result.value != nil)
                 {
-                    let json:String = response.result.value!
-                    let result:AuthenticationResponse = Mapper<AuthenticationResponse>().map(json)!
+                    let json:String = response.result.value!;
+                    let result:AuthenticationResponse = Mapper<AuthenticationResponse>().map(json)!;
                     
                     if (result.Success)
                     {
@@ -35,16 +35,14 @@ class AuthenticationService : BaseService {
                         if (resultUser != nil)
                         {
                             var user:User = User();
-                            user.AuthToken = resultUser!.AuthorizationToken
-                            user.Username = resultUser!.Username
-                            user.DisplayName = resultUser!.DisplayName
+                            user.AuthToken = resultUser!.AuthorizationToken;
+                            user.Username = resultUser!.Username;
+                            user.DisplayName = resultUser!.DisplayName;
                             completion(user);
                             
                             return;
                         }
-                    }
-                    
-                    
+                    }                                    
                 }
                 
                 completion(nil);

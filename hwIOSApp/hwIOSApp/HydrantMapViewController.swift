@@ -45,7 +45,6 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         HydrantMap.frame.origin.y = 50;
         HydrantMap.zoomEnabled = false;
         HydrantMap.showsUserLocation = false;
-        //HydrantMap.mapType = MKMapType.Standard;
         view.addSubview(HydrantMap);
         
         UIFormatHelper.Format(NavBar);
@@ -68,20 +67,19 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         mapView: MKMapView,
         viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
     {
-            if (annotation is MKUserLocation) { return nil }
-            
-            let reuseID = "hydrant"
-            var v = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID)
-            
-            if v != nil {
-                v!.annotation = annotation
-            } else {
-                v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-                
-                v!.image = UIImage(named:"HydrantPin")
-            }
-            
-            return v
+        if (annotation is MKUserLocation) { return nil }
+        
+        let reuseID = "hydrant";
+        var v = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID);
+        
+        if v != nil {
+            v!.annotation = annotation;
+        } else {
+            v = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID);
+            v!.image = UIImage(named:"HydrantPin");
+        }
+        
+        return v;
     }
     
     func ZoomToCurrentLocation(latitude:Double, longitude:Double)
@@ -92,10 +90,10 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         let location = CLLocationCoordinate2D(
             latitude: latitude,
             longitude: longitude
-        )
+        );
         
-        let span = MKCoordinateSpanMake(spanX, spanY)
-        let region = MKCoordinateRegion(center: location, span: span)
+        let span = MKCoordinateSpanMake(spanX, spanY);
+        let region = MKCoordinateRegion(center: location, span: span);
         
         HydrantMap.setRegion(region, animated: false);
         
@@ -111,7 +109,7 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         let minLon = edgePoints.sw.longitude;
         let maxLon = edgePoints.ne.longitude;
         
-        let service = HydrantService()
+        let service = HydrantService();
         service.GetHydrantsInBox(minLat, maxLatitude: maxLat, minLongitude: minLon, maxLongitude: maxLon)
             { (response) -> Void in
             
@@ -146,13 +144,13 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
     func TableViewButtonPressed(sender: UIBarButtonItem)
     {
         locationManager.Stop();
-        self.performSegueWithIdentifier("ShowNearbyTable", sender: nil)
+        self.performSegueWithIdentifier("ShowNearbyTable", sender: nil);
     }
     
     func CancelSent(sender: UIBarButtonItem)
     {
         locationManager.Stop();
-        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
+        self.performSegueWithIdentifier("returnToHomeSegue", sender: nil);
     }
     
     public func NewLocation(
@@ -166,5 +164,4 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         
         ZoomToCurrentLocation(latitude, longitude: longitude);
     }
-    
 }

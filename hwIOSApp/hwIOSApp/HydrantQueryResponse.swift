@@ -23,7 +23,7 @@ struct HydrantQueryResponseDTO : Mappable
     
     mutating func mapping(map: Map)
     {
-        Success           <- map["Success"]
-        Hydrants          <- map["Hydrants"]
+        Success           <- map["Success"];
+        Hydrants          <- map["Hydrants"];
     }
 }

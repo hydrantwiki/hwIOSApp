@@ -19,10 +19,10 @@ public class HydrantAnnotation: NSObject, MKAnnotation
     
     init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D)
     {
-        self.title = title
+        self.title = title;
         self.subtitle = subtitle;
-        self.coordinate = coordinate
+        self.coordinate = coordinate;
         
-        super.init()
+        super.init();
     }
 }

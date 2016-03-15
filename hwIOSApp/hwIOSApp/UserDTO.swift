@@ -21,8 +21,8 @@ struct UserDTO: Mappable
     
     mutating func mapping(map: Map)
     {
-        AuthorizationToken  <- map["AuthorizationToken"]
-        DisplayName         <- map["DisplayName"]
-        Username            <- map["Username"]
+        AuthorizationToken  <- map["AuthorizationToken"];
+        DisplayName         <- map["DisplayName"];
+        Username            <- map["Username"];
     }
 }

@@ -25,10 +25,10 @@ class BaseService
 
     func GetAlamofireManager(timeout:Double) -> Alamofire.Manager
     {
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        configuration.timeoutIntervalForResource = timeout
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration();
+        configuration.timeoutIntervalForResource = timeout;
         
-        return Alamofire.Manager(configuration: configuration)
+        return Alamofire.Manager(configuration: configuration);
     }
     
     var Username:String?
@@ -59,7 +59,7 @@ class BaseService
     
     func GetAuthHeaders() -> [String:String]
     {
-        let headerArray : [String:String] = [ "Username":self.Username!, "AuthorizationToken":self.Token! ]
+        let headerArray : [String:String] = [ "Username":self.Username!, "AuthorizationToken":self.Token! ];
         
         return headerArray;
     }

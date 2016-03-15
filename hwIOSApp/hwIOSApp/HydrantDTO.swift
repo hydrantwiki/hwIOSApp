@@ -25,11 +25,11 @@ struct HydrantDTO : Mappable
     
     mutating func mapping(map: Map)
     {
-        HydrantGuid             <- map["HydrantGuid"]
-        ThumbnailUrl            <- map["ThumbnailUrl"]
-        ImageUrl                <- map["ImageUrl"]
-        DistanceInFeet          <- map["DistanceInFeet"]
-        Position                <- map["Position"]
-        Username                <- map["Username"]
+        HydrantGuid             <- map["HydrantGuid"];
+        ThumbnailUrl            <- map["ThumbnailUrl"];
+        ImageUrl                <- map["ImageUrl"];
+        DistanceInFeet          <- map["DistanceInFeet"];
+        Position                <- map["Position"];
+        Username                <- map["Username"];
     }
 }

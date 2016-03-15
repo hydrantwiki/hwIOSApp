@@ -24,15 +24,15 @@ class TagService : BaseService {
             parameters: [:],
             headers:GetAuthHeaders(),
             encoding: .Custom({ (convertible, params) in
-                                let mutableRequest = convertible.URLRequest.copy() as! NSMutableURLRequest
-                                mutableRequest.HTTPBody = json!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-                                return (mutableRequest, nil)
-                             }))
+                let mutableRequest = convertible.URLRequest.copy() as! NSMutableURLRequest;
+                mutableRequest.HTTPBody = json!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false);
+                return (mutableRequest, nil);
+            }))
             .responseString { response in
-                              let json:String = response.result.value!
-                              let result:TagResponseDTO = Mapper<TagResponseDTO>().map(json)!
+                let json:String = response.result.value!;
+                let result:TagResponseDTO = Mapper<TagResponseDTO>().map(json)!;
             
-                              completion(response: result)
+                completion(response: result);
             }
     }
     
@@ -54,16 +54,16 @@ class TagService : BaseService {
                 switch encodingResult {
                 case .Success(let upload, _, _):
                     upload.responseJSON { response in
-                        var output:TagResponseDTO = TagResponseDTO()
+                        var output:TagResponseDTO = TagResponseDTO();
                         output.Success = true;
                         output.Message = "";
-                        completion(response: output)
+                        completion(response: output);
                     }
                 case .Failure(let encodingError):
-                    var output:TagResponseDTO = TagResponseDTO()
+                    var output:TagResponseDTO = TagResponseDTO();
                     output.Success = false;
                     output.Message = "Failed to save image";
-                    completion(response: output)
+                    completion(response: output);
                 }
             }
         )
@@ -80,17 +80,17 @@ class TagService : BaseService {
             .responseString { response in
                 if (response.result.value != nil)
                 {
-                    let json:String = response.result.value!
+                    let json:String = response.result.value!;
                     
                     if (!json.hasPrefix("<!DOCTYPE"))
                     {
-                        let result:TagCountResponseDTO = Mapper<TagCountResponseDTO>().map(json)!
+                        let result:TagCountResponseDTO = Mapper<TagCountResponseDTO>().map(json)!;
                         completion(response: result);
                     }
                     return;
                 }
 
-                var resultDefault:TagCountResponseDTO = TagCountResponseDTO()
+                var resultDefault:TagCountResponseDTO = TagCountResponseDTO();
                 resultDefault.Success = false;
                 resultDefault.TagCount = 0;
                 completion(response: resultDefault);

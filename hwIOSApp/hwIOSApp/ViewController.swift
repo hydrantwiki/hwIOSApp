@@ -17,9 +17,9 @@ class ViewController: UIViewController
     
     @IBAction func LoginPressed(sender: AnyObject)
     {
-        let service:AuthenticationService = AuthenticationService()
-        let username = UsernameText.text
-        let password = PasswordText.text
+        let service:AuthenticationService = AuthenticationService();
+        let username = UsernameText.text;
+        let password = PasswordText.text;
 
         if ((username ?? "").isEmpty
             || (password ?? "").isEmpty)
@@ -35,16 +35,16 @@ class ViewController: UIViewController
             {
                 self.user = result!
                 
-                let defaults = NSUserDefaults.standardUserDefaults()
-                defaults.setObject(result?.Username, forKey: "username")
-                defaults.setObject(result?.AuthToken, forKey: "authToken")
-                defaults.setObject(result?.DisplayName, forKey: "displayName")
+                let defaults = NSUserDefaults.standardUserDefaults();
+                defaults.setObject(result?.Username, forKey: "username");
+                defaults.setObject(result?.AuthToken, forKey: "authToken");
+                defaults.setObject(result?.DisplayName, forKey: "displayName");
                 
                 Credentials.GetInstance().userName = self.user!.Username;
                 Credentials.GetInstance().userToken = self.user!.AuthToken;
                 
                  //Perform segue
-                self.performSegueWithIdentifier("ShowHome", sender:nil)
+                self.performSegueWithIdentifier("ShowHome", sender:nil);
             }
             else
             {
@@ -56,9 +56,8 @@ class ViewController: UIViewController
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        let homeVC = segue.destinationViewController as! HomeViewController
-        
-        homeVC.user = self.user
+        let homeVC = segue.destinationViewController as! HomeViewController;
+        homeVC.user = self.user;
     }
     
     override func viewDidLoad()
@@ -67,17 +66,17 @@ class ViewController: UIViewController
         // Do any additional setup after loading the view, typically from a nib.
         UIFormatHelper.Format(LoginButton);
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let username = defaults.stringForKey("username")
-        let authToken = defaults.stringForKey("authToken")
-        let displayName = defaults.stringForKey("displayName")
+        let defaults = NSUserDefaults.standardUserDefaults();
+        let username = defaults.stringForKey("username");
+        let authToken = defaults.stringForKey("authToken");
+        let displayName = defaults.stringForKey("displayName");
         
         if (username != nil && authToken != nil)
         {
-            var user = User()
-            user.AuthToken = authToken
-            user.DisplayName = displayName
-            user.Username = username
+            var user = User();
+            user.AuthToken = authToken;
+            user.DisplayName = displayName;
+            user.Username = username;
             
             self.user = user;
             
@@ -91,13 +90,13 @@ class ViewController: UIViewController
         //TODO - Test to see if the token is still good
         if (self.user != nil)
         {
-            self.performSegueWithIdentifier("ShowHome", sender: nil)
+            self.performSegueWithIdentifier("ShowHome", sender: nil);
         }
     }
 
     override func didReceiveMemoryWarning()
     {
-        super.didReceiveMemoryWarning()
+        super.didReceiveMemoryWarning();
         // Dispose of any resources that can be recreated.
     }
 }

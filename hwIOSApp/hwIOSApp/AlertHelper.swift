@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
-public class AlertHelper {
-    
-    static func ShowOkAlert(title: String, message: String, controller:UIViewController) {
-        let uiAlert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        uiAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+public class AlertHelper
+{
+    static func ShowOkAlert(title: String, message: String, controller:UIViewController)
+    {
+        let uiAlert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .Alert);
+        uiAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil));
         
-        controller.presentViewController(uiAlert, animated: true, completion: nil)
+        controller.presentViewController(uiAlert, animated: true, completion: nil);
     }    
 }

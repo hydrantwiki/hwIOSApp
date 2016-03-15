@@ -8,28 +8,31 @@
 
 import UIKit
 
-class HydrantTableViewCell: UITableViewCell {
-
+class HydrantTableViewCell: UITableViewCell
+{
     var LatitudeLabel: UILabel = UILabel();
     var LongitudeLabel: UILabel = UILabel();
     var DistanceLabel: UILabel = UILabel();
     var HydrantImage: UIImageView = UIImageView();
         
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?)
+    {
+        super.init(style: style, reuseIdentifier: reuseIdentifier);
         
-        self.contentView.addSubview(LatitudeLabel)
-        self.contentView.addSubview(LongitudeLabel)
-        self.contentView.addSubview(DistanceLabel)
-        self.contentView.addSubview(HydrantImage)
+        self.contentView.addSubview(LatitudeLabel);
+        self.contentView.addSubview(LongitudeLabel);
+        self.contentView.addSubview(DistanceLabel);
+        self.contentView.addSubview(HydrantImage);
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder)
+    {
         super.init(coder: aDecoder);
     }
     
-    override func layoutSubviews() {
+    override func layoutSubviews()
+    {
         super.layoutSubviews()
         
         LatitudeLabel.frame = CGRectMake(95, 5, 300, 20);
@@ -38,8 +41,8 @@ class HydrantTableViewCell: UITableViewCell {
         HydrantImage.frame = CGRectMake(0, 5, 80, 80);
     }
     
-    func Populate(hydrant:HydrantDTO) {
-        
+    func Populate(hydrant:HydrantDTO)
+    {
         if (hydrant.Position != nil)
         {
             LatitudeLabel.text = "Latitude: " + String(hydrant.Position!.Latitude!.roundToPlaces(5));
@@ -54,9 +57,9 @@ class HydrantTableViewCell: UITableViewCell {
         }
         else
         {
-            let url = NSURL(string: hydrant.ThumbnailUrl!)
-            let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-            HydrantImage.image = UIImage(data: data!)
+            let url = NSURL(string: hydrant.ThumbnailUrl!);
+            let data = NSData(contentsOfURL: url!); //make sure your image in this url does exist, otherwise unwrap in a if let check
+            HydrantImage.image = UIImage(data: data!);
         }
     }
 }

@@ -13,7 +13,8 @@ import UIKit
 
 class TagService : BaseService {
     
-    internal func SaveTag(tag:TagDTO,
+    internal func SaveTag(
+        tag:TagDTO,
         completion: (response:TagResponseDTO?) ->Void)
     {
         let json = Mapper().toJSONString(tag, prettyPrint: false)
@@ -35,7 +36,8 @@ class TagService : BaseService {
             }
     }
     
-    internal func SaveImage(fileLocation:String,
+    internal func SaveImage(
+        fileLocation:String,
         fileName:String,
         completion: (response:TagResponseDTO?) ->Void)
     {
@@ -67,7 +69,8 @@ class TagService : BaseService {
         )
     }
     
-    internal func GetMyTagCount(completion: (response:TagCountResponseDTO?) ->Void)
+    internal func GetMyTagCount(
+        completion: (response:TagCountResponseDTO?) ->Void)
     {
         Alamofire.request(.GET,
             BaseUrl + "/api/tags/mine/count",

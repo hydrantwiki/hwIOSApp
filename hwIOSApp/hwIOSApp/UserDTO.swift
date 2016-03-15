@@ -9,7 +9,8 @@
 import Foundation
 import ObjectMapper
 
-struct UserDTO: Mappable {
+struct UserDTO: Mappable
+{
     var AuthorizationToken:String?
     var DisplayName:String?
     var Username:String?
@@ -18,7 +19,8 @@ struct UserDTO: Mappable {
         
     }
     
-    mutating func mapping(map: Map) {
+    mutating func mapping(map: Map)
+    {
         AuthorizationToken  <- map["AuthorizationToken"]
         DisplayName         <- map["DisplayName"]
         Username            <- map["Username"]

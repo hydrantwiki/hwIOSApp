@@ -15,8 +15,7 @@ class AuthenticationService : BaseService {
     internal func login(username:String, password:String, completion: (User?) ->Void)
     {
         var headers : [String:String] = [ "Username":username, "Password":password ]
-        var parameters : [String:String]? = nil
-        
+        var parameters : [String:String]? = nil        
         var manager = GetAlamofireManager(5);
         
         Alamofire.request(.POST, BaseUrl + "/api/authorize",

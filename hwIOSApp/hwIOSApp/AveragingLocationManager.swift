@@ -9,8 +9,8 @@
 import Foundation
 import CoreLocation
 
-public class AveragingLocationManager: NSObject, CLLocationManagerDelegate  {
-    
+public class AveragingLocationManager: NSObject, CLLocationManagerDelegate
+{
     public var QuantityCollected:Int = 0
     var cancelCollecting:Bool
     var locationManager : CLLocationManager
@@ -24,7 +24,8 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate  {
     public var locationAverageUpdated:ILocationUpdated? = nil
     var completionFired:Bool = false;
     
-    override init(){
+    override init()
+    {
         locationManager = CLLocationManager()
         
         quantityToCollect = 10
@@ -63,7 +64,8 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate  {
         }
     }
     
-    public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus)
+    {
         if (status == CLAuthorizationStatus.AuthorizedAlways
             || status == CLAuthorizationStatus.AuthorizedWhenInUse)
         {
@@ -75,7 +77,8 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate  {
         }
     }
     
-    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
         if let location = locations.first {
             
             locationAverage.add(location.coordinate.latitude,
@@ -135,7 +138,8 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate  {
         locationManager.requestLocation();
     }
     
-    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+    {
         print("Failed to find user's location: \(error.localizedDescription)")
         
         locationManager.requestLocation()

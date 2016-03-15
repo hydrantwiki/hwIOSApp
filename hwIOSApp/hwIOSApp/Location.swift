@@ -8,7 +8,8 @@
 
 import Foundation
 
-public class Location {
+public class Location
+{
     var dateTime : NSDate?
     var latitude : Double?
     var longitude : Double?

@@ -9,16 +9,19 @@
 import Foundation
 import ObjectMapper
 
-struct AuthenticationResponse: Mappable {
+struct AuthenticationResponse: Mappable
+{
     var User:UserDTO?
     var Success:Bool = false;
     var Message:String?
     
-    init?(_ map: Map){
+    init?(_ map: Map)
+    {
         
     }
     
-    mutating func mapping(map: Map) {
+    mutating func mapping(map: Map)
+    {
         User            <- map["User"]
         Success         <- map["Success"]
         Message         <- map["Message"]

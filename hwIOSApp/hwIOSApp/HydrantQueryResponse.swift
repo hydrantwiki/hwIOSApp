@@ -9,17 +9,20 @@
 import Foundation
 import ObjectMapper
 
-struct HydrantQueryResponseDTO : Mappable {
+struct HydrantQueryResponseDTO : Mappable
+{
     var Success:Bool = false;
     var Hydrants:[HydrantDTO]? = nil;
     
     init() { }
     
-    init?(_ map: Map){
+    init?(_ map: Map)
+    {
         
     }
     
-    mutating func mapping(map: Map) {
+    mutating func mapping(map: Map)
+    {
         Success           <- map["Success"]
         Hydrants          <- map["Hydrants"]
     }

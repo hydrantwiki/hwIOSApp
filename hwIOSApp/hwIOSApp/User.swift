@@ -9,11 +9,9 @@
 import Foundation
 import ObjectMapper
 
-public struct User {
-
+public struct User
+{
     var Username: String?
     var AuthToken: String?
     var DisplayName: String?
-    
-    
 }

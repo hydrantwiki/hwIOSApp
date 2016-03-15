@@ -21,7 +21,8 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
     var TableViewButton: UIBarButtonItem!
     var HydrantMap: MKMapView!
     
-    override public func viewDidLoad() {
+    override public func viewDidLoad()
+    {
         super.viewDidLoad()
         
         CancelButton = UIFormatHelper.CreateNavBarButton("Cancel", targetView: self, buttonAction: Selector("CancelSent:"));
@@ -35,7 +36,8 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
             x: 0,
             y: 0,
             width: Int(UIFormatHelper.GetScreenWidth()),
-            height: Int(UIFormatHelper.GetScreenHeight())-50);
+            height: Int(UIFormatHelper.GetScreenHeight()) - 50
+        );
         
         HydrantMap = MKMapView(frame: mapFrame);
         HydrantMap.delegate = self;
@@ -57,13 +59,15 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         locationManager!.Start();
     }
     
-    public func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    public func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool)
+    {
         GetHydrants();
     }
     
     public func mapView(
         mapView: MKMapView,
-        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+    {
             if (annotation is MKUserLocation) { return nil }
             
             let reuseID = "hydrant"
@@ -98,7 +102,8 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         GetHydrants();
     }
     
-    func GetHydrants() {
+    func GetHydrants()
+    {
         let edgePoints = HydrantMap.edgePoints();
         
         let minLat = edgePoints.sw.latitude;

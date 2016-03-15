@@ -9,8 +9,10 @@
 import Foundation
 import ObjectMapper
 
-public class ServiceResult<T:Mappable> {
-    init () {
+public class ServiceResult<T:Mappable>
+{
+    init ()
+    {
         Result = nil;
         Payload = nil;
     }

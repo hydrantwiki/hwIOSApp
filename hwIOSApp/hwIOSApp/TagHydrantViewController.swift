@@ -26,7 +26,8 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     @IBOutlet weak var CountLabel: UILabel!
     @IBOutlet weak var HydrantImage: UIImageView!
     
-    override public func viewDidLoad() {
+    override public func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -61,7 +62,8 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         StartGPSCollection();
     }
     
-    @IBAction func SavePressed(sender: AnyObject) {
+    @IBAction func SavePressed(sender: AnyObject)
+    {
         SaveButton.enabled = false;
         
         var tag:TagDTO = TagDTO()
@@ -156,7 +158,8 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         }
     }
     
-    @IBAction func TakePhotoPressed(sender: AnyObject) {
+    @IBAction func TakePhotoPressed(sender: AnyObject)
+    {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .Camera
         imagePicker.cameraCaptureMode = .Photo
@@ -167,36 +170,37 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         }
     }
     
-    public func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    public func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?)
+    {
         HydrantImage.contentMode = .ScaleAspectFit
         HydrantImage.image = image
     
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    public func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    public func imagePickerControllerDidCancel(picker: UIImagePickerController)
+    {
         dismissViewControllerAnimated(true) { () -> Void in
             
         }
     }
-    
 
     public func NewLocation(
         count: Int,
         latitude: Double,
         longitude: Double,
         elevation: Double,
-        accuracy: Double) {
+        accuracy: Double)
+    {
         
             CountLabel.text = "Count: " + String(count)
             LatitudeLabel.text = "Latitude: " + String(latitude)
             LongitudeLabel.text = "Longitude: " + String(longitude)
             AccuracyLabel.text = "Accuracy (m): " + String(accuracy)
-        
     }
     
-    
-    @IBAction func CancelSent(sender: AnyObject) {
+    @IBAction func CancelSent(sender: AnyObject)
+    {
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil)
     }
 }

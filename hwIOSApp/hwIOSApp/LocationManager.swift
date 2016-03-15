@@ -9,7 +9,8 @@
 import Foundation
 import CoreLocation
 
-public class LocationManager: NSObject, CLLocationManagerDelegate  {
+public class LocationManager: NSObject, CLLocationManagerDelegate
+{
     var cancelCollecting:Bool
     var locationManager : CLLocationManager
     var periodBetween : Double
@@ -20,7 +21,8 @@ public class LocationManager: NSObject, CLLocationManagerDelegate  {
     public var locationUpdated:ILocationUpdated? = nil
     public var OnlyOnce:Bool = false;
     
-    override init(){
+    override init()
+    {
         locationManager = CLLocationManager()
         
         periodBetween = 30;

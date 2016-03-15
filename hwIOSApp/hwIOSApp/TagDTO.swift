@@ -9,7 +9,8 @@
 import Foundation
 import ObjectMapper
 
-struct TagDTO : Mappable {
+struct TagDTO : Mappable
+{
     var ImageGuid:String?;
     var Position:PositionDTO?
     
@@ -20,11 +21,13 @@ struct TagDTO : Mappable {
     
     init() { }
     
-    init?(_ map: Map){
+    init?(_ map: Map)
+    {
         
     }
     
-    mutating func mapping(map: Map) {
+    mutating func mapping(map: Map)
+    {
         ImageGuid           <- map["ImageGuid"]
         Position            <- map["Position"]
     }

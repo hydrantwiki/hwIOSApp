@@ -9,8 +9,8 @@
 import Foundation
 import ObjectMapper
 
-struct HydrantDTO : Mappable {
-    
+struct HydrantDTO : Mappable
+{    
     var HydrantGuid:String?
     var ThumbnailUrl:String?
     var ImageUrl:String?
@@ -18,11 +18,13 @@ struct HydrantDTO : Mappable {
     var Position:PositionDTO?
     var Username:String?
     
-    init?(_ map: Map){
+    init?(_ map: Map)
+    {
     
     }
     
-    mutating func mapping(map: Map) {
+    mutating func mapping(map: Map)
+    {
         HydrantGuid             <- map["HydrantGuid"]
         ThumbnailUrl            <- map["ThumbnailUrl"]
         ImageUrl                <- map["ImageUrl"]

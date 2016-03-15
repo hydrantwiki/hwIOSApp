@@ -9,15 +9,18 @@
 import Foundation
 import ObjectMapper
 
-struct IsAvailableResponse: Mappable {
+struct IsAvailableResponse: Mappable
+{
     var Success:Bool = false;
     var Available:Bool = false;
     
-    init?(_ map: Map){
+    init?(_ map: Map)
+    {
         
     }
     
-    mutating func mapping(map: Map) {
+    mutating func mapping(map: Map)
+    {
         Success           <- map["Success"]
         Available         <- map["Available"]
     }

@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
-    func ShowOKAlert(title:String, message:String) {
+extension UIViewController
+{
+    func ShowOKAlert(title:String, message:String)
+    {
         AlertHelper.ShowOkAlert(title, message: message, controller: self)
     }
 }

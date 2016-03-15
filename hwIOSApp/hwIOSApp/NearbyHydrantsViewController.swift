@@ -20,7 +20,8 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
     var MapViewButton: UIBarButtonItem!
     var HydrantTableView: UITableView!
     
-    override public func viewDidLoad() {
+    override public func viewDidLoad()
+    {
         super.viewDidLoad()
         
         CancelButton = UIFormatHelper.CreateNavBarButton(
@@ -78,15 +79,18 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
     }
     
     // MARK:  UITextFieldDelegate Methods
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         return 1
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return hydrants.count
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
         let cellIdentifier = "HydrantTableViewCell";
         
         let cell:HydrantTableViewCell = HydrantTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
@@ -100,7 +104,8 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
     }
     
     // MARK:  UITableViewDelegate Methods
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

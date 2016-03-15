@@ -9,7 +9,8 @@
 import Foundation
 import Alamofire
 
-class BaseService {
+class BaseService
+{
     //var BaseUrl = "http://app.hydrantwiki.com"
     var BaseUrl:String;
     var credentials:Credentials
@@ -30,22 +31,28 @@ class BaseService {
         return Alamofire.Manager(configuration: configuration)
     }
     
-    var Username:String? {
-        get {
+    var Username:String?
+    {
+        get
+        {
             return credentials.userName;
         }
         
-        set(username) {
+        set(username)
+        {
             credentials.userName = username;
         }
     }
     
-    var Token:String? {
-        get {
+    var Token:String?
+    {
+        get
+        {
             return credentials.userToken;
         }
         
-        set(token) {
+        set(token)
+        {
             credentials.userToken = token;
         }
     }

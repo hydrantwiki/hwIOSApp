@@ -11,10 +11,11 @@ import UIKit
 
 public class ImageHelper
 {
-    static func saveImage (image: UIImage, path: String, imageQuality:Double) -> Bool{
+    static func saveImage (image: UIImage, path: String, imageQuality:Double) -> Bool
+    {
         let jpgImageData = UIImageJPEGRepresentation(image, CGFloat(imageQuality));
-        let result = jpgImageData!.writeToFile(path, atomically: true)
+        let result = jpgImageData!.writeToFile(path, atomically: true);
         
-        return result
+        return result;
     }
 }

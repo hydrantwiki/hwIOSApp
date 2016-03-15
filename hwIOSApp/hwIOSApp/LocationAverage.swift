@@ -8,7 +8,8 @@
 
 import Foundation
 
-public class LocationAverage {
+public class LocationAverage
+{
     
     public var locations:[Location] = [Location]()
     
@@ -33,7 +34,8 @@ public class LocationAverage {
         }
     }
     
-    public func getAverage() -> Location? {
+    public func getAverage() -> Location?
+    {
         var count : Double = 0
         var latitude : Double = 0
         var longitude : Double = 0
@@ -66,7 +68,4 @@ public class LocationAverage {
         
         return nil;
     }
-    
-    
-    
 }

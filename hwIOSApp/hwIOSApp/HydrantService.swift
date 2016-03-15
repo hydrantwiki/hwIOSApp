@@ -11,7 +11,8 @@ import Alamofire
 import ObjectMapper
 import UIKit
 
-internal class HydrantService : BaseService {
+internal class HydrantService : BaseService
+{
     
     internal func GetHydrantsInCircle(
         latitude:Double,

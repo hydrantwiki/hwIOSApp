@@ -11,7 +11,8 @@ import AVFoundation
 import UIKit
 import MapKit;
 
-struct UIConstants {
+struct UIConstants
+{
     static let ButtonCornerRadius:Int = 10;
     static let ButtonBackgroundColor:UIColor = UIColor(red:176, green:196, blue:222)
     static let ButtonTextColor:UIColor = UIColor.whiteColor();
@@ -38,11 +39,11 @@ extension UIColor
 {
     convenience init(red: Int, green: Int, blue: Int)
     {
-        let newRed = CGFloat(red)/255
-        let newGreen = CGFloat(green)/255
-        let newBlue = CGFloat(blue)/255
+        let newRed = CGFloat(red)/255;
+        let newGreen = CGFloat(green)/255;
+        let newBlue = CGFloat(blue)/255;
         
-        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0);
     }
 }
 

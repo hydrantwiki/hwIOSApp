@@ -8,14 +8,17 @@
 
 import Foundation
 
-public class Credentials {
+public class Credentials
+{
     private static var credentials:Credentials = Credentials()
     
-    private init(){
+    private init()
+    {
         
     }
     
-    public static func GetInstance()->Credentials {
+    public static func GetInstance()->Credentials
+    {
         return credentials;
     }
     

@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-public class HomeViewController : UIViewController {
-
+public class HomeViewController : UIViewController
+{
     public var user:User?;
     @IBOutlet weak var TagHydrantButton: UIBarButtonItem!
     @IBOutlet weak var NearbyHydrantsButton: UIBarButtonItem!
@@ -20,20 +20,24 @@ public class HomeViewController : UIViewController {
     @IBOutlet var ToolBar: UIToolbar!
     @IBOutlet weak var MyHydrantCount: UILabel!
     
-    @IBAction func TagHydrantSent(sender: AnyObject) {
+    @IBAction func TagHydrantSent(sender: AnyObject)
+    {
         performSegueWithIdentifier("ShowTagHydrant", sender: nil)
     }
     
-    @IBAction func NearbyHydrantsSent(sender: AnyObject) {
+    @IBAction func NearbyHydrantsSent(sender: AnyObject)
+    {
         performSegueWithIdentifier("ShowNearbyHydrants", sender: nil)
     }
     
     
-    @IBAction func MapSent(sender: AnyObject) {
+    @IBAction func MapSent(sender: AnyObject)
+    {
         performSegueWithIdentifier("ShowMap", sender: nil)
     }
     
-    override public func viewDidLoad() {
+    override public func viewDidLoad()
+    {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -73,12 +77,13 @@ public class HomeViewController : UIViewController {
         }
     }
     
-    @IBAction func AboutSent(sender: AnyObject) {
+    @IBAction func AboutSent(sender: AnyObject)
+    {
         performSegueWithIdentifier("ShowAbout", sender: nil)
     }
     
-    @IBAction func returnToHome(sender: UIStoryboardSegue) {
-        
+    @IBAction func returnToHome(sender: UIStoryboardSegue)
+    {        
         
     }
 }

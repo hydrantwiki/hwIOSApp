@@ -8,17 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController
+{
     private var user:User?
-
     @IBOutlet weak var UsernameText: UITextField!
-    
     @IBOutlet weak var PasswordText: UITextField!
-    
     @IBOutlet weak var LoginButton: UIButton!
     
-    @IBAction func LoginPressed(sender: AnyObject) {
+    @IBAction func LoginPressed(sender: AnyObject)
+    {
         let service:AuthenticationService = AuthenticationService()
         let username = UsernameText.text
         let password = PasswordText.text
@@ -56,14 +54,15 @@ class ViewController: UIViewController {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         let homeVC = segue.destinationViewController as! HomeViewController
         
         homeVC.user = self.user
     }
     
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         UIFormatHelper.Format(LoginButton);
@@ -87,7 +86,8 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool)
+    {
         //TODO - Test to see if the token is still good
         if (self.user != nil)
         {
@@ -95,7 +95,8 @@ class ViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

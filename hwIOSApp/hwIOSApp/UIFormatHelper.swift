@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 import MapKit
 
-public class UIFormatHelper {
-    
+public class UIFormatHelper
+{
     static func Format(control:UIButton)
     {
         control.backgroundColor = UIConstants.HydrantWikiGray
@@ -135,5 +135,4 @@ public class UIFormatHelper {
         
         return NavBar;
     }
-    
 }

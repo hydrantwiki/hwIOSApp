@@ -9,17 +9,20 @@
 import Foundation
 import ObjectMapper
 
-struct TagCountResponseDTO : Mappable {
+struct TagCountResponseDTO : Mappable
+{
     var Success:Bool = false
     var TagCount:Int = 0;
     
     init() { }
     
-    init?(_ map: Map){
+    init?(_ map: Map)
+    {
         
     }
     
-    mutating func mapping(map: Map) {
+    mutating func mapping(map: Map)
+    {
         Success            <- map["Success"]
         TagCount           <- map["TagCount"]
     }

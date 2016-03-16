@@ -48,13 +48,20 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
         
         if (allowed)
         {
-            locationManager.startMonitoringSignificantLocationChanges();
+            //locationManager.startMonitoringSignificantLocationChanges();
+            
+            NSTimer.scheduledTimerWithTimeInterval(
+                0,
+                target: self,
+                selector: "RequestLocation",
+                userInfo: nil,
+                repeats: false);
         }
     }
     
     public func Stop()
     {
-        locationManager.stopMonitoringSignificantLocationChanges();
+        stopped = true;
     }
     
     public func locationManager(
@@ -82,6 +89,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
             {
                 if (locationUpdated != nil)
                 {
+                    //TODO - Launch with timer
                     locationUpdated!.NewLocation(
                         1,
                         latitude:location.coordinate.latitude,
@@ -91,13 +99,27 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
                 }
 
                 locationManager.stopUpdatingLocation();
-
+                
                 if (OnlyOnce)
                 {
                     stopped = true;
                 }
+
+                if (!stopped)
+                {
+                    NSTimer.scheduledTimerWithTimeInterval(
+                        periodBetween,
+                        target: self,
+                        selector: "RequestLocation",
+                        userInfo: nil,
+                        repeats: false);
+                }
             }
         }
+    }
+    
+    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        
     }
     
     public func RequestLocation()

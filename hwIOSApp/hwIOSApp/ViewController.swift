@@ -11,11 +11,71 @@ import UIKit
 class ViewController: UIViewController
 {
     private var user:User?
-    @IBOutlet weak var UsernameText: UITextField!
-    @IBOutlet weak var PasswordText: UITextField!
-    @IBOutlet weak var LoginButton: UIButton!
     
-    @IBAction func LoginPressed(sender: AnyObject)
+    var Header: UILabel!;
+    var UsernameText: UITextField!;
+    var PasswordText: UITextField!;
+    var LoginButton: UIButton!;
+    
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        let headerFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.05, widthPercent: 0.90, heightPercent: 0.10);
+        Header = UILabel(frame: headerFrame);
+        Header.text = "HydrantWiki";
+        UIFormatHelper.FormatAsHeader(Header);
+        view.addSubview(Header);
+        
+        let usernameFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.25, widthPercent: 0.90, heightPercent: 0.05);
+        UsernameText = UITextField(frame: usernameFrame);
+        UsernameText.placeholder = "Username";
+        UsernameText.autocapitalizationType = UITextAutocapitalizationType.None;
+        UsernameText.autocorrectionType = UITextAutocorrectionType.No;
+        UIFormatHelper.Format(UsernameText);
+        view.addSubview(UsernameText);
+
+        let passwordFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.35, widthPercent: 0.90, heightPercent: 0.05);
+        PasswordText = UITextField(frame: passwordFrame);
+        PasswordText.placeholder = "Password";
+        PasswordText.secureTextEntry = true;
+        PasswordText.autocapitalizationType = UITextAutocapitalizationType.None;
+        PasswordText.autocorrectionType = UITextAutocorrectionType.No;
+        UIFormatHelper.Format(PasswordText);
+        view.addSubview(PasswordText);
+        
+        let loginFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.45, widthPercent: 0.90, heightPercent: 0.05);
+        LoginButton = UIButton(frame: loginFrame);
+        LoginButton.setTitle("Login", forState: UIControlState.Normal);
+        LoginButton.addTarget(self, action: "LoginPressed:", forControlEvents: .TouchUpInside)
+        UIFormatHelper.Format(LoginButton);
+        view.addSubview(LoginButton);
+        
+        
+        // Do any additional setup after loading the view, typically from a nib.
+//        UIFormatHelper.Format(LoginButton);
+//        
+//        let defaults = NSUserDefaults.standardUserDefaults();
+//        let username = defaults.stringForKey("username");
+//        let authToken = defaults.stringForKey("authToken");
+//        let displayName = defaults.stringForKey("displayName");
+//        
+//        if (username != nil && authToken != nil)
+//        {
+//            var user = User();
+//            user.AuthToken = authToken;
+//            user.DisplayName = displayName;
+//            user.Username = username;
+//            
+//            self.user = user;
+//            
+//            Credentials.GetInstance().userName = user.Username;
+//            Credentials.GetInstance().userToken = user.AuthToken;
+//        }
+    }
+    
+    func LoginPressed(sender: AnyObject)
     {
         let service:AuthenticationService = AuthenticationService();
         let username = UsernameText.text;
@@ -60,30 +120,7 @@ class ViewController: UIViewController
         homeVC.user = self.user;
     }
     
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        UIFormatHelper.Format(LoginButton);
-        
-        let defaults = NSUserDefaults.standardUserDefaults();
-        let username = defaults.stringForKey("username");
-        let authToken = defaults.stringForKey("authToken");
-        let displayName = defaults.stringForKey("displayName");
-        
-        if (username != nil && authToken != nil)
-        {
-            var user = User();
-            user.AuthToken = authToken;
-            user.DisplayName = displayName;
-            user.Username = username;
-            
-            self.user = user;
-            
-            Credentials.GetInstance().userName = user.Username;
-            Credentials.GetInstance().userToken = user.AuthToken;
-        }
-    }
+
     
     override func viewDidAppear(animated: Bool)
     {

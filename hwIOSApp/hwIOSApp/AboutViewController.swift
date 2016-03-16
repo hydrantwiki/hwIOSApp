@@ -31,8 +31,8 @@ public class AboutViewController : UIViewController
         let aboutFrame = CGRect(
             x: 0,
             y: 0,
-            width: Int(UIFormatHelper.GetScreenWidth()) - 16,
-            height: Int(height) - 130
+            width: Double(UIFormatHelper.GetScreenWidth() - 16),
+            height: Double(height - 150)
         );
         
         AboutBox = UITextView(frame: aboutFrame);
@@ -42,10 +42,10 @@ public class AboutViewController : UIViewController
         view.addSubview(AboutBox);
         
         let logoutFrame = CGRect(
-            x: 10,
-            y: CGFloat(height) - 50,
-            width: CGFloat(width) - 20,
-            height: 25
+            x: Double(10),
+            y: Double(height - 75),
+            width: Double(width - 20),
+            height: Double(60)
         );
         
         Logout = UIButton(frame: logoutFrame);

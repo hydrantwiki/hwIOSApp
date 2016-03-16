@@ -38,12 +38,16 @@ public class HomeViewController : UIViewController
         NavBar = UIFormatHelper.CreateNavBar("HydrantWiki", leftButton: nil, rightButton: AboutButton);
         view.addSubview(NavBar);
         
+        let buttonHeight:Double = Double(height / 8.0);
+        let firstButton:Double = 130;
+        let buttonSpacing:Double = 30;
+        
         /* Setup other controls */
         let countFrame = CGRect(
-            x: 10,
-            y: 60,
-            width: Int(UIFormatHelper.GetScreenWidth()) - 20,
-            height: 25
+            x: Double(10),
+            y: Double(55),
+            width: Double(width - 20),
+            height: Double(buttonHeight)
         );
         MyHydrantCount = UILabel(frame: countFrame);
         MyHydrantCount.text = "Hydrants Tagged : Loading...";
@@ -51,10 +55,10 @@ public class HomeViewController : UIViewController
         
         /* Tag Hydrant */
         let tagHydrantFrame = CGRect(
-            x: 10,
-            y: 100,
-            width: Int(UIFormatHelper.GetScreenWidth()) - 20,
-            height: 25
+            x: Double(10),
+            y: Double(firstButton),
+            width: Double(width - 20),
+            height: Double(buttonHeight)
         );
         TagHydrantButton = UIButton(frame: tagHydrantFrame);
         TagHydrantButton.setTitle("Tag Hydrant", forState: UIControlState.Normal);
@@ -63,10 +67,10 @@ public class HomeViewController : UIViewController
         
         /* Nearby Hydrants */
         let nearbyHydrantsFrame = CGRect(
-            x: 10,
-            y: 150,
-            width: Int(UIFormatHelper.GetScreenWidth()) - 20,
-            height: 25
+            x: Double(10),
+            y: Double(firstButton + buttonHeight + buttonSpacing),
+            width: Double(width - 20),
+            height: Double(buttonHeight)
         );
         NearbyHydrantsButton = UIButton(frame: nearbyHydrantsFrame);
         NearbyHydrantsButton.setTitle("Nearby Hydrants", forState: UIControlState.Normal);
@@ -75,10 +79,10 @@ public class HomeViewController : UIViewController
         
         /* Map Hydrants */
         let mapFrame = CGRect(
-            x: 10,
-            y: 200,
-            width: Int(UIFormatHelper.GetScreenWidth()) - 20,
-            height: 25
+            x: Double(10),
+            y: Double(firstButton + 2.0 * buttonHeight + 2.0 * buttonSpacing),
+            width: Double(width - 20),
+            height: Double(buttonHeight)
         );
         MapButton = UIButton(frame: mapFrame);
         MapButton.setTitle("Map of Hydrants", forState: UIControlState.Normal);

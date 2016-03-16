@@ -50,6 +50,45 @@ public class UIFormatHelper
         control.layer.borderWidth = 1;
     }
     
+    static func GetFrame(x:Double, y:Double, width:Double, height:Double) -> CGRect
+    {
+        let rect = CGRect(
+            x: x,
+            y: y,
+            width: width,
+            height: height
+        );
+        
+        return rect;
+    }
+    
+    static func GetFrameByPercent(xPercent:Double, yPercent:Double, widthPercent:Double, heightPercent:Double) -> CGRect
+    {
+        let width:Double = GetScreenWidthAsDouble();
+        let height:Double = GetScreenHeightAsDouble();
+        
+        let rect = CGRect(
+            x: width * xPercent,
+            y: height * yPercent,
+            width: width * widthPercent,
+            height: height * heightPercent
+        );
+        
+        return rect;
+    }
+    
+    static func FormatAsHeader(control:UILabel)
+    {
+        control.font = UIFont(name: "Heiti TC", size: 60);
+        control.backgroundColor = UIConstants.HydrantWikiWhite;
+        control.textAlignment = NSTextAlignment.Center;
+        control.baselineAdjustment = .AlignCenters;
+        control.textColor = UIColor.blackColor();
+        control.numberOfLines = 0;
+        control.minimumScaleFactor = 0.2;
+        control.adjustsFontSizeToFitWidth = true;
+    }
+    
     static func Format(control:UILabel)
     {
         control.backgroundColor = UIConstants.HydrantWikiWhite;
@@ -77,8 +116,30 @@ public class UIFormatHelper
     
     static func Format(control:UITextField)
     {
-        control.backgroundColor = UIConstants.HydrantWikiWhite;
+        let paddingView = UIView(frame: CGRectMake(0, 0, 15, control.frame.height))
+        control.leftView = paddingView
+        control.leftViewMode = UITextFieldViewMode.Always
         
+        control.backgroundColor = UIConstants.HydrantWikiWhite;
+        control.layer.borderColor = UIColor.grayColor().CGColor;
+        control.layer.borderWidth = 1;
+        control.layer.cornerRadius = 5;
+    }
+    
+    static func GetScreenWidthAsDouble() -> Double
+    {
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenSize.width;
+        
+        return Double(screenWidth);
+    }
+    
+    static func GetScreenHeightAsDouble() -> Double
+    {
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenHeight = screenSize.height;
+        
+        return Double(screenHeight);
     }
     
     static func GetScreenWidth() -> Float

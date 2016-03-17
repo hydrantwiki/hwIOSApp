@@ -51,28 +51,25 @@ class ViewController: UIViewController
         LoginButton.addTarget(self, action: "LoginPressed:", forControlEvents: .TouchUpInside)
         UIFormatHelper.Format(LoginButton);
         view.addSubview(LoginButton);
+                
+        //Load the existing login info if present
+        let defaults = NSUserDefaults.standardUserDefaults();
+        let username = defaults.stringForKey("username");
+        let authToken = defaults.stringForKey("authToken");
+        let displayName = defaults.stringForKey("displayName");
         
-        
-        // Do any additional setup after loading the view, typically from a nib.
-//        UIFormatHelper.Format(LoginButton);
-//        
-//        let defaults = NSUserDefaults.standardUserDefaults();
-//        let username = defaults.stringForKey("username");
-//        let authToken = defaults.stringForKey("authToken");
-//        let displayName = defaults.stringForKey("displayName");
-//        
-//        if (username != nil && authToken != nil)
-//        {
-//            var user = User();
-//            user.AuthToken = authToken;
-//            user.DisplayName = displayName;
-//            user.Username = username;
-//            
-//            self.user = user;
-//            
-//            Credentials.GetInstance().userName = user.Username;
-//            Credentials.GetInstance().userToken = user.AuthToken;
-//        }
+        if (username != nil && authToken != nil)
+        {
+            var user = User();
+            user.AuthToken = authToken;
+            user.DisplayName = displayName;
+            user.Username = username;
+            
+            self.user = user;
+            
+            Credentials.GetInstance().userName = user.Username;
+            Credentials.GetInstance().userToken = user.AuthToken;
+        }
     }
     
     func LoginPressed(sender: AnyObject)

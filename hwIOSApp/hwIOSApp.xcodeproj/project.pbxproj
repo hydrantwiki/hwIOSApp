@@ -44,6 +44,8 @@
 		77BCC6841C947EF6007732DC /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCC6831C947EF6007732DC /* MapHelper.swift */; };
 		77BCC6861C94DD6A007732DC /* HydrantAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCC6851C94DD6A007732DC /* HydrantAnnotation.swift */; };
 		77BCC6891C95CC9C007732DC /* DoubleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BCC6881C95CC9C007732DC /* DoubleHelper.swift */; };
+		77BDDCF21C9AD6DE007A55C7 /* LocationCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDDCF11C9AD6DE007A55C7 /* LocationCache.swift */; };
+		77BDDCF41C9ADD11007A55C7 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDDCF31C9ADD11007A55C7 /* DateHelper.swift */; };
 		77E72A0E1BCC895D0043123D /* Alamofire in Resources */ = {isa = PBXBuildFile; fileRef = 77E72A0D1BCC895D0043123D /* Alamofire */; };
 		77E72A371BCC96040043123D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A1C1BCC95C70043123D /* Alamofire.framework */; };
 		77E72A381BCC96040043123D /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E72A2E1BCC95EC0043123D /* ObjectMapper.framework */; };
@@ -225,6 +227,8 @@
 		77BCC6831C947EF6007732DC /* MapHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
 		77BCC6851C94DD6A007732DC /* HydrantAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantAnnotation.swift; sourceTree = "<group>"; };
 		77BCC6881C95CC9C007732DC /* DoubleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleHelper.swift; sourceTree = "<group>"; };
+		77BDDCF11C9AD6DE007A55C7 /* LocationCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCache.swift; sourceTree = "<group>"; };
+		77BDDCF31C9ADD11007A55C7 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		77E72A0D1BCC895D0043123D /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Alamofire; path = /SourceCode/HydrantWiki/hwIOSApp/hwIOSApp/Alamofire; sourceTree = "<absolute>"; };
 		77E72A131BCC95C60043123D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		77E72A251BCC95EC0043123D /* ObjectMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectMapper.xcodeproj; path = ObjectMapper/ObjectMapper.xcodeproj; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 				77BCC6811C8B301C007732DC /* UIFormatHelper.swift */,
 				77BCC6831C947EF6007732DC /* MapHelper.swift */,
 				77BCC6881C95CC9C007732DC /* DoubleHelper.swift */,
+				77BDDCF31C9ADD11007A55C7 /* DateHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 			children = (
 				77AA119B1BDB301C00957779 /* AveragingLocationManager.swift */,
 				77FC28D01C09390A007CA82E /* LocationManager.swift */,
+				77BDDCF11C9AD6DE007A55C7 /* LocationCache.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -719,11 +725,13 @@
 				7781AF601BD48F4100EEB195 /* HomeViewController.swift in Sources */,
 				77F7CD071C13724900EB51FC /* UIViewControllerExtension.swift in Sources */,
 				77BCC6821C8B301C007732DC /* UIFormatHelper.swift in Sources */,
+				77BDDCF41C9ADD11007A55C7 /* DateHelper.swift in Sources */,
 				77E72A401BCCA5510043123D /* AvailableResponse.swift in Sources */,
 				7789A7521BC4CC5F00DC9D0B /* HydrantService.swift in Sources */,
 				777C009D1BEDB67B00BCC098 /* ImageHelper.swift in Sources */,
 				77FC29941BE465CD002AE309 /* UIConstants.swift in Sources */,
 				77B079511BE84FDA009F3A9C /* TagDTO.swift in Sources */,
+				77BDDCF21C9AD6DE007A55C7 /* LocationCache.swift in Sources */,
 				7789A7541BC4CC9200DC9D0B /* BaseService.swift in Sources */,
 				77AA11901BD9CFDB00957779 /* AboutViewController.swift in Sources */,
 				777C00961BEC4AC200BCC098 /* TagResponse.swift in Sources */,

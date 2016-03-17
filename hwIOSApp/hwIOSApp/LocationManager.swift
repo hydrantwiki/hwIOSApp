@@ -18,14 +18,16 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
     var alreadyRequested:Bool
     var allowed:Bool = false;
     var stopped:Bool = false;
-    public var locationUpdated:ILocationUpdated? = nil
+    public var locationUpdated:ILocationUpdated? = nil;
     public var OnlyOnce:Bool = false;
+
+    public static var LastLocation:Location!;
     
     override init()
     {
         locationManager = CLLocationManager();
         
-        periodBetween = 30;
+        periodBetween = 10;
         warmUpPeriod = 1;
         cancelCollecting = false;
         alreadyRequested = false;
@@ -87,33 +89,42 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
         {
             if let location = locations.first
             {
+                let tempLocation = Location();
+                tempLocation.accuracy = location.horizontalAccuracy;
+                tempLocation.dateTime = NSDate();
+                tempLocation.elevation = location.altitude;
+                tempLocation.latitude = location.coordinate.latitude;
+                tempLocation.longitude = location.coordinate.longitude;
+                
+                LocationCache.Instance.SetLocation(tempLocation);
+                
                 if (locationUpdated != nil)
                 {
                     //TODO - Launch with timer
                     locationUpdated!.NewLocation(
                         1,
-                        latitude:location.coordinate.latitude,
-                        longitude:location.coordinate.longitude,
-                        elevation:location.altitude,
-                        accuracy:location.horizontalAccuracy);
+                        latitude:tempLocation.latitude!,
+                        longitude:tempLocation.longitude!,
+                        elevation:tempLocation.elevation!,
+                        accuracy:tempLocation.accuracy!);
                 }
 
-                locationManager.stopUpdatingLocation();
                 
                 if (OnlyOnce)
                 {
                     stopped = true;
+                    locationManager.stopUpdatingLocation();
                 }
 
-                if (!stopped)
-                {
-                    NSTimer.scheduledTimerWithTimeInterval(
-                        periodBetween,
-                        target: self,
-                        selector: "RequestLocation",
-                        userInfo: nil,
-                        repeats: false);
-                }
+//                if (!stopped)
+//                {
+//                    NSTimer.scheduledTimerWithTimeInterval(
+//                        periodBetween,
+//                        target: self,
+//                        selector: "RequestLocation",
+//                        userInfo: nil,
+//                        repeats: false);
+//                }
             }
         }
     }

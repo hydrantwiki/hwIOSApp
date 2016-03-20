@@ -30,9 +30,6 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     {
         super.viewDidLoad()
         
-        let height:Float = UIFormatHelper.GetScreenHeight();
-        let width:Float = UIFormatHelper.GetScreenWidth();
-        
         locationManager = AveragingLocationManager();
         locationManager!.locationAverageUpdated = self;
         
@@ -89,7 +86,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         HydrantImage.layer.borderWidth = 1;
         view.addSubview(HydrantImage);
 
-        //Buttons
+        /* Create Button */
         let takePhotoButtonFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.87, widthPercent: 0.90, heightPercent: 0.10);
         TakePhotoButton = UIButton(frame: takePhotoButtonFrame);
         TakePhotoButton.setTitle("Take Photo", forState: UIControlState.Normal);
@@ -204,17 +201,6 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         }
     }
     
-    func TakePhotoPressed(sender: AnyObject)
-    {
-        imagePicker.allowsEditing = false;
-        imagePicker.sourceType = .Camera;
-        imagePicker.cameraCaptureMode = .Photo;
-        
-        presentViewController(imagePicker, animated: true) { () -> Void in            
-
-        }
-    }
-    
     public func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?)
     {
         HydrantImage.contentMode = .ScaleAspectFit;
@@ -243,7 +229,18 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         AccuracyLabel.text = "Accuracy (m): " + String(accuracy);
     }
     
-    func CancelSent(sender: AnyObject)
+    func TakePhotoPressed(sender: AnyObject)
+    {
+        imagePicker.allowsEditing = false;
+        imagePicker.sourceType = .Camera;
+        imagePicker.cameraCaptureMode = .Photo;
+        
+        presentViewController(imagePicker, animated: true) { () -> Void in
+            
+        }
+    }
+    
+    func CancelPressed(sender: AnyObject)
     {
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil);
     }

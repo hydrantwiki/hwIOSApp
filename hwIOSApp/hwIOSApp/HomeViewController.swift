@@ -88,7 +88,6 @@ public class HomeViewController : UIViewController
         MapButton.setTitle("Map of Hydrants", forState: UIControlState.Normal);
         MapButton.addTarget(self, action: "MapPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(MapButton);
-
         
         // Do any additional setup after loading the view, typically from a nib.
         UIFormatHelper.Format(NavBar);

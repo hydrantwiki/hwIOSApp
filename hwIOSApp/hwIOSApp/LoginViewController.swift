@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class LoginViewController: UIViewController
 {
     private var user:User?
     
@@ -17,13 +17,13 @@ class ViewController: UIViewController
     var PasswordText: UITextField!;
     var LoginButton: UIButton!;
     
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         let headerFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.05, widthPercent: 0.90, heightPercent: 0.10);
         Header = UILabel(frame: headerFrame);
+        Header.layer.borderWidth = 0;
         Header.text = "HydrantWiki";
         UIFormatHelper.FormatAsHeader(Header);
         view.addSubview(Header);
@@ -45,7 +45,7 @@ class ViewController: UIViewController
         UIFormatHelper.Format(PasswordText);
         view.addSubview(PasswordText);
         
-        let loginFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.45, widthPercent: 0.90, heightPercent: 0.05);
+        let loginFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.45, widthPercent: 0.90, heightPercent: 0.10);
         LoginButton = UIButton(frame: loginFrame);
         LoginButton.setTitle("Login", forState: UIControlState.Normal);
         LoginButton.addTarget(self, action: "LoginPressed:", forControlEvents: .TouchUpInside)
@@ -116,8 +116,6 @@ class ViewController: UIViewController
         let homeVC = segue.destinationViewController as! HomeViewController;
         homeVC.user = self.user;
     }
-    
-
     
     override func viewDidAppear(animated: Bool)
     {

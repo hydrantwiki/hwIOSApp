@@ -23,7 +23,7 @@
 		7781AF711BD498AA00EEB195 /* NearbyHydrantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */; };
 		7781AF731BD4990C00EEB195 /* HydrantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781AF721BD4990C00EEB195 /* HydrantMapViewController.swift */; };
 		7789A71B1BC4C29A00DC9D0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */; };
-		7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71C1BC4C29A00DC9D0B /* ViewController.swift */; };
+		7789A71D1BC4C29A00DC9D0B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A71C1BC4C29A00DC9D0B /* LoginViewController.swift */; };
 		7789A7201BC4C29A00DC9D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7789A71E1BC4C29A00DC9D0B /* Main.storyboard */; };
 		7789A7221BC4C29A00DC9D0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7789A7211BC4C29A00DC9D0B /* Assets.xcassets */; };
 		7789A7301BC4C29A00DC9D0B /* hwIOSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A72F1BC4C29A00DC9D0B /* hwIOSAppTests.swift */; };
@@ -201,7 +201,7 @@
 		7781AF721BD4990C00EEB195 /* HydrantMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HydrantMapViewController.swift; sourceTree = "<group>"; };
 		7789A7171BC4C29A00DC9D0B /* hwIOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hwIOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7789A71A1BC4C29A00DC9D0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7789A71C1BC4C29A00DC9D0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7789A71C1BC4C29A00DC9D0B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7789A71F1BC4C29A00DC9D0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7789A7211BC4C29A00DC9D0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7789A7261BC4C29A00DC9D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				77F7CCFD1C13722200EB51FC /* Extensions */,
-				7789A71C1BC4C29A00DC9D0B /* ViewController.swift */,
+				7789A71C1BC4C29A00DC9D0B /* LoginViewController.swift */,
 				7781AF5F1BD48F4100EEB195 /* HomeViewController.swift */,
 				7781AF6E1BD4971200EEB195 /* TagHydrantViewController.swift */,
 				7781AF701BD498AA00EEB195 /* NearbyHydrantsViewController.swift */,
@@ -709,7 +709,7 @@
 				77BCC6891C95CC9C007732DC /* DoubleHelper.swift in Sources */,
 				77FC28D11C09390A007CA82E /* LocationManager.swift in Sources */,
 				7730854A1BFAE84B0063C1D1 /* HydrantDTO.swift in Sources */,
-				7789A71D1BC4C29A00DC9D0B /* ViewController.swift in Sources */,
+				7789A71D1BC4C29A00DC9D0B /* LoginViewController.swift in Sources */,
 				77AA119F1BDB31E700957779 /* LocationAverage.swift in Sources */,
 				77AA11A11BDB321400957779 /* Location.swift in Sources */,
 				773411001C14063B0002466B /* AuthenticationResponse.swift in Sources */,

@@ -16,54 +16,98 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     var locationManager:AveragingLocationManager?
     let imagePicker = UIImagePickerController()
     
-    @IBOutlet var NavBar: UINavigationBar!
-    @IBOutlet weak var CancelButton: UIBarButtonItem!
-    @IBOutlet weak var SaveButton: UIBarButtonItem!
-    @IBOutlet weak var TakePhotoButton: UIButton!
-    @IBOutlet weak var LatitudeLabel: UILabel!
-    @IBOutlet weak var LongitudeLabel: UILabel!
-    @IBOutlet weak var AccuracyLabel: UILabel!
-    @IBOutlet weak var CountLabel: UILabel!
-    @IBOutlet weak var HydrantImage: UIImageView!
+    var NavBar: UINavigationBar!
+    var CancelButton: UIBarButtonItem!
+    var SaveButton: UIBarButtonItem!
+    var TakePhotoButton: UIButton!
+    var LatitudeLabel: UILabel!
+    var LongitudeLabel: UILabel!
+    var AccuracyLabel: UILabel!
+    var CountLabel: UILabel!
+    var HydrantImage: UIImageView!
     
     override public func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let height:Float = UIFormatHelper.GetScreenHeight();
+        let width:Float = UIFormatHelper.GetScreenWidth();
         
         locationManager = AveragingLocationManager();
         locationManager!.locationAverageUpdated = self;
         
-        imagePicker.delegate = self;
+        /* setup the Navbar */
+        SaveButton = UIFormatHelper.CreateNavBarButton(
+            "Save",
+            targetView: self,
+            buttonAction: Selector("SavePressed:"));
+        UIFormatHelper.Format(SaveButton);
+        SaveButton.enabled = false;
         
+        CancelButton = UIFormatHelper.CreateNavBarButton(
+            "Cancel",
+            targetView: self,
+            buttonAction: Selector("CancelPressed:"));
+        UIFormatHelper.Format(CancelButton);
+        
+        NavBar = UIFormatHelper.CreateNavBar("HydrantWiki", leftButton: CancelButton, rightButton: SaveButton);
+        view.addSubview(NavBar);
+        UIFormatHelper.Format(NavBar);
+        
+        /* Setup Latitude */
+        let latitudeFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent:0.10, widthPercent:0.90, heightPercent:0.05);
+        LatitudeLabel = UILabel(frame: latitudeFrame);
+        LatitudeLabel.text = "Latitude:";
+        view.addSubview(LatitudeLabel);
+        UIFormatHelper.Format(LatitudeLabel);
+        
+        /* Setup Longitude */
+        let longitudeFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent:0.15, widthPercent:0.90, heightPercent:0.05);
+        LongitudeLabel = UILabel(frame: longitudeFrame);
+        LongitudeLabel.text = "Longitude:";
+        view.addSubview(LongitudeLabel);
+        UIFormatHelper.Format(LongitudeLabel);
+        
+        /* Setup Accuracy */
+        let accuracyFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent:0.20, widthPercent:0.90, heightPercent:0.05);
+        AccuracyLabel = UILabel(frame: accuracyFrame);
+        AccuracyLabel.text = "Accuracy (m):";
+        view.addSubview(AccuracyLabel);
+        UIFormatHelper.Format(AccuracyLabel);
+        
+        /* Count */
+        let countFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent:0.25, widthPercent:0.90, heightPercent:0.05);
+        CountLabel = UILabel(frame: countFrame);
+        CountLabel.text = "Count:";
+        view.addSubview(CountLabel);
+        UIFormatHelper.Format(CountLabel);
+        
+        /* Setup Image */
+        let hydrantImageFrame = UIFormatHelper.GetFrameByPercent(0.15, yPercent:0.30, widthPercent:0.70, heightPercent:0.55);
+        HydrantImage = UIImageView(frame:hydrantImageFrame);
+        HydrantImage.layer.borderColor = UIColor.blackColor().CGColor;
+        HydrantImage.layer.borderWidth = 1;
+        view.addSubview(HydrantImage);
+
+        //Buttons
+        let takePhotoButtonFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.87, widthPercent: 0.90, heightPercent: 0.10);
+        TakePhotoButton = UIButton(frame: takePhotoButtonFrame);
+        TakePhotoButton.setTitle("Take Photo", forState: UIControlState.Normal);
+        TakePhotoButton.addTarget(self, action: "TakePhotoPressed:", forControlEvents: .TouchUpInside)
+        UIFormatHelper.Format(TakePhotoButton);
+        view.addSubview(TakePhotoButton);
+        
+        /* ImagePicker */
+        imagePicker.delegate = self;
         if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) == nil
         {
             TakePhotoButton.enabled = false;
         }
         
-        UIFormatHelper.Format(NavBar);
-        
-        //Top Button
-        UIFormatHelper.Format(CancelButton);
-        UIFormatHelper.Format(SaveButton);
-        SaveButton.enabled = false;
-        
-        //Labels
-        UIFormatHelper.Format(LatitudeLabel);
-        UIFormatHelper.Format(LongitudeLabel);
-        UIFormatHelper.Format(AccuracyLabel);
-        UIFormatHelper.Format(CountLabel);
-        
-        //Buttons
-        UIFormatHelper.Format(TakePhotoButton);
-        
-        HydrantImage.layer.borderColor = UIColor.blackColor().CGColor;
-        HydrantImage.layer.borderWidth = 1;
-        
         StartGPSCollection();
     }
     
-    @IBAction func SavePressed(sender: AnyObject)
+    func SavePressed(sender: AnyObject)
     {
         SaveButton.enabled = false;
         
@@ -98,7 +142,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     }
     
     //Saves the Image then the Tag
-    private func SaveImage(writePath:String, fileName:String, tag:TagDTO)
+    func SaveImage(writePath:String, fileName:String, tag:TagDTO)
     {
         let service = TagService();
 
@@ -111,7 +155,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
     }
     
     //Save the Tag
-    private func SaveTag(tag:TagDTO)
+    func SaveTag(tag:TagDTO)
     {
         let service = TagService();
         
@@ -146,7 +190,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         )
     }
     
-    private func StartGPSCollection()
+    func StartGPSCollection()
     {
         locationManager!.Start(){ (count:Int, location:Location?) in
             if (location != nil)
@@ -160,7 +204,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         }
     }
     
-    @IBAction func TakePhotoPressed(sender: AnyObject)
+    func TakePhotoPressed(sender: AnyObject)
     {
         imagePicker.allowsEditing = false;
         imagePicker.sourceType = .Camera;
@@ -199,7 +243,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         AccuracyLabel.text = "Accuracy (m): " + String(accuracy);
     }
     
-    @IBAction func CancelSent(sender: AnyObject)
+    func CancelSent(sender: AnyObject)
     {
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil);
     }

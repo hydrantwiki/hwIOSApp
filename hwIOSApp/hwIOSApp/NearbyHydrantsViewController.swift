@@ -60,7 +60,6 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
         
         //Start the location manager
         locationManager = LocationManager();
-        //locationManager.locationUpdated = self;
         locationManager!.Start();
         
         NSTimer.scheduledTimerWithTimeInterval(

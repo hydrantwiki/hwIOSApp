@@ -21,6 +21,14 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
     var MapViewButton: UIBarButtonItem!;
     var HydrantTableView: UITableView!;
     var lastLocationTime:NSDate? = nil;
+    var nextUpdateTime:NSDate? = nil;
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "RefreshTable:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        return refreshControl
+    }()
     
     override public func viewDidLoad()
     {
@@ -53,7 +61,9 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
         HydrantTableView.frame.origin.y = 58;
         HydrantTableView.rowHeight = 90;
         view.addSubview(HydrantTableView);
-               
+
+        HydrantTableView.addSubview(self.refreshControl)
+        
         UIFormatHelper.Format(NavBar);
         UIFormatHelper.Format(CancelButton);
         UIFormatHelper.Format(MapViewButton);
@@ -62,15 +72,34 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
         locationManager = LocationManager();
         locationManager!.Start();
         
-        NSTimer.scheduledTimerWithTimeInterval(
-            0.25,
-            target: self,
-            selector: "CheckForNewLocation",
-            userInfo: nil,
-            repeats: false);
+        CheckForNewLocation();
+    }
+    
+    func RefreshTable(refreshControl: UIRefreshControl)
+    {
+        CheckForNewLocation();
+        refreshControl.endRefreshing();
     }
     
     func CheckForNewLocation()
+    {
+        if (nextUpdateTime == nil)
+        {
+            //Not yet set a next update time so first time in
+            TestForNewLocation();
+            return;
+        }
+        
+        //Check if now is greater than next update time
+        let now:NSDate = NSDate();
+        
+        if (now.isGreaterThanDate(nextUpdateTime!))
+        {
+            TestForNewLocation();
+        }
+    }
+    
+    func TestForNewLocation()
     {
         let location:Location? = LocationCache.Instance.LastLocation;
         
@@ -81,52 +110,52 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
             {
                 lastLocationTime = location!.dateTime;
                 LoadHydrants(location!);
+                
+                //Found location, try again in longer period of time
+                nextUpdateTime = NSDate().addSeconds(30);
+                
+                return;
             }
-            
-            NSTimer.scheduledTimerWithTimeInterval(
-                30,
-                target: self,
-                selector: "CheckForNewLocation",
-                userInfo: nil,
-                repeats: false);
         }
-        else
-        {
-            NSTimer.scheduledTimerWithTimeInterval(
-                1.0,
-                target: self,
-                selector: "CheckForNewLocation",
-                userInfo: nil,
-                repeats: false);
-        }
+        
+        //No location try again in a short period of time
+        nextUpdateTime = NSDate().addSeconds(1);
     }
     
     func LoadHydrants(location:Location)
     {
-        let hydrantService = HydrantService();
-        
-        hydrantService.GetHydrantsInCircle(
-            location.latitude!,
-            longitude: location.longitude!,
-            distance: 300,
-            completion: { (response) -> Void in
-                if (response != nil)
-                {
-                    if (response!.Success)
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT;
+        dispatch_async(dispatch_get_global_queue(priority, 0))
+        {
+            let hydrantService = HydrantService();
+            
+            hydrantService.GetHydrantsInCircle(
+                location.latitude!,
+                longitude: location.longitude!,
+                distance: 300,
+                completion: { (response) -> Void in
+                    if (response != nil)
                     {
-                        if (response!.Hydrants != nil)
+                        if (response!.Success)
                         {
-                            self.hydrants = response!.Hydrants!;
+                            if (response!.Hydrants != nil)
+                            {
+                                self.hydrants = response!.Hydrants!;
+                            }
+                            else
+                            {
+                                self.hydrants = [];
+                            }
                         }
-                        else
-                        {
-                            self.hydrants = [];
-                        }
-                        
-                        self.RefreshTable();
                     }
-                }
-        });
+                    
+                    dispatch_async(dispatch_get_main_queue())
+                    {
+                        self.HydrantTableView.reloadData();
+                    }
+            });
+        }
+
     }
     
     func MapViewButtonPressed(sender: UIBarButtonItem)
@@ -138,11 +167,6 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
     func CancelSent(sender: UIBarButtonItem) {
         locationManager.Stop();
         self.performSegueWithIdentifier("returnToHomeSegue", sender: nil);
-    }
-    
-    public func RefreshTable()
-    {
-        HydrantTableView.reloadData();
     }
     
     public func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -173,37 +197,4 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true);
     }
-    
-//    public func NewLocation(
-//        count: Int,
-//        latitude: Double,
-//        longitude: Double,
-//        elevation: Double,
-//        accuracy: Double)
-//    {
-//        let hydrantService = HydrantService();
-//        
-//        hydrantService.GetHydrantsInCircle(
-//            latitude,
-//            longitude: longitude,
-//            distance: 300,
-//            completion: { (response) -> Void in                
-//                if (response != nil)
-//                {
-//                    if (response!.Success)
-//                    {
-//                        if (response!.Hydrants != nil)
-//                        {
-//                            self.hydrants = response!.Hydrants!;
-//                        }
-//                        else
-//                        {
-//                            self.hydrants = [];
-//                        }
-//                        
-//                        self.RefreshTable();
-//                    }
-//                }
-//        });
-//    }
 }

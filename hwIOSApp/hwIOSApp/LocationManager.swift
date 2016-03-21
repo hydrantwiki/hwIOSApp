@@ -53,7 +53,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
             //locationManager.startMonitoringSignificantLocationChanges();
             
             NSTimer.scheduledTimerWithTimeInterval(
-                0,
+                0.1,
                 target: self,
                 selector: "RequestLocation",
                 userInfo: nil,
@@ -115,16 +115,6 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
                     stopped = true;
                     locationManager.stopUpdatingLocation();
                 }
-
-//                if (!stopped)
-//                {
-//                    NSTimer.scheduledTimerWithTimeInterval(
-//                        periodBetween,
-//                        target: self,
-//                        selector: "RequestLocation",
-//                        userInfo: nil,
-//                        repeats: false);
-//                }
             }
         }
     }

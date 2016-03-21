@@ -20,6 +20,7 @@ public class HomeViewController : UIViewController
     var MapButton: UIButton!
     
     var MyHydrantCount: UILabel!
+    var Timer:NSTimer!;
     
     
     override public func viewDidLoad()
@@ -96,7 +97,7 @@ public class HomeViewController : UIViewController
         UIFormatHelper.Format(MapButton);
         UIFormatHelper.Format(NearbyHydrantsButton);
         
-        NSTimer.scheduledTimerWithTimeInterval(
+        Timer = NSTimer.scheduledTimerWithTimeInterval(
             0.25,
             target: self,
             selector: "LoadCounts",

@@ -43,12 +43,7 @@ public class HomeViewController : UIViewController
         let buttonSpacing:Double = 30;
         
         /* Setup other controls */
-        let countFrame = CGRect(
-            x: Double(10),
-            y: Double(55),
-            width: Double(width - 20),
-            height: Double(buttonHeight)
-        );
+        let countFrame = UIFormatHelper.GetFrameTopWithMarginMaxHeight(55.0, margin:10.0, maxHeightPercent:0.05);
         MyHydrantCount = UILabel(frame: countFrame);
         MyHydrantCount.text = "Hydrants Tagged : Loading...";
         view.addSubview(MyHydrantCount);

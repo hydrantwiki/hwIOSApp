@@ -50,7 +50,11 @@ public class UIFormatHelper
         control.layer.borderWidth = 1;
     }
     
-    static func GetFrame(x:Double, y:Double, width:Double, height:Double) -> CGRect
+    static func GetFrame(
+        x:Double,
+        y:Double,
+        width:Double,
+        height:Double) -> CGRect
     {
         let rect = CGRect(
             x: x,
@@ -62,7 +66,57 @@ public class UIFormatHelper
         return rect;
     }
     
-    static func GetFrameByPercent(xPercent:Double, yPercent:Double, widthPercent:Double, heightPercent:Double) -> CGRect
+    static func GetFrameTopWithMargin(
+        top:Double,
+        margin:Double) -> CGRect
+    {
+        let screenWidth:Double = GetScreenWidthAsDouble();
+        let screenHeight:Double = GetScreenHeightAsDouble();
+        let height:Double = screenHeight - (top + margin);
+        let width:Double = screenWidth - 2 * margin;
+       
+        let rect = CGRect(
+            x: margin,
+            y: top,
+            width: width,
+            height: height
+        );
+        
+        return rect;
+    }
+    
+    static func GetFrameTopWithMarginMaxHeight(
+        top:Double,
+        margin:Double,
+        maxHeightPercent:Double) -> CGRect
+    {
+        let screenWidth:Double = GetScreenWidthAsDouble();
+        let screenHeight:Double = GetScreenHeightAsDouble();
+        let width:Double = screenWidth - 2 * margin;
+
+        var height:Double = screenHeight - (top + margin);
+        let maxHeight:Double = screenHeight * maxHeightPercent;
+        
+        if (height > maxHeight)
+        {
+            height = maxHeight;
+        }
+        
+        let rect = CGRect(
+            x: margin,
+            y: top,
+            width: width,
+            height: height
+        );
+        
+        return rect;
+    }
+    
+    static func GetFrameByPercent(
+        xPercent:Double,
+        yPercent:Double,
+        widthPercent:Double,
+        heightPercent:Double) -> CGRect
     {
         let width:Double = GetScreenWidthAsDouble();
         let height:Double = GetScreenHeightAsDouble();

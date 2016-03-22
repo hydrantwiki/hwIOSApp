@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class NearbyHydrantsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate
+public class NearbyHydrantsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, ILocationUpdated
 {
     
     public var user:User?;
@@ -21,7 +21,6 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
     var MapViewButton: UIBarButtonItem!;
     var HydrantTableView: UITableView!;
     var lastLocationTime:NSDate? = nil;
-    var nextUpdateTime:NSDate? = nil;
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -70,6 +69,7 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
         
         //Start the location manager
         locationManager = LocationManager();
+        locationManager.locationUpdated = self;
         locationManager!.Start();
         
         CheckForNewLocation();
@@ -81,22 +81,16 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
         refreshControl.endRefreshing();
     }
     
+    public func NewLocation(count:Int, latitude:Double, longitude:Double, elevation:Double, accuracy:Double)
+    {
+        //This is used for the first time.  After that it uses the cached location
+        TestForNewLocation();
+        locationManager.locationUpdated = nil;
+    }
+    
     func CheckForNewLocation()
     {
-        if (nextUpdateTime == nil)
-        {
-            //Not yet set a next update time so first time in
-            TestForNewLocation();
-            return;
-        }
-        
-        //Check if now is greater than next update time
-        let now:NSDate = NSDate();
-        
-        if (now.isGreaterThanDate(nextUpdateTime!))
-        {
-            TestForNewLocation();
-        }
+        TestForNewLocation();
     }
     
     func TestForNewLocation()
@@ -111,15 +105,9 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
                 lastLocationTime = location!.dateTime;
                 LoadHydrants(location!);
                 
-                //Found location, try again in longer period of time
-                nextUpdateTime = NSDate().addSeconds(30);
-                
                 return;
             }
         }
-        
-        //No location try again in a short period of time
-        nextUpdateTime = NSDate().addSeconds(1);
     }
     
     func LoadHydrants(location:Location)

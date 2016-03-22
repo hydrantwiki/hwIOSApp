@@ -13,21 +13,26 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
 {
     var cancelCollecting:Bool
     var locationManager : CLLocationManager
-    var periodBetween : Double
+    
     var warmUpPeriod : Int
     var alreadyRequested:Bool
     var allowed:Bool = false;
     var stopped:Bool = false;
     public var locationUpdated:ILocationUpdated? = nil;
     public var OnlyOnce:Bool = false;
+    var Timer:NSTimer!;
+    var NextLocationTime:NSDate = NSDate();
 
     public static var LastLocation:Location!;
+    public var PeriodBetween : Double;
+    public var ShortPeriodBetween : Double;
     
     override init()
     {
         locationManager = CLLocationManager();
         
-        periodBetween = 10;
+        PeriodBetween = 30;
+        ShortPeriodBetween = 5;
         warmUpPeriod = 1;
         cancelCollecting = false;
         alreadyRequested = false;
@@ -52,18 +57,20 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
         {
             //locationManager.startMonitoringSignificantLocationChanges();
             
-            NSTimer.scheduledTimerWithTimeInterval(
-                0.1,
+            Timer = NSTimer.scheduledTimerWithTimeInterval(
+                1,
                 target: self,
                 selector: "RequestLocation",
                 userInfo: nil,
-                repeats: false);
+                repeats: true);
         }
     }
     
     public func Stop()
     {
+        Timer.invalidate();
         stopped = true;
+        locationManager.stopUpdatingLocation();
     }
     
     public func locationManager(
@@ -87,6 +94,8 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
     {
         if (!stopped)
         {
+            NextLocationTime = NSDate().addSeconds(Int(PeriodBetween));
+            
             if let location = locations.first
             {
                 let tempLocation = Location();
@@ -120,12 +129,15 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
     }
     
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        
+        NextLocationTime = NSDate().addSeconds(Int(ShortPeriodBetween));
     }
     
     public func RequestLocation()
     {
-        if (!stopped)
+        let now:NSDate = NSDate();
+        
+        if (!stopped
+            && now.isGreaterThanDate(NextLocationTime))
         {
             locationManager.requestLocation();
         }

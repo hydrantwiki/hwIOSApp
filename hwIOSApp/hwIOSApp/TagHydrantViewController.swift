@@ -37,14 +37,14 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         SaveButton = UIFormatHelper.CreateNavBarButton(
             "Save",
             targetView: self,
-            buttonAction: Selector("SavePressed:"));
+            buttonAction: #selector(TagHydrantViewController.SavePressed(_:)));
         UIFormatHelper.Format(SaveButton);
         SaveButton.enabled = false;
         
         CancelButton = UIFormatHelper.CreateNavBarButton(
             "Cancel",
             targetView: self,
-            buttonAction: Selector("CancelPressed:"));
+            buttonAction: #selector(TagHydrantViewController.CancelPressed(_:)));
         UIFormatHelper.Format(CancelButton);
         
         NavBar = UIFormatHelper.CreateNavBar("HydrantWiki", leftButton: CancelButton, rightButton: SaveButton);
@@ -90,7 +90,7 @@ public class TagHydrantViewController : UIViewController, ILocationUpdated, UIIm
         let takePhotoButtonFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.87, widthPercent: 0.90, heightPercent: 0.10);
         TakePhotoButton = UIButton(frame: takePhotoButtonFrame);
         TakePhotoButton.setTitle("Take Photo", forState: UIControlState.Normal);
-        TakePhotoButton.addTarget(self, action: "TakePhotoPressed:", forControlEvents: .TouchUpInside)
+        TakePhotoButton.addTarget(self, action: #selector(TagHydrantViewController.TakePhotoPressed(_:)), forControlEvents: .TouchUpInside)
         UIFormatHelper.Format(TakePhotoButton);
         view.addSubview(TakePhotoButton);
         

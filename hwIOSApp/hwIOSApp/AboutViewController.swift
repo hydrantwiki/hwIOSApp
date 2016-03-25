@@ -20,7 +20,7 @@ public class AboutViewController : UIViewController
     {
         super.viewDidLoad();
         
-        CancelButton = UIFormatHelper.CreateNavBarButton("Cancel", targetView: self, buttonAction: Selector("CancelSent:"));
+        CancelButton = UIFormatHelper.CreateNavBarButton("Cancel", targetView: self, buttonAction: #selector(AboutViewController.CancelSent(_:)));
         NavBar = UIFormatHelper.CreateNavBar("About HydrantWiki", leftButton: CancelButton, rightButton: nil);
         view.addSubview(NavBar);
         
@@ -50,7 +50,7 @@ public class AboutViewController : UIViewController
         
         Logout = UIButton(frame: logoutFrame);
         Logout.setTitle("Logout", forState: UIControlState.Normal);
-        Logout.addTarget(self, action: "LogoutClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        Logout.addTarget(self, action: #selector(AboutViewController.LogoutClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(Logout);
         
         // Do any additional setup after loading the view, typically from a nib.

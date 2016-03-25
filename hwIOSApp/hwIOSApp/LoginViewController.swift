@@ -48,7 +48,7 @@ class LoginViewController: UIViewController
         let loginFrame = UIFormatHelper.GetFrameByPercent(0.05, yPercent: 0.45, widthPercent: 0.90, heightPercent: 0.10);
         LoginButton = UIButton(frame: loginFrame);
         LoginButton.setTitle("Login", forState: UIControlState.Normal);
-        LoginButton.addTarget(self, action: "LoginPressed:", forControlEvents: .TouchUpInside);
+        LoginButton.addTarget(self, action: #selector(LoginViewController.LoginPressed(_:)), forControlEvents: .TouchUpInside);
         UIFormatHelper.Format(LoginButton);
         view.addSubview(LoginButton);
                 

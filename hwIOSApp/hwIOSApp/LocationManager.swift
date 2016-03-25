@@ -60,7 +60,7 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
             Timer = NSTimer.scheduledTimerWithTimeInterval(
                 1,
                 target: self,
-                selector: "RequestLocation",
+                selector: #selector(LocationManager.RequestLocation),
                 userInfo: nil,
                 repeats: true);
         }
@@ -68,7 +68,11 @@ public class LocationManager: NSObject, CLLocationManagerDelegate
     
     public func Stop()
     {
-        Timer.invalidate();
+        if (Timer != nil)
+        {
+            Timer.invalidate();
+        }
+        
         stopped = true;
         locationManager.stopUpdatingLocation();
     }

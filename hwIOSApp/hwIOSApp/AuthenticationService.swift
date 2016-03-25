@@ -30,7 +30,7 @@ class AuthenticationService : BaseService {
                     
                     if (result.Success)
                     {
-                        var resultUser = result.User;
+                        let resultUser = result.User;
                         
                         if (resultUser != nil)
                         {

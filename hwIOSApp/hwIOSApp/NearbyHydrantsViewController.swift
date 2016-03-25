@@ -24,7 +24,7 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "RefreshTable:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(NearbyHydrantsViewController.RefreshTable(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         return refreshControl
     }()
@@ -36,12 +36,12 @@ public class NearbyHydrantsViewController : UIViewController, UITableViewDataSou
         CancelButton = UIFormatHelper.CreateNavBarButton(
             "Cancel",
             targetView: self,
-            buttonAction: Selector("CancelSent:"));
+            buttonAction: #selector(NearbyHydrantsViewController.CancelSent(_:)));
         
         MapViewButton = UIFormatHelper.CreateNavBarButton(
             "Map View",
             targetView: self,
-            buttonAction: Selector("MapViewButtonPressed:"));
+            buttonAction: #selector(NearbyHydrantsViewController.MapViewButtonPressed(_:)));
         
         NavBar = UIFormatHelper.CreateNavBar("Nearby Hydrants", leftButton: CancelButton, rightButton: MapViewButton);
         view.addSubview(NavBar);

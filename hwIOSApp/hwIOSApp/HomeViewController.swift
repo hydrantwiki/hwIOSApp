@@ -34,7 +34,7 @@ public class HomeViewController : UIViewController
         AboutButton = UIFormatHelper.CreateNavBarButton(
             "About",
             targetView: self,
-            buttonAction: Selector("AboutPressed:"));
+            buttonAction: #selector(HomeViewController.AboutPressed(_:)));
         
         NavBar = UIFormatHelper.CreateNavBar("HydrantWiki", leftButton: nil, rightButton: AboutButton);
         view.addSubview(NavBar);
@@ -58,7 +58,7 @@ public class HomeViewController : UIViewController
         );
         TagHydrantButton = UIButton(frame: tagHydrantFrame);
         TagHydrantButton.setTitle("Tag Hydrant", forState: UIControlState.Normal);
-        TagHydrantButton.addTarget(self, action: "TagHydrantPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        TagHydrantButton.addTarget(self, action: #selector(HomeViewController.TagHydrantPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(TagHydrantButton);
         
         /* Nearby Hydrants */
@@ -70,7 +70,7 @@ public class HomeViewController : UIViewController
         );
         NearbyHydrantsButton = UIButton(frame: nearbyHydrantsFrame);
         NearbyHydrantsButton.setTitle("Nearby Hydrants", forState: UIControlState.Normal);
-        NearbyHydrantsButton.addTarget(self, action: "NearbyHydrantsPresssed:", forControlEvents: UIControlEvents.TouchUpInside)
+        NearbyHydrantsButton.addTarget(self, action: #selector(HomeViewController.NearbyHydrantsPresssed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(NearbyHydrantsButton);
         
         /* Map Hydrants */
@@ -82,7 +82,7 @@ public class HomeViewController : UIViewController
         );
         MapButton = UIButton(frame: mapFrame);
         MapButton.setTitle("Map of Hydrants", forState: UIControlState.Normal);
-        MapButton.addTarget(self, action: "MapPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        MapButton.addTarget(self, action: #selector(HomeViewController.MapPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(MapButton);
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -100,7 +100,7 @@ public class HomeViewController : UIViewController
         Timer = NSTimer.scheduledTimerWithTimeInterval(
             0.25,
             target: self,
-            selector: "LoadCounts",
+            selector: #selector(HomeViewController.LoadCounts),
             userInfo: nil,
             repeats: false);
     }

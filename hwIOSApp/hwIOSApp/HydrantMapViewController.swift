@@ -25,8 +25,8 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
     {
         super.viewDidLoad()
         
-        CancelButton = UIFormatHelper.CreateNavBarButton("Cancel", targetView: self, buttonAction: Selector("CancelSent:"));
-        TableViewButton = UIFormatHelper.CreateNavBarButton("Table View", targetView: self, buttonAction: Selector("TableViewButtonPressed:"));
+        CancelButton = UIFormatHelper.CreateNavBarButton("Cancel", targetView: self, buttonAction: #selector(HydrantMapViewController.CancelSent(_:)));
+        TableViewButton = UIFormatHelper.CreateNavBarButton("Table View", targetView: self, buttonAction: #selector(HydrantMapViewController.TableViewButtonPressed(_:)));
         
         NavBar = UIFormatHelper.CreateNavBar("HydrantWiki", leftButton: CancelButton, rightButton: TableViewButton);
         view.addSubview(NavBar);

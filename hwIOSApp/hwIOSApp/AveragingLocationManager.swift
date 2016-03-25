@@ -58,7 +58,7 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate
             NSTimer.scheduledTimerWithTimeInterval(
                 0,
                 target: self,
-                selector: "RequestLocation",
+                selector: #selector(AveragingLocationManager.RequestLocation),
                 userInfo: nil,
                 repeats: false);
         }
@@ -111,7 +111,7 @@ public class AveragingLocationManager: NSObject, CLLocationManagerDelegate
                 NSTimer.scheduledTimerWithTimeInterval(
                     0,
                     target: self,
-                    selector: "RequestLocation",
+                    selector: #selector(AveragingLocationManager.RequestLocation),
                     userInfo: nil,
                     repeats: false);
             }

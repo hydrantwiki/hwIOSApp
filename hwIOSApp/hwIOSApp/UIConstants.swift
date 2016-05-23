@@ -13,10 +13,11 @@ import MapKit;
 
 struct UIConstants
 {
-    static let ButtonCornerRadius:Int = 10;
+    static let ButtonCornerRadius:Int = 16;
     static let ButtonBackgroundColor:UIColor = UIColor(red:176, green:196, blue:222)
     static let ButtonTextColor:UIColor = UIColor.whiteColor();
     static let ButtonTextDisabledColor:UIColor = UIColor.grayColor();
+    static let ButtonTextHeight:CGFloat = 36;
     
     static let HydrantWikiRed = UIColor(red:214, green:50, blue:0);
     static let HydrantWikiGray = UIColor(red:170, green:162, blue:154)

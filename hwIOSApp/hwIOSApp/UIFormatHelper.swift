@@ -14,17 +14,21 @@ public class UIFormatHelper
 {
     static func Format(control:UIButton)
     {
-        control.backgroundColor = UIConstants.HydrantWikiGray
-        control.setTitleColor( UIConstants.HydrantWikiRed, forState: UIControlState.Normal)
-        control.setTitleColor( UIConstants.HydrantWikiWhite, forState: UIControlState.Disabled)
-        control.layer.cornerRadius = 10
-        control.clipsToBounds = true
+        control.backgroundColor = UIConstants.HydrantWikiGray;
+        
+        control.setTitleColor( UIConstants.ButtonTextColor, forState: UIControlState.Normal);
+        control.setTitleColor( UIConstants.ButtonTextDisabledColor, forState: UIControlState.Disabled);
+        
+        control.titleLabel?.font = UIFont(name: "Heiti TC", size: UIConstants.ButtonTextHeight);
+        
+        control.layer.cornerRadius = 10;
+        control.clipsToBounds = true;
     }
     
     static func Format(control:UIBarButtonItem)
     {
-        var attributes = [String:AnyObject]()
-        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiRed
+        var attributes = [String:AnyObject]();
+        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiRed;
         control.setTitleTextAttributes(attributes, forState: UIControlState.Normal)
         
         var attributes2 = [String:AnyObject]()

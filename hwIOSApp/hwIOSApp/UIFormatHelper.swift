@@ -18,8 +18,8 @@ public class UIFormatHelper
         
         control.setTitleColor( UIConstants.ButtonTextColor, forState: UIControlState.Normal);
         control.setTitleColor( UIConstants.ButtonTextDisabledColor, forState: UIControlState.Disabled);
-        
-        control.titleLabel?.font = UIFont(name: "Heiti TC", size: UIConstants.ButtonTextHeight);
+
+        control.titleLabel?.font = UIFont(name: UIConstants.ButtonFontName, size: UIConstants.ButtonTextHeight);
         
         control.layer.cornerRadius = 10;
         control.clipsToBounds = true;
@@ -28,18 +28,18 @@ public class UIFormatHelper
     static func Format(control:UIBarButtonItem)
     {
         var attributes = [String:AnyObject]();
-        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiRed;
+        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiWhite;
         control.setTitleTextAttributes(attributes, forState: UIControlState.Normal)
         
         var attributes2 = [String:AnyObject]()
-        attributes2[NSForegroundColorAttributeName] = UIConstants.HydrantWikiWhite
+        attributes2[NSForegroundColorAttributeName] = UIConstants.HydrantWikiGray
         control.setTitleTextAttributes(attributes2, forState: UIControlState.Disabled)
     }
     
     static func Format(control:UIBarButtonItem, image:String)
     {
         var attributes = [String:AnyObject]()
-        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiRed
+        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiRed;
         control.setTitleTextAttributes(attributes, forState: UIControlState.Normal)
         
         var attributes2 = [String:AnyObject]()
@@ -154,12 +154,12 @@ public class UIFormatHelper
     
     static func Format(control:UINavigationBar)
     {
-        control.backgroundColor = UIConstants.HydrantWikiGray;
+        control.backgroundColor = UIConstants.HydrantWikiDarkGray;
     }
     
     static func Format(control:UIToolbar)
     {
-        control.backgroundColor = UIConstants.HydrantWikiGray;
+        control.backgroundColor = UIConstants.HydrantWikiDarkGray;
     }
     
     static func Format(control:UITableView)

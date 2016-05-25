@@ -23,6 +23,15 @@ public class HomeViewController : UIViewController
     var Timer:NSTimer!;
     
     
+    override public func viewDidAppear(animated: Bool) {
+        Timer = NSTimer.scheduledTimerWithTimeInterval(
+            0.1,
+            target: self,
+            selector: #selector(HomeViewController.LoadCounts),
+            userInfo: nil,
+            repeats: false);
+    }
+    
     override public func viewDidLoad()
     {
         super.viewDidLoad();
@@ -96,13 +105,7 @@ public class HomeViewController : UIViewController
         UIFormatHelper.Format(TagHydrantButton);
         UIFormatHelper.Format(MapButton);
         UIFormatHelper.Format(NearbyHydrantsButton);
-        
-        Timer = NSTimer.scheduledTimerWithTimeInterval(
-            0.25,
-            target: self,
-            selector: #selector(HomeViewController.LoadCounts),
-            userInfo: nil,
-            repeats: false);
+       
     }
     
     func LoadCounts()

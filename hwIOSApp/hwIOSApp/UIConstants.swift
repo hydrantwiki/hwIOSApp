@@ -17,10 +17,13 @@ struct UIConstants
     static let ButtonBackgroundColor:UIColor = UIColor(red:176, green:196, blue:222)
     static let ButtonTextColor:UIColor = UIColor.whiteColor();
     static let ButtonTextDisabledColor:UIColor = UIColor.grayColor();
-    static let ButtonTextHeight:CGFloat = 36;
+    static let ButtonTextHeight:CGFloat = 30;
+    static let ButtonFontName:String = "Verdana-Bold";
     
     static let HydrantWikiRed = UIColor(red:214, green:50, blue:0);
     static let HydrantWikiGray = UIColor(red:170, green:162, blue:154)
+    
+    static let HydrantWikiDarkGray = UIColor(red:220, green:220, blue:220)
     static let HydrantWikiWhite = UIColor.whiteColor();
     
     static let ImageQuality = 0.5;

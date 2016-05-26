@@ -43,7 +43,7 @@ public class HydrantMapViewController : UIViewController, MKMapViewDelegate, ILo
         HydrantMap.delegate = self;
         HydrantMap.frame.origin.x = 0;
         HydrantMap.frame.origin.y = 50;
-        HydrantMap.zoomEnabled = false;
+        HydrantMap.zoomEnabled = true;
         HydrantMap.showsUserLocation = false;
         view.addSubview(HydrantMap);
         

@@ -28,7 +28,7 @@ public class UIFormatHelper
     static func Format(control:UIBarButtonItem)
     {
         var attributes = [String:AnyObject]();
-        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiWhite;
+        attributes[NSForegroundColorAttributeName] = UIConstants.HydrantWikiBlack;
         control.setTitleTextAttributes(attributes, forState: UIControlState.Normal)
         
         var attributes2 = [String:AnyObject]()
@@ -137,7 +137,7 @@ public class UIFormatHelper
     
     static func FormatAsHeader(control:UILabel)
     {
-        control.font = UIFont(name: "Heiti TC", size: 60);
+        control.font = UIFont(name: "Heiti TC", size: UIConstants.HeaderHeight);
         control.backgroundColor = UIConstants.HydrantWikiWhite;
         control.textAlignment = NSTextAlignment.Center;
         control.baselineAdjustment = .AlignCenters;
@@ -232,7 +232,7 @@ public class UIFormatHelper
     
     static func CreateNavBar(barTitle:String, leftButton:UIBarButtonItem?, rightButton:UIBarButtonItem?) -> UINavigationBar
     {
-        let navFrame = CGRect(x: 0, y: 0, width: Int(UIFormatHelper.GetScreenWidth()), height: 50);
+        let navFrame = CGRect(x: 0, y: 0, width: Int(UIFormatHelper.GetScreenWidth()), height: UIConstants.NavBarHeight);
         
         //Setup the title bar
         let NavBar = UINavigationBar(frame: navFrame);

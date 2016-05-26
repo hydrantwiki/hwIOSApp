@@ -21,12 +21,16 @@ struct UIConstants
     static let ButtonFontName:String = "Verdana-Bold";
     
     static let HydrantWikiRed = UIColor(red:214, green:50, blue:0);
-    static let HydrantWikiGray = UIColor(red:170, green:162, blue:154)
-    
+    static let HydrantWikiGray = UIColor(red:170, green:162, blue:154)    
     static let HydrantWikiDarkGray = UIColor(red:220, green:220, blue:220)
     static let HydrantWikiWhite = UIColor.whiteColor();
+    static let HydrantWikiBlack = UIColor.blackColor();
     
     static let ImageQuality = 0.5;
+    
+    static let NavBarHeight:Int = 50;
+    
+    static let HeaderHeight:CGFloat = 60;
 }
 
 struct UITextConstants
